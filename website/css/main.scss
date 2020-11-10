@@ -4,6 +4,7 @@ $mainColor: #0B2638;
 $bgColor: #EDEDED;
 $yellow: #FCEE21;
 
+
 *,*::before,*::after{
     margin: 0;
     padding: 0;
@@ -22,11 +23,12 @@ nav{
     width: 90%;
     margin: auto;
     display: flex;
-    justify-content: start;
     align-items: center;
     img{
         height: 7vh;
         margin-right: 3vh;
+    }
+    button{
     }
 }
 
