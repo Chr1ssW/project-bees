@@ -7,50 +7,57 @@
     <title>Beehive Monitoring System</title>
 </head>
 <body>
-    <div class="sidebar">
+    <div id="sidebar" class="mobile-nav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <ul>
             <li>
                 <a href="#">
-                    <span class="icon"></span>
+                    <span class="icon"><img src="../resources/img/account.png" alt="account"></span>
                     <span class="title">Account</span>
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <span class="icon"></span>
+                    <span class="icon"><img src="../resources/img/dashboard.png" alt="account"></span>
                     <span class="title">Dashboard</span>  
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <span class="icon"></span>
+                    <span class="icon"><img src="../resources/img/mybeehives.png" alt="account"></span>
                     <span class="title">My beehives</span>
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <span class="icon"></span>
+                    <span class="icon"><img src="../resources/img/map.png" alt="account"</span>
                     <span class="title">Map</span>
                 </a>
             </li>
         </ul>
     </div>
-    <header>
-        <nav>
-            <span>
-                <img src="../resources/img/menu.png" alt="menu">
-                <h2>Beehive Monitoring System</h2>
-            </span>
-            <span>
-                <button class="signup-btn" type="button">Sign up</button>
-                <button class="signin-btn"type="button">Sign in</button>
-            </span>
-            
-        </nav>
-    </header>
-    <main>
-
-    </main>
-    <footer></footer>
+    <div id="main">
+        <header>
+            <nav>
+                <span>
+                    <a href="javascript:void(0)" class="closebtn" onclick="openNav()">
+                        <img src="../resources/img/menu.png" alt="menu">
+                    </a>
+                    <h2>Beehive Monitoring System</h2>
+                </span>
+                <span>
+                    <button class="signup-btn" type="button">Sign up</button>
+                    <button class="signin-btn"type="button">Sign in</button>
+                </span>
+                
+            </nav>
+        </header>
+        <main>
+    </div>
+        </main>
+        <footer></footer>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="../js/scripts.js"></script> 
 </body>
 </html>
