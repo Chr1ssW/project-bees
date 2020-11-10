@@ -6,6 +6,7 @@ $bgColor: #EDEDED;
 $yellow: #FCEE21;
 $orange: #EAB111;
 $grey: #CCCCCC;
+$lightGrey: #d3d3d3; 
 
 
 *,*::before,*::after{
@@ -66,6 +67,37 @@ nav{
 main{
     height: 80vh;
     background-color: $bgColor;
+
+    #beehive-squareText{
+
+        p{
+            font-family: 'SourceLight';
+            color: $mainColor;
+            padding: 0.8vh;
+        }
+        
+        border-radius: 25px;
+        background: $lightGrey;
+        padding: 20px;
+        width: 20vh;
+        height: 23vh;
+        &:hover{
+            @include yellowButton;
+        }
+        margin-left: 25vh;
+    }
+
+    #beehive-extraSquare{
+        border-radius: 25px;
+        background: $lightGrey;
+        padding: 20px;
+        width: 20vh;
+        height: 23vh;
+        &:hover{
+            @include yellowButton;
+        }
+        margin-left: 60vh;
+    }
 }
 
 footer{

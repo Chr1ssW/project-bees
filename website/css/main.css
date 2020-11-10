@@ -100,6 +100,44 @@ main {
   background-color: #EDEDED;
 }
 
+main #beehive-squareText {
+  border-radius: 25px;
+  background: #d3d3d3;
+  padding: 20px;
+  width: 20vh;
+  height: 23vh;
+  margin-left: 25vh;
+}
+
+main #beehive-squareText p {
+  font-family: 'SourceLight';
+  color: #0B2638;
+  padding: 0.8vh;
+}
+
+main #beehive-squareText:hover {
+  border: none;
+  background: -webkit-gradient(linear, left top, right top, from(#FCEE21), to(#EAB111));
+  background: linear-gradient(to right, #FCEE21, #EAB111);
+  color: #0B2638;
+}
+
+main #beehive-extraSquare {
+  border-radius: 25px;
+  background: #d3d3d3;
+  padding: 20px;
+  width: 20vh;
+  height: 23vh;
+  margin-left: 60vh;
+}
+
+main #beehive-extraSquare:hover {
+  border: none;
+  background: -webkit-gradient(linear, left top, right top, from(#FCEE21), to(#EAB111));
+  background: linear-gradient(to right, #FCEE21, #EAB111);
+  color: #0B2638;
+}
+
 footer {
   background-color: #0B2638;
   height: 5vh;
