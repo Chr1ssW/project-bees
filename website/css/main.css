@@ -1,1 +1,19 @@
-/* No CSS *//*# sourceMappingURL=main.css.map */
+@font-face {
+  font-family: SourceLight;
+  src: url(../resources/fonts/SourceSansPro-Light.ttf);
+}
+
+@font-face {
+  font-family: SourceExtraLight;
+  src: url(../resources/fonts/SourceSansPro-ExtraLight.ttf);
+}
+
+@font-face {
+  font-family: SourceRegular;
+  src: url(../resources/fonts/SourceSansPro-Regular.ttf);
+}
+
+header {
+  font-family: 'SourceLight';
+}
+/*# sourceMappingURL=main.css.map */
