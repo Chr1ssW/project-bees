@@ -13,7 +13,47 @@
   src: url(../resources/fonts/SourceSansPro-Regular.ttf);
 }
 
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
 header {
   font-family: 'SourceLight';
+  background-color: #0B2638;
+  height: 15vh;
+  color: #FCEE21;
+}
+
+nav {
+  height: 15vh;
+  width: 90%;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+nav img {
+  height: 7vh;
+  margin-right: 3vh;
+}
+
+main {
+  height: 80vh;
+  background-color: #EDEDED;
+}
+
+footer {
+  background-color: #0B2638;
+  height: 5vh;
 }
 /*# sourceMappingURL=main.css.map */

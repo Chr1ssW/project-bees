@@ -1,5 +1,41 @@
 @import "./fonts";
 
+$mainColor: #0B2638;
+$bgColor: #EDEDED;
+$yellow: #FCEE21;
+
+*,*::before,*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 header{
     font-family: 'SourceLight';
+    background-color: $mainColor;
+    height: 15vh;
+    color: $yellow;
+}
+
+nav{
+    height: 15vh;
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    img{
+        height: 7vh;
+        margin-right: 3vh;
+    }
+}
+
+main{
+    height: 80vh;
+    background-color: $bgColor;
+}
+
+footer{
+    background-color: $mainColor;
+    height: 5vh;
 }
