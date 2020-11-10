@@ -110,8 +110,14 @@ footer {
   width: 40vh;
   height: 100vh;
   background-color: #0B2638;
-  -webkit-transform: translateX(-40vh);
-          transform: translateX(-40vh);
+  -webkit-transform: translateX(-45vh);
+          transform: translateX(-45vh);
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+  -webkit-box-shadow: 1px -1px 22px 3px rgba(0, 0, 0, 0.82);
+          box-shadow: 1px -1px 22px 3px rgba(0, 0, 0, 0.82);
 }
 
 #sidebar .closebtn {
@@ -154,14 +160,5 @@ footer {
 #sidebar img {
   height: 4vh;
   padding-right: 2vh;
-}
-
-.moblie-nav {
-  z-index: 1;
-  overflow-x: hidden;
-  -webkit-transition: -webkit-transform 0.5s;
-  transition: -webkit-transform 0.5s;
-  transition: transform 0.5s;
-  transition: transform 0.5s, -webkit-transform 0.5s;
 }
 /*# sourceMappingURL=main.css.map */

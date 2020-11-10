@@ -78,7 +78,9 @@ footer{
     width: 40vh;
     height: 100vh;
     background-color: $mainColor;
-    transform: translateX(-40vh);
+    transform: translateX(-45vh);
+    transition: transform 0.5s;
+    box-shadow: 1px -1px 22px 3px rgba(0,0,0,0.82);
 
     .closebtn{
         position: absolute;
@@ -114,10 +116,4 @@ footer{
         height: 4vh;
         padding-right: 2vh;
     }
-}
-.moblie-nav{
-    
-    z-index: 1;
-    overflow-x: hidden;
-    transition: transform 0.5s;
 }
