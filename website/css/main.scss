@@ -1,8 +1,11 @@
 @import "./fonts";
+@import "./mixin";
 
 $mainColor: #0B2638;
 $bgColor: #EDEDED;
 $yellow: #FCEE21;
+$orange: #EAB111;
+$grey: #CCCCCC;
 
 
 *,*::before,*::after{
@@ -24,11 +27,39 @@ nav{
     margin: auto;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    h2{
+        font-size: 4vh;
+    }
+    span{
+        display: flex;
+        align-items: center;
+    }
     img{
         height: 7vh;
         margin-right: 3vh;
     }
     button{
+        border-radius: 10rem;
+        height: 5vh;
+        width: 15vh;
+        font-size: 3vh;
+        float: right;
+        margin: 0 3vh 0 0;
+    }
+}
+
+.signup-btn{
+    @include transparentButton();
+    &:hover{
+        @include yellowButton();
+    }
+}
+
+.signin-btn{
+    @include yellowButton();
+    &:hover{
+        @include transparentButton();
     }
 }
 
@@ -40,4 +71,11 @@ main{
 footer{
     background-color: $mainColor;
     height: 5vh;
+}
+
+.sidebar{
+    position: fixed;
+    width: 45vh;
+    height: 100vh;
+    background-color: $mainColor;
 }

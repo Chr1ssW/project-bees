@@ -37,11 +37,62 @@ nav {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+nav h2 {
+  font-size: 4vh;
+}
+
+nav span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 nav img {
   height: 7vh;
   margin-right: 3vh;
+}
+
+nav button {
+  border-radius: 10rem;
+  height: 5vh;
+  width: 15vh;
+  font-size: 3vh;
+  float: right;
+  margin: 0 3vh 0 0;
+}
+
+.signup-btn {
+  border: solid #CCCCCC;
+  background: transparent;
+  color: #FCEE21;
+}
+
+.signup-btn:hover {
+  border: none;
+  background: -webkit-gradient(linear, left top, right top, from(#FCEE21), to(#EAB111));
+  background: linear-gradient(to right, #FCEE21, #EAB111);
+  color: #0B2638;
+}
+
+.signin-btn {
+  border: none;
+  background: -webkit-gradient(linear, left top, right top, from(#FCEE21), to(#EAB111));
+  background: linear-gradient(to right, #FCEE21, #EAB111);
+  color: #0B2638;
+}
+
+.signin-btn:hover {
+  border: solid #CCCCCC;
+  background: transparent;
+  color: #FCEE21;
 }
 
 main {
@@ -52,5 +103,12 @@ main {
 footer {
   background-color: #0B2638;
   height: 5vh;
+}
+
+.sidebar {
+  position: fixed;
+  width: 45vh;
+  height: 100vh;
+  background-color: #0B2638;
 }
 /*# sourceMappingURL=main.css.map */
