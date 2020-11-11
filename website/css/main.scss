@@ -88,15 +88,30 @@ main{
     }
 
     #beehive-extraSquare{
+
+        p{
+            font-family: 'SourceLight';
+            color: $mainColor;
+            padding: 0.8vh;
+            margin-left: 3vh;
+            font-size: 2vh;
+        }
+
+        img{
+            margin-left: 3vh;
+        }
+        
         border-radius: 25px;
         background: $lightGrey;
         padding: 20px;
         width: 20vh;
         height: 23vh;
+        margin-left: 60vh; 
+        position: relative;
+        position: top;
         &:hover{
             @include yellowButton();
         }
-        margin-left: 60vh;
     }
 }
 
