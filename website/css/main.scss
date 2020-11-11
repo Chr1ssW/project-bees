@@ -207,12 +207,14 @@ footer{
             display: block;
             border: solid $mainColor;
         }
-        button:focus{
-            outline: none;
-        }
+        
         button:hover{
             @include yellowButton();
         }
+}
+
+button:focus{
+    outline: none;
 }
 
 
