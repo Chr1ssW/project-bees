@@ -106,7 +106,9 @@ main{
         padding: 20px;
         width: 20vh;
         height: 23vh;
-        float: right; 
+        margin-left: 60vh; 
+        position: relative;
+        position: top;
         &:hover{
             @include yellowButton;
         }

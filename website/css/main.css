@@ -128,7 +128,9 @@ main #beehive-extraSquare {
   padding: 20px;
   width: 20vh;
   height: 23vh;
-  float: right;
+  margin-left: 60vh;
+  position: relative;
+  position: top;
 }
 
 main #beehive-extraSquare p {
