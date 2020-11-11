@@ -82,7 +82,7 @@ main{
         width: 20vh;
         height: 23vh;
         &:hover{
-            @include yellowButton;
+            @include yellowButton();
         }
         margin-left: 25vh;
     }
@@ -94,7 +94,7 @@ main{
         width: 20vh;
         height: 23vh;
         &:hover{
-            @include yellowButton;
+            @include yellowButton();
         }
         margin-left: 60vh;
     }
@@ -113,15 +113,6 @@ footer{
     transform: translateX(-45vh);
     transition: transform 0.5s;
     box-shadow: 1px -1px 22px 3px rgba(0,0,0,0.82);
-
-    .closebtn{
-        position: absolute;
-        text-decoration: none;
-        color: $grey;
-        top: 3vh;
-        right: 5vh;
-        font-size: 5vh;
-    }
 
     ul{
         padding-top: 15vh;
@@ -150,12 +141,22 @@ footer{
     }
 }
 
+.closebtn{
+    position: absolute;
+    text-decoration: none;
+    color: $grey;
+    top: 3vh;
+    right: 5vh;
+    font-size: 5vh;
+}
+
 #login-container{
     background: rgba(0,0,0,0.6);
     width: 100%;
     height: 100%;
     position: absolute;
-    display: flex;
+    display: none;
+    transition: transform 0.5s;
 }
 
 #login{
@@ -171,10 +172,11 @@ footer{
             margin: 3vh auto;
             border-radius: 10rem;
             padding: 0.5rem 1.5rem;
+            border: solid $mainColor;
         }
         input:focus{
             outline: none;
-            box-shadow: inset 0px 0px 11px -6px #000000;
+            box-shadow: inset 0px 0px 13px -6px $mainColor;
         }
         img{
             height: 9vh;
@@ -188,11 +190,15 @@ footer{
             font-size: 3vh;
             margin: 10vh auto 0;
             display: block;
+            border: solid $mainColor;
         }
         button:focus{
             outline: none;
         }
-    }
+        button:hover{
+            @include yellowButton();
+        }
+}
 
 
 

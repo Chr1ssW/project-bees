@@ -158,15 +158,6 @@ footer {
           box-shadow: 1px -1px 22px 3px rgba(0, 0, 0, 0.82);
 }
 
-#sidebar .closebtn {
-  position: absolute;
-  text-decoration: none;
-  color: #CCCCCC;
-  top: 3vh;
-  right: 5vh;
-  font-size: 5vh;
-}
-
 #sidebar ul {
   padding-top: 15vh;
   padding-left: 7vh;
@@ -200,14 +191,25 @@ footer {
   padding-right: 2vh;
 }
 
+.closebtn {
+  position: absolute;
+  text-decoration: none;
+  color: #CCCCCC;
+  top: 3vh;
+  right: 5vh;
+  font-size: 5vh;
+}
+
 #login-container {
   background: rgba(0, 0, 0, 0.6);
   width: 100%;
   height: 100%;
   position: absolute;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
 }
 
 #login {
@@ -226,12 +228,13 @@ footer {
   margin: 3vh auto;
   border-radius: 10rem;
   padding: 0.5rem 1.5rem;
+  border: solid #0B2638;
 }
 
 #login input:focus {
   outline: none;
-  -webkit-box-shadow: inset 0px 0px 11px -6px #000000;
-          box-shadow: inset 0px 0px 11px -6px #000000;
+  -webkit-box-shadow: inset 0px 0px 13px -6px #0B2638;
+          box-shadow: inset 0px 0px 13px -6px #0B2638;
 }
 
 #login img {
@@ -247,9 +250,17 @@ footer {
   font-size: 3vh;
   margin: 10vh auto 0;
   display: block;
+  border: solid #0B2638;
 }
 
 #login button:focus {
   outline: none;
+}
+
+#login button:hover {
+  border: none;
+  background: -webkit-gradient(linear, left top, right top, from(#FCEE21), to(#EAB111));
+  background: linear-gradient(to right, #FCEE21, #EAB111);
+  color: #0B2638;
 }
 /*# sourceMappingURL=main.css.map */
