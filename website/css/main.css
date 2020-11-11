@@ -128,7 +128,19 @@ main #beehive-extraSquare {
   padding: 20px;
   width: 20vh;
   height: 23vh;
-  margin-left: 60vh;
+  float: right;
+}
+
+main #beehive-extraSquare p {
+  font-family: 'SourceLight';
+  color: #0B2638;
+  padding: 0.8vh;
+  margin-left: 3vh;
+  font-size: 2vh;
+}
+
+main #beehive-extraSquare img {
+  margin-left: 3vh;
 }
 
 main #beehive-extraSquare:hover {
