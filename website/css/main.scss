@@ -174,10 +174,10 @@ footer{
     transition: transform 0.5s;
 }
 
-#login{
+.popup-form{
         position: relative;
         width: 30%;
-        height: 60vh;
+        height: 65vh;
         background-color: $bgColor;
         top: 50%;
         left: 50%;
@@ -198,7 +198,7 @@ footer{
             height: 5vh;
             width: 15vh;
             font-size: 3vh;
-            margin: 2rem auto 0;
+            margin: 1rem auto 0;
             display: block;
             border: solid $mainColor;
         }
@@ -216,8 +216,8 @@ input{
     border: solid $mainColor;
 }
 
-#invalid-response{
-    margin: 2rem auto;
+.invalid-response{
+    margin: 1rem auto;
     display: none;
     color: $warningRed;
     font-family: 'SourceRegular';

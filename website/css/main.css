@@ -226,10 +226,10 @@ footer {
   transition: transform 0.5s, -webkit-transform 0.5s;
 }
 
-#login {
+.popup-form {
   position: relative;
   width: 30%;
-  height: 60vh;
+  height: 65vh;
   background-color: #EDEDED;
   top: 50%;
   left: 50%;
@@ -237,30 +237,30 @@ footer {
           transform: translate(-50%, -50%);
 }
 
-#login input:focus {
+.popup-form input:focus {
   outline: none;
   -webkit-box-shadow: inset 0px 0px 13px -6px #0B2638;
           box-shadow: inset 0px 0px 13px -6px #0B2638;
 }
 
-#login img {
+.popup-form img {
   height: 9vh;
   margin: 6vh auto 0;
   display: block;
 }
 
-#login button {
+.popup-form button {
   position: relative;
   border-radius: 10rem;
   height: 5vh;
   width: 15vh;
   font-size: 3vh;
-  margin: 2rem auto 0;
+  margin: 1rem auto 0;
   display: block;
   border: solid #0B2638;
 }
 
-#login button:hover {
+.popup-form button:hover {
   border: none;
   background: -webkit-gradient(linear, left top, right top, from(#FCEE21), to(#EAB111));
   background: linear-gradient(to right, #FCEE21, #EAB111);
@@ -275,8 +275,8 @@ input {
   border: solid #0B2638;
 }
 
-#invalid-response {
-  margin: 2rem auto;
+.invalid-response {
+  margin: 1rem auto;
   display: none;
   color: #DB1414;
   font-family: 'SourceRegular';
