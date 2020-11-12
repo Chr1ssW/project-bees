@@ -102,8 +102,13 @@ main {
 }
 
 .slideshow {
+  position: relative;
   width: 100%;
   height: 80vh;
+}
+
+.slide {
+  position: relative;
 }
 
 .slide img {
@@ -115,9 +120,8 @@ main {
 
 .text {
   position: absolute;
-  background: rgba(0, 0, 0, 0.6);
-  top: 30vh;
   left: 10%;
+  top: 15vh;
   height: 40vh;
   width: 70vh;
   padding: 3vh;
@@ -125,6 +129,7 @@ main {
   color: #CCCCCC;
   font-family: 'SourceRegular';
   font-size: 3vh;
+  background: rgba(0, 0, 0, 0.6);
   -webkit-box-shadow: 1px -1px 22px 3px rgba(0, 0, 0, 0.82);
           box-shadow: 1px -1px 22px 3px rgba(0, 0, 0, 0.82);
 }

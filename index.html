@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="website/css/main.css">
+    <link rel="stylesheet" type="text/css" href="website/css/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="website/css/slick-theme.css"/>
     <title>Beehive Monitoring System</title>
 </head>
 <body>
@@ -99,10 +101,40 @@
                     </div>
                     <img src="website/resources/img/slide1.png" alt="Bee">
                 </div>
+                <div class="slide">
+                    <div class="text">
+                        <h1>Welcome!</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, 
+                            sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna 
+                            aliquam erat volutpat. Ut wisi enim ad minim veniam.</p>
+                    </div>
+                    <img src="website/resources/img/slide1.png" alt="Bee">
+                </div>
+                <div class="slide">
+                    <div class="text">
+                        <h1>Made by students</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, 
+                            sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna 
+                            aliquam erat volutpat. Ut wisi enim ad minim veniam.</p>
+                    </div>
+                    <img src="website/resources/img/slide1.png" alt="Bee">
+                </div>
             </div>
         </main>
         <footer></footer>
     </div>
     <script src="website/js/scripts.js"></script> 
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="website/js/slick.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.slideshow').slick({
+                arrows: false,
+                dots: true,
+            });
+            });
+      </script>
 </body>
 </html>
