@@ -6,8 +6,8 @@ $bgColor: #EDEDED;
 $yellow: #FCEE21;
 $orange: #EAB111;
 $grey: #CCCCCC;
-$lightGrey: #d3d3d3; 
-
+$lightGrey: #D3D3D3; 
+$warningRed: #DB1414;
 
 *,*::before,*::after{
     margin: 0;
@@ -211,6 +211,15 @@ footer{
         button:hover{
             @include yellowButton();
         }
+}
+
+#invalid-response{
+    margin: 0 auto;
+    display: none;
+    color: $warningRed;
+    font-family: 'SourceRegular';
+    width: 80%;
+    text-align: center;
 }
 
 button:focus{

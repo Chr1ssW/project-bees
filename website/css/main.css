@@ -102,7 +102,7 @@ main {
 
 main #beehive-squareText {
   border-radius: 25px;
-  background: #d3d3d3;
+  background: #D3D3D3;
   padding: 20px;
   width: 20vh;
   height: 23vh;
@@ -124,7 +124,7 @@ main #beehive-squareText:hover {
 
 main #beehive-extraSquare {
   border-radius: 25px;
-  background: #d3d3d3;
+  background: #D3D3D3;
   padding: 20px;
   width: 20vh;
   height: 23vh;
@@ -272,6 +272,15 @@ footer {
   background: -webkit-gradient(linear, left top, right top, from(#FCEE21), to(#EAB111));
   background: linear-gradient(to right, #FCEE21, #EAB111);
   color: #0B2638;
+}
+
+#invalid-response {
+  margin: 0 auto;
+  display: none;
+  color: #DB1414;
+  font-family: 'SourceRegular';
+  width: 80%;
+  text-align: center;
 }
 
 button:focus {
