@@ -372,3 +372,7 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+# Slick carousel
+.sass-cache
+node_modules

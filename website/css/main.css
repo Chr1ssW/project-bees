@@ -97,10 +97,39 @@ nav button {
 
 main {
   height: 80vh;
+  width: 100%;
   background-color: #EDEDED;
 }
 
-main #beehive-squareText {
+.slideshow {
+  width: 100%;
+  height: 80vh;
+}
+
+.slide img {
+  width: 100%;
+  height: 80vh;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.text {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.6);
+  top: 30vh;
+  left: 10%;
+  height: 40vh;
+  width: 70vh;
+  padding: 3vh;
+  z-index: 0;
+  color: #CCCCCC;
+  font-family: 'SourceRegular';
+  font-size: 3vh;
+  -webkit-box-shadow: 1px -1px 22px 3px rgba(0, 0, 0, 0.82);
+          box-shadow: 1px -1px 22px 3px rgba(0, 0, 0, 0.82);
+}
+
+#beehive-squareText {
   border-radius: 25px;
   background: #D3D3D3;
   padding: 20px;
@@ -109,20 +138,20 @@ main #beehive-squareText {
   margin-left: 25vh;
 }
 
-main #beehive-squareText p {
+#beehive-squareText p {
   font-family: 'SourceLight';
   color: #0B2638;
   padding: 0.8vh;
 }
 
-main #beehive-squareText:hover {
+#beehive-squareText:hover {
   border: none;
   background: -webkit-gradient(linear, left top, right top, from(#FCEE21), to(#EAB111));
   background: linear-gradient(to right, #FCEE21, #EAB111);
   color: #0B2638;
 }
 
-main #beehive-extraSquare {
+#beehive-extraSquare {
   border-radius: 25px;
   background: #D3D3D3;
   padding: 20px;
@@ -133,7 +162,7 @@ main #beehive-extraSquare {
   position: top;
 }
 
-main #beehive-extraSquare p {
+#beehive-extraSquare p {
   font-family: 'SourceLight';
   color: #0B2638;
   padding: 0.8vh;
@@ -141,15 +170,8 @@ main #beehive-extraSquare p {
   font-size: 2vh;
 }
 
-main #beehive-extraSquare img {
+#beehive-extraSquare img {
   margin-left: 3vh;
-}
-
-main #beehive-extraSquare:hover {
-  border: none;
-  background: -webkit-gradient(linear, left top, right top, from(#FCEE21), to(#EAB111));
-  background: linear-gradient(to right, #FCEE21, #EAB111);
-  color: #0B2638;
 }
 
 footer {
@@ -170,6 +192,7 @@ footer {
   transition: transform 0.5s, -webkit-transform 0.5s;
   -webkit-box-shadow: 1px -1px 22px 3px rgba(0, 0, 0, 0.82);
           box-shadow: 1px -1px 22px 3px rgba(0, 0, 0, 0.82);
+  z-index: 1;
 }
 
 #sidebar ul {
@@ -224,6 +247,7 @@ footer {
   transition: -webkit-transform 0.5s;
   transition: transform 0.5s;
   transition: transform 0.5s, -webkit-transform 0.5s;
+  z-index: 1;
 }
 
 .popup-form {

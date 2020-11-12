@@ -66,53 +66,80 @@ nav{
 
 main{
     height: 80vh;
+    width: 100%;
     background-color: $bgColor;
+}
 
-    #beehive-squareText{
+.slideshow{
+    width: 100%;
+    height: 80vh;
+    
+}
 
-        p{
-            font-family: 'SourceLight';
-            color: $mainColor;
-            padding: 0.8vh;
-        }
-        
-        border-radius: 25px;
-        background: $lightGrey;
-        padding: 20px;
-        width: 20vh;
-        height: 23vh;
-        &:hover{
-            @include yellowButton();
-        }
-        margin-left: 25vh;
+.slide{ 
+    img{
+        width: 100%;
+        height: 80vh;
+        object-fit: cover;
+    }
+}
+
+.text{
+    position: absolute;
+    background: rgba(0,0,0,0.6);
+    top: 30vh;
+    left: 10%;
+    height: 40vh;
+    width: 70vh;
+    padding: 3vh;
+    z-index: 0;
+    color: $grey;
+    font-family: 'SourceRegular';
+    font-size: 3vh;
+    box-shadow: 1px -1px 22px 3px rgba(0,0,0,0.82);
+}
+
+#beehive-squareText{
+
+    p{
+        font-family: 'SourceLight';
+        color: $mainColor;
+        padding: 0.8vh;
+    }
+    
+    border-radius: 25px;
+    background: $lightGrey;
+    padding: 20px;
+    width: 20vh;
+    height: 23vh;
+    &:hover{
+        @include yellowButton();
+    }
+    margin-left: 25vh;
+}
+
+#beehive-extraSquare{
+
+    p{
+        font-family: 'SourceLight';
+        color: $mainColor;
+        padding: 0.8vh;
+        margin-left: 3vh;
+        font-size: 2vh;
     }
 
-    #beehive-extraSquare{
-
-        p{
-            font-family: 'SourceLight';
-            color: $mainColor;
-            padding: 0.8vh;
-            margin-left: 3vh;
-            font-size: 2vh;
-        }
-
-        img{
-            margin-left: 3vh;
-        }
-        
-        border-radius: 25px;
-        background: $lightGrey;
-        padding: 20px;
-        width: 20vh;
-        height: 23vh;
-        margin-left: 60vh; 
-        position: relative;
-        position: top;
-        &:hover{
-            @include yellowButton();
-        }
+    img{
+        margin-left: 3vh;
     }
+    
+    border-radius: 25px;
+    background: $lightGrey;
+    padding: 20px;
+    width: 20vh;
+    height: 23vh;
+    margin-left: 60vh; 
+    position: relative;
+    position: top;
 }
 
 footer{
@@ -128,6 +155,7 @@ footer{
     transform: translateX(-45vh);
     transition: transform 0.5s;
     box-shadow: 1px -1px 22px 3px rgba(0,0,0,0.82);
+    z-index: 1;
 
     ul{
         padding-top: 15vh;
@@ -172,6 +200,7 @@ footer{
     position: absolute;
     display: none;
     transition: transform 0.5s;
+    z-index: 1;
 }
 
 .popup-form{
