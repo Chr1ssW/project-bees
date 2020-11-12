@@ -237,14 +237,6 @@ footer {
           transform: translate(-50%, -50%);
 }
 
-#login input {
-  display: block;
-  margin: 3vh auto;
-  border-radius: 10rem;
-  padding: 0.5rem 1.5rem;
-  border: solid #0B2638;
-}
-
 #login input:focus {
   outline: none;
   -webkit-box-shadow: inset 0px 0px 13px -6px #0B2638;
@@ -258,11 +250,12 @@ footer {
 }
 
 #login button {
+  position: relative;
   border-radius: 10rem;
   height: 5vh;
   width: 15vh;
   font-size: 3vh;
-  margin: 10vh auto 0;
+  margin: 2rem auto 0;
   display: block;
   border: solid #0B2638;
 }
@@ -274,13 +267,34 @@ footer {
   color: #0B2638;
 }
 
+input {
+  display: block;
+  margin: 3vh auto;
+  border-radius: 10rem;
+  padding: 0.5rem 1.5rem;
+  border: solid #0B2638;
+}
+
 #invalid-response {
-  margin: 0 auto;
+  margin: 2rem auto;
   display: none;
   color: #DB1414;
   font-family: 'SourceRegular';
   width: 80%;
   text-align: center;
+}
+
+#remember-container {
+  font-family: 'SourceRegular';
+  color: #0B2638;
+  width: 40%;
+  display: block;
+  margin: 0 auto;
+}
+
+#remember {
+  display: inline;
+  margin: 0;
 }
 
 button:focus {

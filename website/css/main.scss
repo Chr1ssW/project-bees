@@ -182,13 +182,7 @@ footer{
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        input{
-            display: block;
-            margin: 3vh auto;
-            border-radius: 10rem;
-            padding: 0.5rem 1.5rem;
-            border: solid $mainColor;
-        }
+        
         input:focus{
             outline: none;
             box-shadow: inset 0px 0px 13px -6px $mainColor;
@@ -199,11 +193,12 @@ footer{
             display: block;
         }
         button{
+            position: relative;
             border-radius: 10rem;
             height: 5vh;
             width: 15vh;
             font-size: 3vh;
-            margin: 10vh auto 0;
+            margin: 2rem auto 0;
             display: block;
             border: solid $mainColor;
         }
@@ -213,13 +208,34 @@ footer{
         }
 }
 
+input{
+    display: block;
+    margin: 3vh auto;
+    border-radius: 10rem;
+    padding: 0.5rem 1.5rem;
+    border: solid $mainColor;
+}
+
 #invalid-response{
-    margin: 0 auto;
+    margin: 2rem auto;
     display: none;
     color: $warningRed;
     font-family: 'SourceRegular';
     width: 80%;
     text-align: center;
+}
+
+#remember-container{
+    font-family: 'SourceRegular';
+    color: $mainColor;
+    width: 40%;
+    display: block;
+    margin: 0 auto;
+}
+
+#remember{
+    display: inline;
+    margin: 0;
 }
 
 button:focus{
