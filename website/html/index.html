@@ -36,14 +36,14 @@
             </li>
         </ul>
     </div>
-    <div id="login-container">
+    <div class="popup-screen" id="login-container">
         <div id="login">
             <a href="javascript:void(0)" class="closebtn" onclick="closeLogin()">&times;</a>
             <div class="loginPic">
                 <img src="../resources/img/account.png" alt="Account">
             </div>
             <!--Need to change it to post in the future-->
-            <form method="GET" action="myBeehives.html" id="loginForm">
+            <form method="GET" action="#" id="loginForm">
                 <input type="text" placeholder="Username">
                 <input type="password" placeholder="Password">
                 <span id="remember-container">
@@ -53,6 +53,24 @@
             </form>
             <div id="invalid-response">The combination of email address and password is not valid!</div>
             <button type="submit" form="loginForm">Sign in</button>
+        </div>
+    </div>
+    <div class="popup-screen" id="signup-container">
+        <div id="login">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeSignup()">&times;</a>
+            <div class="loginPic">
+                <img src="../resources/img/account.png" alt="Account">
+            </div>
+            <!--Need to change it to post in the future-->
+            <form method="GET" action="#" id="signupForm">
+                <input type="text" placeholder="Username">
+                <input type="password" placeholder="Password">
+                <span id="remember-container">
+                    <input type="checkbox" id="remember">
+                    <label for="remember">Remember me</label>
+                </span>
+            </form>
+            <button type="submit" form="signupForm">Sign in</button>
         </div>
     </div>
     <div id="main">
@@ -65,7 +83,7 @@
                     <h2>Beehive Monitoring System</h2>
                 </span>
                 <span>
-                    <button class="signup-btn" type="button">Sign up</button>
+                    <button class="signup-btn" type="button" onclick="openSignup()">Sign up</button>
                     <button class="signin-btn" type="button" onclick="openLogin()">Sign in</button>
                 </span>
                 

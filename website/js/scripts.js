@@ -18,3 +18,13 @@ function closeLogin()
 {
     document.getElementById("login-container").style.display = "none";
 }
+
+function openSignup()
+{
+    document.getElementById("signup-container").style.display = "flex";
+}
+
+function closeSignup()
+{
+    document.getElementById("signup-container").style.display = "none";
+}
