@@ -107,6 +107,11 @@ main {
   background-color: #EDEDED;
 }
 
+main map {
+  width: 1950;
+  height: 750;
+}
+
 .slideshow {
   position: relative;
   width: 100%;

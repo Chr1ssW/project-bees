@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/main.css">
+    <link rel = "stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css">
     <title>Beehive Monitoring System</title>
 </head>
 <body>
@@ -89,11 +90,13 @@
             </nav>
         </header>
         <main>
-            <iframe width="1950" height="750" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=6.909933686256409%2C52.777514536349216%2C6.913474202156068%2C52.778945557396405&amp;layer=mapnik" style="border: 1px solid black"></iframe><br/>
-            <small><a href="https://www.openstreetmap.org/#map=19/52.77823/6.91170">View Larger Map</a></small>
+            <div id = "map">
+
+            </div>
         </main>
         <footer></footer>
     </div>
     <script src="../js/scripts.js"></script> 
+    <script src = "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
 </body>
 </html>
