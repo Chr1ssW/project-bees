@@ -1,4 +1,17 @@
 <?php
+echo "hello";
+include 'functions.php';
+
+$username = "b8041e339aa3d1";
+$passwd = "06634b97";
+$HostName = "eu-cdbr-west-03.cleardb.net";
+$DBName = "heroku_574ab15869a35be";
+
+$conn = mysqli_connect($HostName, $username, $passwd, $DBName);
+if(!$conn)
+{
+    die("Connection to the database failed" . mysqli_connect_error());
+}
 
 if(isset($_POST['signupForm']))
 {
@@ -7,22 +20,25 @@ if(isset($_POST['signupForm']))
     $passwordRep = $_POST['passwordRepeat'];
     $email = $_POST['emailAddressIn'];
 
-    require_once 'connect.php';
-    require_once 'functions.php';
-
-
-
-    if(empty($username) || empty($password) || empty($passwordRep) || empty($email))
+    if(isEmptyInput($username, $password, $passwordRep, $email))
     {
-        header("Locaton: ../html/index.html?=empty%user%input");
+        header("Location: ../html/index.html?error=empty%user%input");
+        exit();
     }
-    else if($password != $passwordRep)
+    if(isPassMatch($password, $passwordRep))
     {
-        //Passwords must match
+        header("Location: ../html/index.html?error=password%dont%match");
+        exit();
     }
-    else if(!filter_var($email, FILTER_VALIDATE_EMAIL))
+    if(isValidEmail($email))
     {
-        //Invalid email format
+        header("Location: ../html/index.html?error=inavlid%email");
+        exit();
     }
 
+    if(!userExists($conn, $username, $email))
+    {
+        createUser($conn, $username, $password, $email);
+        echo "User created successfully";
+    }
 }

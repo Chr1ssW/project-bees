@@ -1,4 +1,5 @@
 <?php
+
 function userExists($conn, $username, $email)
 {
     $sql = "SELECT * FROM user WHERE user_ID = ? OR user email = ?;";
@@ -14,6 +15,7 @@ function userExists($conn, $username, $email)
         if ($row == $username) {
             echo "Username already added";
         }
+        return true;
     } else {
         return false;
     }
@@ -33,4 +35,40 @@ function createUser($conn, $username, $password, $email)
     mysqli_stmt_close($stmt);
     header("Location ../html/index.html?error=no");
     exit();
+}
+
+function isEmptyInput($username, $password, $passwordRep, $email)
+{
+    if(empty($username) || empty($password) || empty($passwordRep) || empty($email))
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+function isPassMatch($password, $passwordRep)
+{
+    if($password != $passwordRep)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+function isValidEmail($email)
+{
+    if(!filter_var($email, FILTER_VALIDATE_EMAIL))
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
