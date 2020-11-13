@@ -74,19 +74,16 @@
     </div>
     <div class="popup-screen" id="addHive-container">
         <div class="popup-form">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeAddHive()">&times;</a>
-            <div class="loginPic">
-                <img src="../resources/img/account.png" alt="Account">
+            <div class="beehiveAdd">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeAddHive()">&times;</a>
+                <!--Need to change it to post in the future-->
+                <form method="GET" action="#" id="signupForm">
+                    <input type="text" placeholder="Beehive location" id="locationIn">
+                    <input type="text" placeholder="Device information??" id="deviceInf">
+                </form>
+                <div class="invalid-response">Passwords do not match!</div>
             </div>
-            <!--Need to change it to post in the future-->
-            <form method="GET" action="#" id="signupForm">
-                <input type="text" placeholder="Username" id="userNameIn">
-                <input type="text" placeholder="Email address" id="emailAddressIn">
-                <input type="password" placeholder="Password" id="passwordIn">
-                <input type="password" placeholder="Repeat password" id="passwordRepeat">
-            </form>
-            <div class="invalid-response">Passwords do not match!</div>
-            <button type="submit" form="signupForm">Sign up</button>
+            <button type="submit" form="signupForm">Add new hive</button>
         </div>
     </div>
     <div id="main">

@@ -243,11 +243,12 @@ footer {
   position: relative;
   border-radius: 10rem;
   height: 5vh;
-  width: 15vh;
+  min-width: 15vh;
   font-size: 3vh;
   margin: 1rem auto 0;
   display: block;
   border: solid #0B2638;
+  padding: 0 1rem;
 }
 
 .popup-form button:hover {
@@ -285,6 +286,10 @@ input {
 #remember {
   display: inline;
   margin: 0;
+}
+
+.beehiveAdd {
+  margin: 5rem 0 5rem 0;
 }
 
 button:focus {
