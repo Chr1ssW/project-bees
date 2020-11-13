@@ -334,12 +334,16 @@ button:focus {
 .beehive:hover {
   width: 15.5rem;
   height: 15.5rem;
-  margin: 1.5rem 1.5rem 0 1.5rem;
+  margin: 1.5rem 1rem 0 1.5rem;
 }
 
 .new-hive img {
   display: block;
   margin: 2rem auto;
   height: 7rem;
+}
+
+.new-hive:hover {
+  cursor: pointer;
 }
 /*# sourceMappingURL=main.css.map */
