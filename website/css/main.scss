@@ -238,6 +238,48 @@ button:focus{
     outline: none;
 }
 
-@import "./myBeehives";
+#collection-wrapper{
+    width: 80%;
+    height: 80vh;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    overflow: auto;
+}
+
+.beehive{
+    margin: 1.5rem 0 1.5rem 3rem;
+    width: 15rem;
+    height: 15rem;
+    background-color: $grey;
+    box-shadow: 5px 5px 22px 1px rgba(0,0,0,0.35);
+    border-radius: 1rem;
+    p{
+        width: 80%;
+        text-align: center;
+        margin: 0.5rem auto;
+        color: $mainColor;
+        font-family: 'SourceLight';
+        font-size: 1.5rem;
+    }
+
+    transition: 0.1s;
+    transition-timing-function: ease-out;
+
+    &:hover{
+        width: 15.5rem;
+        height: 15.5rem;
+    }
+}
+
+
+.new-hive{
+    img{
+        display: block;
+        margin: 2rem auto;
+        height: 7rem;
+    }
+}
 
 
