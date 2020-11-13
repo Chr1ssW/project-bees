@@ -28,3 +28,13 @@ function closeSignup()
 {
     document.getElementById("signup-container").style.display = "none";
 }
+
+function openAddHive()
+{
+    document.getElementById("addHive-container").style.display = "flex";
+}
+
+function closeAddHive()
+{
+    document.getElementById("addHive-container").style.display = "none";
+}

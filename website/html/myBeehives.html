@@ -72,6 +72,20 @@
             <button type="submit" form="signupForm">Sign up</button>
         </div>
     </div>
+    <div class="popup-screen" id="addHive-container">
+        <div class="popup-form">
+            <div class="beehiveAdd">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeAddHive()">&times;</a>
+                <!--Need to change it to post in the future-->
+                <form method="GET" action="#" id="signupForm">
+                    <input type="text" placeholder="Beehive location" id="locationIn">
+                    <input type="text" placeholder="Device information??" id="deviceInf">
+                </form>
+                <div class="invalid-response">Passwords do not match!</div>
+            </div>
+            <button type="submit" form="signupForm">Add new hive</button>
+        </div>
+    </div>
     <div id="main">
         <header>
             <nav>
@@ -89,7 +103,7 @@
         </header>
         <main>
             <div id="collection-wrapper">
-                <div class="beehive new-hive">
+                <div class="beehive new-hive" onclick="openAddHive()">
                     <img src="../resources/img/cross.png" alt="">
                     <p>Add new beehive</p>
                 </div>
