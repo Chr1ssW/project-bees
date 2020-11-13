@@ -13,6 +13,12 @@ $warningRed: #DB1414;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -ms-overflow-style: none; 
+    scrollbar-width: none; 
+}
+
+::-webkit-scrollbar{
+    display: none;
 }
 
 header{
@@ -102,48 +108,6 @@ main{
     box-shadow: 1px -1px 22px 3px rgba(0,0,0,0.82);
 }
 
-#beehive-squareText{
-
-    p{
-        font-family: 'SourceLight';
-        color: $mainColor;
-        padding: 0.8vh;
-    }
-    
-    border-radius: 25px;
-    background: $lightGrey;
-    padding: 20px;
-    width: 20vh;
-    height: 23vh;
-    &:hover{
-        @include yellowButton();
-    }
-    margin-left: 25vh;
-}
-
-#beehive-extraSquare{
-
-    p{
-        font-family: 'SourceLight';
-        color: $mainColor;
-        padding: 0.8vh;
-        margin-left: 3vh;
-        font-size: 2vh;
-    }
-
-    img{
-        margin-left: 3vh;
-    }
-    
-    border-radius: 25px;
-    background: $lightGrey;
-    padding: 20px;
-    width: 20vh;
-    height: 23vh;
-    margin-left: 60vh; 
-    position: relative;
-    position: top;
-}
 
 footer{
     background-color: $mainColor;
@@ -274,5 +238,6 @@ button:focus{
     outline: none;
 }
 
+@import "./myBeehives";
 
 

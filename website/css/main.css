@@ -18,6 +18,12 @@
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
 
 header {
@@ -132,51 +138,6 @@ main {
   background: rgba(0, 0, 0, 0.6);
   -webkit-box-shadow: 1px -1px 22px 3px rgba(0, 0, 0, 0.82);
           box-shadow: 1px -1px 22px 3px rgba(0, 0, 0, 0.82);
-}
-
-#beehive-squareText {
-  border-radius: 25px;
-  background: #D3D3D3;
-  padding: 20px;
-  width: 20vh;
-  height: 23vh;
-  margin-left: 25vh;
-}
-
-#beehive-squareText p {
-  font-family: 'SourceLight';
-  color: #0B2638;
-  padding: 0.8vh;
-}
-
-#beehive-squareText:hover {
-  border: none;
-  background: -webkit-gradient(linear, left top, right top, from(#FCEE21), to(#EAB111));
-  background: linear-gradient(to right, #FCEE21, #EAB111);
-  color: #0B2638;
-}
-
-#beehive-extraSquare {
-  border-radius: 25px;
-  background: #D3D3D3;
-  padding: 20px;
-  width: 20vh;
-  height: 23vh;
-  margin-left: 60vh;
-  position: relative;
-  position: top;
-}
-
-#beehive-extraSquare p {
-  font-family: 'SourceLight';
-  color: #0B2638;
-  padding: 0.8vh;
-  margin-left: 3vh;
-  font-size: 2vh;
-}
-
-#beehive-extraSquare img {
-  margin-left: 3vh;
 }
 
 footer {
@@ -328,5 +289,43 @@ input {
 
 button:focus {
   outline: none;
+}
+
+#collection-wrapper {
+  width: 80%;
+  height: 80vh;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  overflow: auto;
+}
+
+.beehive {
+  margin: 1.5rem 0 1.5rem 3rem;
+  width: 10rem;
+  height: 10rem;
+  background-color: #D3D3D3;
+  -webkit-box-shadow: 5px 5px 22px 1px rgba(0, 0, 0, 0.35);
+          box-shadow: 5px 5px 22px 1px rgba(0, 0, 0, 0.35);
+  border-radius: 1rem;
+}
+
+.beehive p {
+  width: 80%;
+  text-align: center;
+  margin: 0.5rem auto;
+  color: black;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
 /*# sourceMappingURL=main.css.map */
