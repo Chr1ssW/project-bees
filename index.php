@@ -1,7 +1,3 @@
 <?php
-
-include("website/db/connect.php");
-
-header("website/html/index.html");
-
+header("Location: website/html/index.html");
 ?>
