@@ -51,7 +51,7 @@ function isEmptyInput($username, $password, $passwordRep, $email)
 
 function isPassMatch($password, $passwordRep)
 {
-    if($password != $passwordRep)
+    if($password === $passwordRep)
     {
         return true;
     }
