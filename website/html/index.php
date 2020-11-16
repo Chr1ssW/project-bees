@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<?php include '../db/signup.php'?>
+<?php include ('../db/signup.php') ?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -72,6 +72,7 @@
             </div>
             <!--Need to change it to post in the future-->
             <form method="POST" action="../db/signup.php" id="signupForm">
+                <?php include('errors.php'); ?>
                 <input type="text" placeholder="Username" id="userNameIn">
                 <input type="text" placeholder="Email address" id="emailAddressIn">
                 <input type="password" placeholder="Password" id="passwordIn">

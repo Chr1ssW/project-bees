@@ -24,7 +24,7 @@ if($db === false){
 // REGISTER USER
 if (isset($_POST['signupForm'])) {
     // receive all input values from the form
-    $username = mysqli_real_escape_string($db, $_POST['userNameIn']);
+    $username = mysqli_real_escape_string($_POST['userNameIn']);
     $email = mysqli_real_escape_string($db, $_POST['emailAddressIn']);
     $password_1 = mysqli_real_escape_string($db, $_POST['passwordIn']);
     $password_2 = mysqli_real_escape_string($db, $_POST['passwordRepeat']);
