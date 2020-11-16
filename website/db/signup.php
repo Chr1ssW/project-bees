@@ -1,11 +1,9 @@
 <?php
-echo "hello";
 include 'functions.php';
-
 $username = "b8041e339aa3d1";
 $passwd = "06634b97";
 $HostName = "eu-cdbr-west-03.cleardb.net";
-$DBName = "heroku_574ab15869a35be";
+$DBName = "heroku_574ab15869a35b";
 
 $conn = mysqli_connect($HostName, $username, $passwd, $DBName);
 
@@ -42,5 +40,9 @@ if(isset($_POST['signupForm']))
         createUser($conn, $username, $password, $email);
         echo "User created successfully";
     }
+}
+else
+{
+    header("Location: ../html/index.html");
 }
 ?>
