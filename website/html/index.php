@@ -1,7 +1,4 @@
 <!DOCTYPE html>
-<?php
-require_once '../db/signup.php';
-?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
