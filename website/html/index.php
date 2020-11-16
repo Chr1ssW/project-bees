@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php include("../db/connect.php"); ?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,7 +15,7 @@
         <ul>
             <li>
                 <a href="#">
-                    <span class="icon"><img src="../resources/img/account.png" alt="account"></span>
+                    <span class="icon"><img src="../resources/img/account.png" alt="Account"></span>
                     <span class="title">Account</span>
                 </a>
             </li>
@@ -25,15 +26,21 @@
                 </a>
             </li>
             <li>
-                <a href="website/html/myBeehives.html">
+                <a href="myBeehives.html">
                     <span class="icon"><img src="../resources/img/mybeehives.png" alt="My beehives"></span>
                     <span class="title">My beehives</span>
                 </a>
             </li>
             <li>
                 <a href="beehivesMap.html">
-                    <span class="icon"><img src="../resources/img/map.png" alt="account"></span>
+                    <span class="icon"><img src="../resources/img/map.png" alt="Beehves Map"></span>
                     <span class="title">Map</span>
+                </a>
+            </li>
+            <li class="logout">
+                <a href="#">
+                    <span class="icon"><img src="../resources/img/logout.png" alt="account"></span>
+                    <span class="title">Log out</span>
                 </a>
             </li>
         </ul>
@@ -122,10 +129,11 @@
         </main>
         <footer></footer>
     </div>
+
     <script src="../js/scripts.js"></script> 
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <script type="text/javascript" src="website/js/slick.min.js"></script>
+    <script type="text/javascript" src="../js/slick.min.js"></script>
 
     <script type="text/javascript">
         $(document).ready(function(){

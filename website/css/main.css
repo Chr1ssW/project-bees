@@ -199,6 +199,10 @@ footer {
   padding-right: 2vh;
 }
 
+.logout {
+  margin-top: 30vh;
+}
+
 .closebtn {
   position: absolute;
   text-decoration: none;
