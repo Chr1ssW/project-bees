@@ -43,6 +43,6 @@ if(isset($_POST['signupForm']))
 }
 else
 {
-    header("Location: ../html/index.html");
+    header("Location: ../html/index.php?error=no%info%submitted");
 }
 ?>
