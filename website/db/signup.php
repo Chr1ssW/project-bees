@@ -22,7 +22,7 @@ if($db === false){
 }
 
 // REGISTER USER
-if (isset($_POST['signupForm'])) {
+if (isset($_POST['submit'])) {
     echo 'good';
     // receive all input values from the form
     $username = mysqli_real_escape_string($_POST['userNameIn']);
