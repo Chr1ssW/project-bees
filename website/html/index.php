@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<?php include ('../db/signup.php') ?>
+<?php include ('../db/signup.php');
+include ('../db/connect.php'); ?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
