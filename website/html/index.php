@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
 include("../db/connect.php");
-include("../db/signup.php");
+include "../db/signup.php";
 ?>
 <html lang="en">
 <head>
