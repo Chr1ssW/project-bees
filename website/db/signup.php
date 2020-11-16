@@ -69,7 +69,9 @@ if(isset($_POST['signup']))
     }
     else
     {
-        echo "There were errors";
+        foreach ($errors as $error) {
+            echo "$error <br>";
+        }
     }
 }
 else
