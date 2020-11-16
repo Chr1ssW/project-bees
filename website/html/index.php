@@ -72,10 +72,10 @@
             <!--Need to change it to post in the future-->
             <form method="POST" action="../db/signup.php" id="signupForm">
                 <?php include('errors.php'); ?>
-                <input type="text" placeholder="Username" id="userNameIn">
-                <input type="text" placeholder="Email address" id="emailAddressIn">
-                <input type="password" placeholder="Password" id="passwordIn">
-                <input type="password" placeholder="Repeat password" id="passwordRepeat">
+                <input type="text" placeholder="Username" name="userNameIn">
+                <input type="text" placeholder="Email address" name="emailAddressIn">
+                <input type="password" placeholder="Password" name="passwordIn">
+                <input type="password" placeholder="Repeat password" name="passwordRepeat">
             </form>
             <div class="invalid-response">Passwords do not match!</div>
             <button type="submit" form="signupForm" name="signup">Sign up</button>
