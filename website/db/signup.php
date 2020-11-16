@@ -22,7 +22,8 @@ if($db === false){
 }
 
 // REGISTER USER
-
+if(isset($_POST['signup']))
+{
     echo 'good';
     // receive all input values from the form
     $username = mysqli_real_escape_string($_POST['userNameIn']);
@@ -66,5 +67,9 @@ if($db === false){
         $_SESSION['success'] = "You are now logged in";
         header('location: ../html/index.php?success');
     }
+}
+else
+{
+    echo 'error';
 }
 ?>

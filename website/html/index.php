@@ -78,7 +78,7 @@
                 <input type="password" placeholder="Repeat password" id="passwordRepeat">
             </form>
             <div class="invalid-response">Passwords do not match!</div>
-            <button type="submit" form="signupForm">Sign up</button>
+            <button type="submit" form="signupForm" name="signup">Sign up</button>
         </div>
     </div>
     <div id="main">
