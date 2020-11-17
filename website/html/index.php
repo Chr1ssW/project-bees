@@ -76,13 +76,13 @@ include("../db/signup.php");
                 <img src="../resources/img/account.png" alt="Account">
             </div>
             <!--Need to change it to post in the future-->
-            <form method="POST" action="#invalid">
+            <form action="" method="post" role="form" target="_blank">
                 <input type="text" placeholder="Username" name="userNameIn">
                 <input type="text" placeholder="Email address" name="emailAddressIn">
                 <input type="password" placeholder="Password" name="passwordIn">
                 <input type="password" placeholder="Repeat password" name="passwordRepeat">
             </form>
-            <div class="invalid-response" id="invalid">
+            <div class="invalid-response">
                 <?php
                 foreach($errors as $key) {
                     echo $key . '<br>';
