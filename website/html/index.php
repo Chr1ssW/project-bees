@@ -100,13 +100,13 @@ include("../db/signup.php");
                 </span>
 
             </nav>
-            <?php  if (count($errors) > 0) : ?>
                 <div class="invalid-response">
-                    <?php foreach ($errors as $error) : ?>
-                        <p><?php echo $error ?></p>
-                    <?php endforeach ?>
+                <?php
+                foreach($_GET as $key) {
+                    echo $key . '<br>';
+                }
+                ?>
                 </div>
-            <?php  endif ?>
         </header>
         <main>
             <div class="slideshow">
