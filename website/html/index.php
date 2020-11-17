@@ -75,8 +75,7 @@ include("../db/signup.php");
             <div class="loginPic">
                 <img src="../resources/img/account.png" alt="Account">
             </div>
-            <!--Need to change it to post in the future-->
-            <form action="index.php" method="post" role="form" target="_blank">
+            <form method="POST" action="index.php">
                 <input type="text" placeholder="Username" name="userNameIn">
                 <input type="text" placeholder="Email address" name="emailAddressIn">
                 <input type="password" placeholder="Password" name="passwordIn">
