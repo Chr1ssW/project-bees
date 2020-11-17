@@ -5,19 +5,6 @@ session_start();
 $username = "";
 $email    = "";
 $errors = array();
-// connect to the database
-define('DB_SERVER', "eu-cdbr-west-03.cleardb.net");
-define('DB_USERNAME', "b8041e339aa3d1");
-define('DB_PASSWORD', "06634b97");
-define('DB_NAME', "heroku_574ab15869a35be");
-
-/* Attempt to connect to MySQL database */
-$db = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
-
-// Check connection
-if($db === false){
-    die("ERROR: Could not connect. " . mysqli_connect_error());
-}
 
 // REGISTER USER
 if(isset($_POST['signup']))

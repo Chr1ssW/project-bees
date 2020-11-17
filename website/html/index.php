@@ -82,7 +82,13 @@ require("../db/connect.php");
                 <input type="password" placeholder="Password" name="passwordIn">
                 <input type="password" placeholder="Repeat password" name="passwordRepeat">
             </form>
-            <?php include ('../db/errors.php'); ?>
+            <?php if (count($errors) > 0) : ?>
+                <div class="invalid-response">
+                    <?php foreach ($errors as $error) : ?>
+                        <p><?php echo $error ?></p>
+                    <?php endforeach ?>
+                </div>
+            <?php  endif ?>
             <button type="submit" form="signupForm" name="signup">Sign up</button>
         </div>
     </div>
