@@ -57,16 +57,17 @@ require("../db/connect.php");
                 <img src="../resources/img/account.png" alt="Account">
             </div>
             <!--Need to change it to post in the future-->
-            <form method="GET" action="#" id="loginForm">
+            <form method="POST" action="../db/login.php" id="loginForm">
                 <input type="text" placeholder="Username" id="userName">
                 <input type="password" placeholder="Password" id="password">
                 <span id="remember-container">
                     <input type="checkbox" id="remember">
                     <label for="remember">Remember me</label>
                 </span>
+                <!-- <input type="submit" name="submit"> -->
             </form>
             <div class="invalid-response">The combination of email address and password is not valid!</div>
-            <button type="submit" form="loginForm">Sign in</button>
+            <button type="submit" name="submit" form="loginForm">Sign in</button>
         </div>
     </div>
     <div class="popup-screen" id="signup-container">
