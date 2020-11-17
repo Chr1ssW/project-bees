@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/main.css">
     <title>Beehive Monitoring System</title>
 </head>
+
 <body>
     <div id="sidebar" class="mobile-nav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -19,7 +21,7 @@
             <li>
                 <a href="#">
                     <span class="icon"><img src="../resources/img/dashboard.png" alt="account"></span>
-                    <span class="title">Dashboard</span>  
+                    <span class="title">Dashboard</span>
                 </a>
             </li>
             <li>
@@ -83,9 +85,9 @@
             <div class="beehiveAdd">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeAddHive()">&times;</a>
                 <!--Need to change it to post in the future-->
-                <form method="GET" action="#" id="signupForm">
-                    <input type="text" placeholder="Beehive location" id="locationIn">
-                    <input type="text" placeholder="Device information??" id="deviceInf">
+                <form method="POST" action="../db/addBeehiveManual.php" id="signupForm">
+                    <input type="text" name="beehiveLocation" placeholder="Beehive location" id="locationIn">
+                    <input type="text" name="sensorNumber" placeholder="SensorNumber" id="deviceInf">
                 </form>
                 <div class="invalid-response">Passwords do not match!</div>
             </div>
@@ -152,6 +154,7 @@
         </main>
         <footer></footer>
     </div>
-    <script src="../js/scripts.js"></script> 
+    <script src="../js/scripts.js"></script>
 </body>
+
 </html>
