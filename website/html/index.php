@@ -85,11 +85,6 @@ include("../db/signup.php");
             <button type="submit" form="signupForm" name="signup">Sign up</button>
         </div>
     </div>
-    <div class="invalid-response"><?php if (count($errors) > 0) : ?>
-            <?php foreach ($errors as $error) : ?>
-                <p><?php echo $error ?></p>
-            <?php endforeach ?>
-        <?php  endif ?></div>
     <div id="main">
         <header>
             <nav>
@@ -105,6 +100,13 @@ include("../db/signup.php");
                 </span>
 
             </nav>
+            <?php  if (count($errors) > 0) : ?>
+                <div class="invalid-response">
+                    <?php foreach ($errors as $error) : ?>
+                        <p><?php echo $error ?></p>
+                    <?php endforeach ?>
+                </div>
+            <?php  endif ?>
         </header>
         <main>
             <div class="slideshow">
