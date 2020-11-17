@@ -58,8 +58,8 @@ if(isset($_POST['signup']))
     if (count($errors) == 0) {
         $password = md5($password_1);//encrypt the password before saving in the database
 
-        $query = "INSERT INTO users (name, passwd, email) 
-  			  VALUES('$username', '$password', '$email')";
+        $query = "INSERT INTO user (name, passwd, email) 
+  			  VALUES ('$username', '$password', '$email')";
         if(mysqli_query($db, $query))
         {
             echo "You have been successfully registered";
@@ -68,9 +68,9 @@ if(isset($_POST['signup']))
         {
             echo "ERROR: Could not able to execute $query. " . mysqli_error($db);
         }
+        mysqli_close($db);
         $_SESSION['username'] = $username;
         $_SESSION['success'] = "You are now logged in";
-        header('location: ../html/index.php?success');
     }
     else
     {
