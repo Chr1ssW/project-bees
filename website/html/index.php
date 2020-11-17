@@ -2,7 +2,7 @@
 require("../db/connect.php");
 ?>
 <!DOCTYPE html>
-<?php include ('../db/signup.php') ?>
+<?php include('../db/signup.php') ?>
 <html lang="en">
 
 <head>
@@ -82,7 +82,7 @@ require("../db/connect.php");
                 <input type="password" placeholder="Password" name="passwordIn">
                 <input type="password" placeholder="Repeat password" name="passwordRepeat">
             </form>
-            <?php include ('errors.php'); ?>
+            <?php include('../db/errors.php'); ?>
             <button type="submit" form="signupForm" name="signup">Sign up</button>
         </div>
     </div>

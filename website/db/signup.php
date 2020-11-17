@@ -4,7 +4,7 @@ session_start();
 // initializing variables
 $username = "";
 $email    = "";
-
+$errors = array();
 // REGISTER USER
 if(isset($_POST['signup']))
 {
