@@ -57,8 +57,8 @@ include("../db/signup.php");
             </div>
             <!--Need to change it to post in the future-->
             <form method="POST" action="../db/login.php" id="loginForm">
-                <input type="text" placeholder="Username" id="userName">
-                <input type="password" placeholder="Password" id="password">
+                <input type="text" placeholder="Username" name="userName" id="userName">
+                <input type="password" placeholder="Password" name="passwd" id="password">
                 <span id="remember-container">
                     <input type="checkbox" id="remember">
                     <label for="remember">Remember me</label>

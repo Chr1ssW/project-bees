@@ -8,8 +8,8 @@ $passwd = "06634b97";
 $HostName = "eu-cdbr-west-03.cleardb.net";
 $DBName = "heroku_574ab15869a35be";
 
-$db = mysqli_connect($HostName, $username, $passwd, $DBName);
+$conn = mysqli_connect($HostName, $username, $passwd, $DBName);
 
-if (!$db) {
+if (!$conn) {
     die("Connection to the database failed" . mysqli_connect_error());
 }
