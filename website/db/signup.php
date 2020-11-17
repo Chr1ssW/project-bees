@@ -1,11 +1,10 @@
 <?php
-
+include ('errors.php');
 session_start();
 // initializing variables
 $username = "";
 $email    = "";
 $errors = array();
-
 // connect to the database
 define('DB_SERVER', "eu-cdbr-west-03.cleardb.net");
 define('DB_USERNAME', "b8041e339aa3d1");
