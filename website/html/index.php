@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
 require_once("../db/connect.php");
+include("../db/signup.php");
 ?>
 <html lang="en">
 <head>
@@ -75,7 +76,7 @@ require_once("../db/connect.php");
                 <img src="../resources/img/account.png" alt="Account">
             </div>
             <!--Need to change it to post in the future-->
-            <form method="POST" action="#popup-form" id="signupForm">
+            <form method="POST" action="#signup-container" id="signupForm">
                 <input type="text" placeholder="Username" name="userNameIn">
                 <input type="text" placeholder="Email address" name="emailAddressIn">
                 <input type="password" placeholder="Password" name="passwordIn">
@@ -83,7 +84,6 @@ require_once("../db/connect.php");
             </form>
             <div class="invalid-response">
                 <?php
-                include("../db/signup.php");
                 foreach($errors as $key) {
                     echo $key . '<br>';
                 }
