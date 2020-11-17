@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <?php
 require_once("../db/connect.php");
-include("../db/signup.php");
 ?>
 <html lang="en">
 <head>
@@ -83,8 +82,9 @@ include("../db/signup.php");
             </form>
             <div class="invalid-response">
                 <?php
-                foreach($errors as $key) {
-                    echo $key . '<br>';
+                include("../db/signup.php");
+                foreach($errors as $error) {
+                    echo $error . '<br>';
                 }
                 ?>
             </div>
