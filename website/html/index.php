@@ -69,13 +69,13 @@ require_once("../db/connect.php");
         </div>
     </div>
     <div class="popup-screen" id="signup-container">
-        <div class="popup-form">
+        <div class="popup-form" id="popup-form">
             <a href="javascript:void(0)" class="closebtn" onclick="closeSignup()">&times;</a>
             <div class="loginPic">
                 <img src="../resources/img/account.png" alt="Account">
             </div>
             <!--Need to change it to post in the future-->
-            <form method="POST" action="#signup-container" id="signupForm">
+            <form method="POST" action="#popup-form" id="signupForm">
                 <input type="text" placeholder="Username" name="userNameIn">
                 <input type="text" placeholder="Email address" name="emailAddressIn">
                 <input type="password" placeholder="Password" name="passwordIn">
