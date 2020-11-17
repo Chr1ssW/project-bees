@@ -59,7 +59,7 @@ if(isset($_POST['signup']))
     }
     else
     {
-        header('../html/index.php?error');
+        header('Location: ../html/index.php?error');
     }
 }
 else
