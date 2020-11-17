@@ -1,7 +1,6 @@
 <?php
 
 session_start();
-echo 'hi';
 // initializing variables
 $username = "";
 $email    = "";
@@ -24,11 +23,10 @@ if($db === false){
 // REGISTER USER
 if(isset($_POST['signup']))
 {
-    echo 'good';
     // receive all input values from the form
     $username = mysqli_real_escape_string($db, $_POST['userNameIn']);
     $email = mysqli_real_escape_string($db, $_POST['emailAddressIn']);
-    $password_1 = mysqli_real_escape_string($db, $_POST['passwordIn']);
+    $password_1 = mysqli_real_escape_string($db, $_POST['passwordIn']); 
     $password_2 = mysqli_real_escape_string($db, $_POST['passwordRepeat']);
 
     // form validation: ensure that the form is correctly filled ...
@@ -62,7 +60,14 @@ if(isset($_POST['signup']))
 
         $query = "INSERT INTO users (name, passwd, email) 
   			  VALUES('$username', '$password', '$email')";
-        mysqli_query($db, $query);
+        if(mysqli_query($db, $query))
+        {
+            echo "You have been successfully registered";
+        }
+        else
+        {
+            echo "ERROR: Could not able to execute $query. " . mysqli_error($db);
+        }
         $_SESSION['username'] = $username;
         $_SESSION['success'] = "You are now logged in";
         header('location: ../html/index.php?success');
