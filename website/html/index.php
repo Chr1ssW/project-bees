@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php include ('../db/signup.php') ?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -71,13 +72,18 @@
             </div>
             <!--Need to change it to post in the future-->
             <form method="POST" action="../db/signup.php" id="signupForm">
-                <?php include('errors.php'); ?>
                 <input type="text" placeholder="Username" name="userNameIn">
                 <input type="text" placeholder="Email address" name="emailAddressIn">
                 <input type="password" placeholder="Password" name="passwordIn">
                 <input type="password" placeholder="Repeat password" name="passwordRepeat">
             </form>
-            <div class="invalid-response">Passwords do not match!</div>
+            <?php  if (count($errors) > 0) : ?>
+                <div class="invalid-response">
+                    <?php foreach ($errors as $error) : ?>
+                        <p><?php echo $error ?></p>
+                    <?php endforeach ?>
+                </div>
+            <?php  endif ?>
             <button type="submit" form="signupForm" name="signup">Sign up</button>
         </div>
     </div>
