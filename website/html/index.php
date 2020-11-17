@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <?php include("../db/signup.php"); ?>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -84,11 +83,9 @@
         </div>
     </div>
     <div class="invalid-response"><?php if (count($errors) > 0) : ?>
-            <div class="invalid-response">
                 <?php foreach ($errors as $error) : ?>
                     <p><?php echo $error ?></p>
                 <?php endforeach ?>
-            </div>
         <?php  endif ?></div>
     <div id="main">
         <header>
