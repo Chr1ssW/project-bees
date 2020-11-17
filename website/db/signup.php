@@ -72,17 +72,6 @@ if(isset($_POST['signup']))
         $_SESSION['username'] = $username;
         $_SESSION['success'] = "You are now logged in";
     }
-    else
-    {
-            ?><?php  if (count($errors) > 0) : ?>
-                <div class="invalid-response">
-                    <?php foreach ($errors as $error) : ?>
-                        <p><?php echo $error ?></p>
-                    <?php endforeach ?>
-                </div>
-            <?php  endif ?>
-<?php
-    }
 }
 else
 {
