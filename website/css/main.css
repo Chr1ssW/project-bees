@@ -277,7 +277,6 @@ input {
 
 .invalid-response {
   margin: 1rem auto;
-  display: none;
   color: #DB1414;
   font-family: 'SourceRegular';
   width: 80%;

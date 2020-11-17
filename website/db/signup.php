@@ -57,10 +57,6 @@ if(isset($_POST['signup']))
         $_SESSION['username'] = $username;
         $_SESSION['success'] = "You are now logged in";
     }
-    else
-    {
-        header('Location: ../html/index.php?error');
-    }
 }
 else
 {
