@@ -1,5 +1,6 @@
 <?php
 require("../db/connect.php");
+include("../db/signup.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -85,6 +86,13 @@ require("../db/connect.php");
             <button type="submit" form="signupForm" name="signup">Sign up</button>
         </div>
     </div>
+    <div class="invalid-response"><?php if (count($errors) > 0) : ?>
+            <div class="invalid-response">
+                <?php foreach ($errors as $error) : ?>
+                    <p><?php echo $error ?></p>
+                <?php endforeach ?>
+            </div>
+        <?php  endif ?></div>
     <div id="main">
         <header>
             <nav>
