@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<?php include("../db/signup.php"); ?>
+<?php
+require_once("../db/connect.php");
+include("../db/signup.php");
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -82,11 +85,6 @@
             <button type="submit" form="signupForm" name="signup">Sign up</button>
         </div>
     </div>
-    <div class="invalid-response"><?php if (count($errors) > 0) : ?>
-                <?php foreach ($errors as $error) : ?>
-                    <p><?php echo $error ?></p>
-                <?php endforeach ?>
-        <?php  endif ?></div>
     <div id="main">
         <header>
             <nav>
