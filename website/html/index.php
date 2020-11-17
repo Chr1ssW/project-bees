@@ -82,6 +82,13 @@ include("../db/signup.php");
                 <input type="password" placeholder="Password" name="passwordIn">
                 <input type="password" placeholder="Repeat password" name="passwordRepeat">
             </form>
+            <div class="invalid-response">
+                <?php
+                foreach($_GET as $key) {
+                    echo $key . '<br>';
+                }
+                ?>
+            </div>
             <button type="submit" form="signupForm" name="signup">Sign up</button>
         </div>
     </div>
@@ -99,13 +106,6 @@ include("../db/signup.php");
                     <button class="signin-btn" type="button" onclick="openLogin()">Sign in</button>
                 </span>
             </nav>
-                <div class="invalid-response">
-                <?php
-                foreach($_GET as $key) {
-                    echo "<script type='text/javascript'>alert('$key');</script>" . '<br>';
-                }
-                ?>
-                </div>
         </header>
         <main>
             <div class="slideshow">
