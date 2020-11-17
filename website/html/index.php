@@ -83,9 +83,9 @@ require("../db/connect.php");
                 <input type="password" placeholder="Repeat password" name="passwordRepeat">
             </form>
             <button type="submit" form="signupForm" name="signup">Sign up</button>
-            <?php include('../db/errors.php'); ?>
         </div>
     </div>
+    <?php include('../db/errors.php'); ?>
     <div id="main">
         <header>
             <nav>
