@@ -99,17 +99,13 @@ include("../db/signup.php");
                     <button class="signin-btn" type="button" onclick="openLogin()">Sign in</button>
                 </span>
             </nav>
-            <script>
-                alert(
                 <div class="invalid-response">
                 <?php
                 foreach($_GET as $key) {
-                    echo $key . '<br>';
+                    echo "<script type='text/javascript'>alert('$key');</script>" . '<br>';
                 }
                 ?>
                 </div>
-                )
-            </script>
         </header>
         <main>
             <div class="slideshow">
