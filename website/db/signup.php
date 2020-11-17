@@ -68,9 +68,9 @@ if(isset($_POST['signup']))
         {
             echo "ERROR: Could not able to execute $query. " . mysqli_error($db);
         }
+        mysqli_close($db);
         $_SESSION['username'] = $username;
         $_SESSION['success'] = "You are now logged in";
-        header('location: ../html/index.php?success');
     }
     else
     {
