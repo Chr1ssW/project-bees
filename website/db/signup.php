@@ -53,7 +53,7 @@ if(isset($_POST['signup']))
     }
     else
     {
-        header("Location: ../html/index.php?error='$errors'");
+        header("Location: ../html/index.php?error=" . http_build_query($data) ."");
     }
 }
 ?>
