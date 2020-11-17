@@ -75,7 +75,7 @@ require_once("../db/connect.php");
                 <img src="../resources/img/account.png" alt="Account">
             </div>
             <!--Need to change it to post in the future-->
-            <form method="POST" action="#" id="signupForm">
+            <form method="POST" action="" id="signupForm">
                 <input type="text" placeholder="Username" name="userNameIn">
                 <input type="text" placeholder="Email address" name="emailAddressIn">
                 <input type="password" placeholder="Password" name="passwordIn">
