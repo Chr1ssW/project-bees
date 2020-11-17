@@ -1,5 +1,5 @@
 <?php
-require_once 'connect.php';
+include("connect.php");
 session_start();
 $username = "";
 $email    = "";
@@ -7,10 +7,10 @@ $errors = array();
 
 if(isset($_POST['signup']))
 {
-    $username = mysqli_real_escape_string($db, $_POST['userNameIn']);
-    $email = mysqli_real_escape_string($db, $_POST['emailAddressIn']);
-    $password_1 = mysqli_real_escape_string($db, $_POST['passwordIn']); 
-    $password_2 = mysqli_real_escape_string($db, $_POST['passwordRepeat']);
+    $username = mysqli_real_escape_string($conn, $_POST['userNameIn']);
+    $email = mysqli_real_escape_string($conn, $_POST['emailAddressIn']);
+    $password_1 = mysqli_real_escape_string($conn, $_POST['passwordIn']);
+    $password_2 = mysqli_real_escape_string($conn, $_POST['passwordRepeat']);
 
     if (empty($username)) { array_push($errors, "Username is required"); }
     if (empty($email)) { array_push($errors, "Email is required"); }
@@ -38,15 +38,15 @@ if(isset($_POST['signup']))
 
         $query = "INSERT INTO user (name, passwd, email) 
   			  VALUES ('$username', '$password', '$email')";
-        if(mysqli_query($db, $query))
+        if(mysqli_query($conn, $query))
         {
             echo "You have been successfully registered";
         }
         else
         {
-            echo "ERROR: Could not able to execute $query. " . mysqli_error($db);
+            echo "ERROR: Could not able to execute $query. " . mysqli_error($conn);
         }
-        mysqli_close($db);
+        mysqli_close($conn);
         $_SESSION['username'] = $username;
         $_SESSION['success'] = "You are now logged in";
         header("Location: ../html/index.php?success");
