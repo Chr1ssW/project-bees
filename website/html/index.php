@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <?php
 require_once("../db/connect.php");
-include("../db/signup.php");
 ?>
 <html lang="en">
 <head>
@@ -76,7 +75,7 @@ include("../db/signup.php");
                 <img src="../resources/img/account.png" alt="Account">
             </div>
             <!--Need to change it to post in the future-->
-            <form method="POST" action="../db/signup.php" id="signupForm">
+            <form method="POST" action="#" id="signupForm">
                 <input type="text" placeholder="Username" name="userNameIn">
                 <input type="text" placeholder="Email address" name="emailAddressIn">
                 <input type="password" placeholder="Password" name="passwordIn">
@@ -84,6 +83,7 @@ include("../db/signup.php");
             </form>
             <div class="invalid-response">
                 <?php
+                include("../db/signup.php");
                 foreach($_GET as $key) {
                     echo $key . '<br>';
                 }
