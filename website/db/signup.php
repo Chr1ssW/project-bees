@@ -29,7 +29,7 @@ if(isset($_POST['signup']))
         }
 
         if ($user['email'] === $email) {
-            array_push($errors, "email already exists");
+            array_push($errors, "Email already exists");
         }
     }
 
@@ -47,8 +47,6 @@ if(isset($_POST['signup']))
             echo "ERROR: Could not able to execute $query. " . mysqli_error($conn);
         }
         mysqli_close($conn);
-        $_SESSION['username'] = $username;
-        $_SESSION['success'] = "You are now logged in";
         header("Location: ../html/index.php?success");
     }
 }
