@@ -1,11 +1,11 @@
 <?php
-include ('errors.php');
 session_start();
 // initializing variables
 $username = "";
 $email    = "";
 $errors = array();
 // REGISTER USER
+echo '...';
 if(isset($_POST['signup']))
 {
     // receive all input values from the form
