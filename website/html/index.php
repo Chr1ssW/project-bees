@@ -85,7 +85,6 @@ require("../db/connect.php");
             <button type="submit" form="signupForm" name="signup">Sign up</button>
         </div>
     </div>
-    <?php include('../db/errors.php'); ?>
     <div id="main">
         <header>
             <nav>
