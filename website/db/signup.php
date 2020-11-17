@@ -59,7 +59,7 @@ if(isset($_POST['signup']))
         $password = md5($password_1);//encrypt the password before saving in the database
 
         $query = mysqli_prepare($db,"INSERT INTO user VALUES (null, ?, ?, ?)");
-        mysqli_stmt_bind_param($query, 'sss', $username, $password, $email);
+        mysqli_stmt_bind_param($query, 'isss', $username, $password, $email);
         if(mysqli_query($db, $query))
         {
             echo "You have been successfully registered";
