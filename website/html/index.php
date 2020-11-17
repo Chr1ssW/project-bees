@@ -69,7 +69,7 @@ require_once("../db/connect.php");
         </div>
     </div>
     <div class="popup-screen" id="signup-container">
-        <div id="popup-form">
+        <div class="popup-form">
             <a href="javascript:void(0)" class="closebtn" onclick="closeSignup()">&times;</a>
             <div class="loginPic">
                 <img src="../resources/img/account.png" alt="Account">
