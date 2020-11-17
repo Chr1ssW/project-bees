@@ -58,7 +58,7 @@ if(isset($_POST['signup']))
     if (count($errors) == 0) {
         $password = md5($password_1);//encrypt the password before saving in the database
 
-        $query = mysqli_prepare($db,"INSERT INTO user (null, name , passwd, email) VALUES (?, ?, ?)");
+        $query = mysqli_prepare($db,"INSERT INTO user (null, ?, ?, ?) VALUES (?, ?, ?)");
         mysqli_stmt_bind_param($query, 'sss', $username, $password, $email);
         if(mysqli_query($db, $query))
         {
