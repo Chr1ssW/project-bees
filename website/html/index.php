@@ -84,7 +84,7 @@ require_once("../db/connect.php");
             <div class="invalid-response">
                 <?php
                 include("../db/signup.php");
-                foreach($_GET as $key) {
+                foreach($errors as $key) {
                     echo $key . '<br>';
                 }
                 ?>

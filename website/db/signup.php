@@ -51,9 +51,5 @@ if(isset($_POST['signup']))
         $_SESSION['success'] = "You are now logged in";
         header("Location: ../html/index.php?success");
     }
-    else
-    {
-        header("Location: ../html/index.php?error=" . http_build_query($errors) ."");
-    }
 }
 ?>
