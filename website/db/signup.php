@@ -1,6 +1,5 @@
 <?php
 include("connect.php");
-session_start();
 $username = "";
 $email    = "";
 $errors = array();
@@ -47,7 +46,7 @@ if(isset($_POST['signup']))
             echo "ERROR: Could not able to execute $query. " . mysqli_error($conn);
         }
         mysqli_close($conn);
-        header("Location: ../html/index.php?success");
+        header("Location: ../html/index.php?successfully&registered");
     }
 }
 ?>
