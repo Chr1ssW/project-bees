@@ -2,7 +2,6 @@
 require("../db/connect.php");
 ?>
 <!DOCTYPE html>
-<?php include('../db/signup.php') ?>
 <html lang="en">
 
 <head>
