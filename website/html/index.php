@@ -70,13 +70,15 @@ require_once("../db/connect.php");
     <script type="text/javascript" src="../js/slick.min.js"></script>
 
     <script type="text/javascript">
-        $(document).ready(function() {
+        $(document).ready(function(){
             $('.slideshow').slick({
                 arrows: false,
                 dots: true,
+                autoplay: true,
+                autoplaySpeed: 3000
             });
-        });
-    </script>
+            });
+      </script>
 </body>
 
 </html>
