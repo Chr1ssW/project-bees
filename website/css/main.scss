@@ -312,11 +312,51 @@ button:focus{
     }
 }
 
-
-@media screen and (max-width:415px) {
+//Tablet responsiveness
+@media screen and (max-width: 1050px)
+{
     header{
         h2{
-            font-size: 1.5rem;
+            font-size: 1.7rem;
+        }
+    }
+
+    nav{
+        button{
+            height: 4vh;
+            width: 12vh;
+            font-size: 2vh;
+            margin: 0 1vh 0 0;
+        }
+    }
+
+    .mobile-signup{
+        margin-bottom: 5vh;
+    }
+
+
+    .slick-dots{
+        visibility: hidden;
+    }
+
+    .popup-form{
+        width: 70%;
+        height: 50vh;
+    }
+    
+    .text{
+        width: 80%;
+        height: 70%;
+        top: 10%;
+    }
+}
+
+
+//Phone responsiveness
+@media screen and (max-width:570px) {
+    header{
+        h2{
+            font-size: 1.2em;
         }
     }
 
@@ -333,11 +373,21 @@ button:focus{
     }
 
     .logout{
-        margin-top: 25vh;
+        margin-top: 23vh;
     }
 
     .slick-dots{
         visibility: hidden;
+    }
+
+    .popup-form{
+        width: 90%;
+    }
+    
+    .text{
+        width: 80%;
+        height: 70%;
+        top: 10%;
     }
   }
 
