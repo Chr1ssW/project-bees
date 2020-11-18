@@ -30,10 +30,10 @@
             </nav>
         </header>
         <main>
-            <div id = "myMap" style = "height: 750 width: 1950">
-
-            </div>
         </main>
+        <div id = "myMap" style = "height: 750 width: 1950">
+
+        </div>
         <footer></footer>
     </div>
     <script src="../js/scripts.js"></script> 
