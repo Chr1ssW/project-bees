@@ -13,7 +13,9 @@ require_once("../db/connect.php");
 </head>
 
 <body>
-    
+    <?php 
+    require_once("sidebarAndPopup.html");
+    ?>
     <div id="main">
         <header>
             <nav>
