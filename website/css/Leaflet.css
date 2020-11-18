@@ -1,11 +1,26 @@
+@font-face {
+  font-family: SourceLight;
+  src: url(../resources/fonts/SourceSansPro-Light.ttf);
+}
+
+@font-face {
+  font-family: SourceExtraLight;
+  src: url(../resources/fonts/SourceSansPro-ExtraLight.ttf);
+}
+
+@font-face {
+  font-family: SourceRegular;
+  src: url(../resources/fonts/SourceSansPro-Regular.ttf);
+}
+
 main {
   height: 80vh;
   width: 100%;
   background-color: #EDEDED;
 }
 
-main map {
+main myMap {
   width: 1950;
   height: 750;
 }
-/*# sourceMappingURL=Leaflet.css.map */
+/*# sourceMappingURL=leaflet.css.map */
