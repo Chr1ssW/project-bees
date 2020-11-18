@@ -20,16 +20,9 @@ if(isset($_POST['signup']))
 
     $user_check_query = "SELECT * FROM users WHERE name='$username' OR email='$email' LIMIT 1;";
     $result = mysqli_query($db, $user_check_query);
-    $user = mysqli_fetch_assoc($result);
 
-    if ($user) { // if user exists
-        if ($user['username'] === $username) {
-            array_push($errors, "Username already exists");
-        }
-
-        if ($user['email'] === $email) {
-            array_push($errors, "Email already exists");
-        }
+    if (mysqli_num_rows($result) >= 1) { // if user exists
+        array_push($errors, "Username or email already taken");
     }
 
     if (count($errors) == 0) {

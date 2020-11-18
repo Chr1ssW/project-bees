@@ -22,15 +22,15 @@ if (isset($_POST['submit'])) {
             if (mysqli_stmt_num_rows($stmtPrepareToFindUser) == 0) {
                 echo "User not found";
             } else {
-                $passwdCheck = password_verify($passwd, $foundUserPwd);
-                if ($passwdCheck == FALSE) {
+                // $passwdCheck = password_verify($passwd, $foundUserPwd);
+                if (md5($passwd) == md5($foundUserPwd)) {
                     echo "Wrong password";
                 } else {
                     session_start();
                     $_SESSION['userID'] = $foundUserID;
                     $_SESSION['userName'] = $foundUsername;
                     $_SESSION['userEmail'] = $foundUserEmail;
-                    header('Location:../html/index.php');
+                    header('Location:../html/index.php?SuccessLoggingIn');
                 }
             }
             mysqli_stmt_close($stmtPrepareToFindUser);
