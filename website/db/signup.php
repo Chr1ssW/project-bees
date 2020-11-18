@@ -18,7 +18,7 @@ if(isset($_POST['signup']))
         array_push($errors, "The two passwords do not match");
     }
 
-    $user_check_query = "SELECT * FROM users WHERE name='$username' OR email='$email' LIMIT 1;";
+    $user_check_query = "SELECT * FROM user WHERE name='$username' OR email='$email' LIMIT 1;";
     $result = mysqli_query($db, $user_check_query);
 
     if (mysqli_num_rows($result) >= 1) { // if user exists
