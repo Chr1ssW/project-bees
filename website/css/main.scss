@@ -36,7 +36,7 @@ nav{
     align-items: center;
     justify-content: space-between;
     h2{
-        font-size: 4vh;
+        font-size: 2em;
     }
     span{
         display: flex;
@@ -68,6 +68,10 @@ nav{
     &:hover{
         @include transparentButton();
     }
+}
+
+.mobile-signup, .mobile-signin{
+    display: none;
 }
 
 .error {
@@ -308,4 +312,32 @@ button:focus{
     }
 }
 
+
+@media screen and (max-width:415px) {
+    header{
+        h2{
+            font-size: 1.5rem;
+        }
+    }
+
+    .signup-btn, .signin-btn{
+        display: none;
+    }
+
+    .mobile-signup, .mobile-signin{
+        display: block;
+    }
+
+    .mobile-signup{
+        margin-bottom: 5vh;
+    }
+
+    .logout{
+        margin-top: 25vh;
+    }
+
+    .slick-dots{
+        visibility: hidden;
+    }
+  }
 

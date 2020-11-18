@@ -49,7 +49,7 @@ nav {
 }
 
 nav h2 {
-  font-size: 4vh;
+  font-size: 2em;
 }
 
 nav span {
@@ -99,6 +99,21 @@ nav button {
   border: solid #CCCCCC;
   background: transparent;
   color: #FCEE21;
+}
+
+.mobile-signup, .mobile-signin {
+  display: none;
+}
+
+.error {
+  width: 92%;
+  margin: 0px auto;
+  padding: 10px;
+  border: 1px solid #a94442;
+  color: #a94442;
+  background: #f2dede;
+  border-radius: 5px;
+  text-align: left;
 }
 
 main {
@@ -358,5 +373,26 @@ button:focus {
 
 .new-hive:hover {
   cursor: pointer;
+}
+
+@media screen and (max-width: 415px) {
+  header h2 {
+    font-size: 1.5rem;
+  }
+  .signup-btn, .signin-btn {
+    display: none;
+  }
+  .mobile-signup, .mobile-signin {
+    display: block;
+  }
+  .mobile-signup {
+    margin-bottom: 5vh;
+  }
+  .logout {
+    margin-top: 25vh;
+  }
+  .slick-dots {
+    visibility: hidden;
+  }
 }
 /*# sourceMappingURL=main.css.map */
