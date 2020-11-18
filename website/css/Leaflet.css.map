@@ -1,11 +1,9 @@
 {
     "version": 3,
-    "mappings": "ACAA,UAAU;EACN,WAAW,EAAE,WAAW;EACxB,GAAG,EAAE,+CAA+C;;;AAGxD,UAAU;EACN,WAAW,EAAE,gBAAgB;EAC7B,GAAG,EAAE,oDAAoD;;;AAG7D,UAAU;EACN,WAAW,EAAE,aAAa;EAC1B,GAAG,EAAE,iDAAiD;;;ADA1D,AAAA,IAAI,CAAA;EACA,MAAM,EAAE,IAAI;EACZ,KAAK,EAAE,IAAI;EACX,gBAAgB,EAXV,OAAO;CAgBhB;;AARD,AAII,IAJA,CAIA,KAAK,CAAA;EACD,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,GAAG;CACd",
+    "mappings": "",
     "sources": [
-        "leaflet.scss",
-        "_fonts.scss",
-        "_mixin.scss"
+        "Leaflet.scss"
     ],
     "names": [],
-    "file": "leaflet.css"
+    "file": "Leaflet.css"
 }
