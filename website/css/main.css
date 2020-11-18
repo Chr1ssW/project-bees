@@ -423,6 +423,7 @@ button:focus {
   }
   .popup-form {
     width: 90%;
+    height: 80%;
   }
   .text {
     width: 80%;
