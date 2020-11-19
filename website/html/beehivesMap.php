@@ -30,24 +30,7 @@
         </header>
         <main>
             <div id = "myMap">
-              <p>Trying to find a way to show it as it has no sense at all</p>
-              <p>Trying to find a way to show it as it has no sense at all</p>
-              <p>Trying to find a way to show it as it has no sense at all</p>
-              <p>Trying to find a way to show it as it has no sense at all</p>
-              <p>Trying to find a way to show it as it has no sense at all</p>
-              <p>Trying to find a way to show it as it has no sense at all</p>
-              <p>Trying to find a way to show it as it has no sense at all</p>
-              <p>Trying to find a way to show it as it has no sense at all</p>
-              <p>Trying to find a way to show it as it has no sense at all</p>
-              <p>Trying to find a way to show it as it has no sense at all</p>
-              <p>Trying to find a way to show it as it has no sense at all</p>
-              <p>Trying to find a way to show it as it has no sense at all</p>
-              <p>Trying to find a way to show it as it has no sense at all</p>
-              <p>Trying to find a way to show it as it has no sense at all</p>
-              <p>Trying to find a way to show it as it has no sense at all</p>
-              <p>Trying to find a way to show it as it has no sense at all</p>
-              <p>Trying to find a way to show it as it has no sense at all</p>
-              <p>Trying to find a way to show it as it has no sense at all</p>
+              <p>Trying to find a way to show it as it has no sense at allTrying to find a way to show it as it has no sense at allTrying to find a way to show it as it has no sense at allTrying to find a way to show it as it has no sense at allTrying to find a way to show it as it has no sense at allTrying to find a way to show it as it has no sense at allTrying to find a way to show it as it has no sense at allTrying to find a way to show it as it has no sense at allTrying to find a way to show it as it has no sense at allTrying to find a way to show it as it has no sense at allTrying to find a way to show it as it has no sense at allTrying to find a way to show it as it has no sense at allTrying to find a way to show it as it has no sense at allTrying to find a way to show it as it has no sense at allTrying to find a way to show it as it has no sense at allTrying to find a way to show it as it has no sense at allTrying to find a way to show it as it has no sense at allTrying to find a way to show it as it has no sense at allTrying to find a way to show it as it has no sense at all</p>
             </div>
         </main>
         <footer></footer>
