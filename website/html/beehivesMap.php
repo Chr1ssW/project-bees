@@ -30,6 +30,17 @@
         </header>
         <main>
             <div id = "myMap">
+                <br>
+
+
+
+
+
+
+
+
+
+            </br>
             </div>
         </main>
         <footer></footer>
