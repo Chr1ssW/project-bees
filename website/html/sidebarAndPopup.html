@@ -26,7 +26,7 @@
             </a>
         </li>
         <li>
-            <a href="myBeehives.php">
+            <a href="userBeehives.php">
                 <span class="icon"><img src="../resources/img/mybeehives.png" alt="My beehives"></span>
                 <span class="title">My beehives</span>
             </a>
@@ -79,12 +79,12 @@
             <input type="password" placeholder="Repeat password" name="passwordRepeat">
         </form>
         <div class="invalid-response">
-            <?php
+            <!-- <?php
             include("../db/signup.php");
             foreach($errors as $error) {
                 echo $error . '<br>';
             }
-            ?>
+            ?> -->
         </div>
         <button type="submit" form="signupForm" name="signup" onsubmit="openSignup()">Sign up</button>
     </div>

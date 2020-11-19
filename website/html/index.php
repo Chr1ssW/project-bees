@@ -3,6 +3,7 @@
 require_once("../db/connect.php");
 ?>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +14,7 @@ require_once("../db/connect.php");
 </head>
 
 <body>
-    <?php 
+    <?php
     require_once("sidebarAndPopup.html");
     ?>
     <div id="main">
@@ -70,29 +71,26 @@ require_once("../db/connect.php");
     <script type="text/javascript" src="../js/slick.min.js"></script>
 
     <script type="text/javascript">
-        $(document).ready(function(){
+        $(document).ready(function() {
             $('.slideshow').slick({
                 arrows: false,
                 dots: true,
                 autoplay: true,
                 autoplaySpeed: 3000
             });
-            });
+        });
 
-            const queryString = window.location.search;
-            const urlParams = new URLSearchParams(queryString);
-            const reloaded = urlParams.get('reloaded')
-            console.log(reloaded);
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const reloaded = urlParams.get('reloaded')
+        console.log(reloaded);
 
-            if (reloaded == 'signin')
-            {
-                openLogin();
-            }
-            else if (reloaded == 'signup')
-            {
-                openSignup();
-            }
-      </script>
+        if (reloaded == 'signin') {
+            openLogin();
+        } else if (reloaded == 'signup') {
+            openSignup();
+        }
+    </script>
 </body>
 
 </html>
