@@ -30,17 +30,7 @@
         </header>
         <main>
             <div id = "myMap">
-                <br>
-
-
-
-
-
-
-
-
-
-            </br>
+              <p>Trying to find a way to show it as it has no sense at all</p>
             </div>
         </main>
         <footer></footer>
