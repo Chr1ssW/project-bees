@@ -82,12 +82,13 @@ require_once("../db/connect.php");
             const queryString = window.location.search;
             const urlParams = new URLSearchParams(queryString);
             const reloaded = urlParams.get('reloaded')
+            console.log(reloaded);
 
             if (reloaded == 'signin')
             {
                 openLogin();
             }
-            elseif (reloaded == 'signup')
+            else if (reloaded == 'signup')
             {
                 openSignup();
             }
