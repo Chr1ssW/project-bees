@@ -26,7 +26,7 @@ if(isset($_POST['signup']))
     }
 
     if (count($errors) == 0) {
-        $password = md5($password_1);
+        $password = password_hash(password_1, PASSWORD_DEFAULT);
 
         $query = "INSERT INTO user (name, passwd, email) 
   			  VALUES ('$username', '$password', '$email')";
