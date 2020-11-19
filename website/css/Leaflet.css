@@ -1,11 +1,5 @@
-main {
-  height: 80vh;
-  width: 100%;
-  background-color: #EDEDED;
-}
-
-main map {
-  width: 1950;
+myMap {
   height: 750;
+  width: 1950;
 }
 /*# sourceMappingURL=Leaflet.css.map */
