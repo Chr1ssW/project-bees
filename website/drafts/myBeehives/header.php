@@ -38,7 +38,7 @@ session_start(); ?>
             </a>
         </li>
         <li class="logout">
-            <a href="#">
+            <a href="../db/logout.php">
                 <span class="icon"><img src="../../resources/img/logout.png" alt="account"></span>
                 <span class="title">Log out</span>
             </a>

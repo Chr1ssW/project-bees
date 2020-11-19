@@ -30,6 +30,7 @@ if (isset($_POST['submit'])) {
                         $_SESSION['userID'] = $foundUserID;
                         $_SESSION['userName'] = $foundUsername;
                         $_SESSION['userEmail'] = $foundUserEmail;
+                        $_SESSION['loggedin'] = true;
                         header('Location:../html/index.php?SuccessLoggingIn');
                     } else {
                         echo "Wrong password";
