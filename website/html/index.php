@@ -78,19 +78,20 @@ require_once("../db/connect.php");
                 autoplaySpeed: 3000
             });
             });
-      </script>
 
-      <script type="text/javascript">
-        window.onhashchange = function()
-        { 
-        //code  i hope this works xd no idea what this does I guess it listens to url changes
-            const reloaded = urlParams.get('reloaded'); //where was it xd
-            if (reloaded == 'true')
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const reloaded = urlParams.get('reloaded')
+            console.log(reloaded);
+
+            if (reloaded == 'signin')
             {
-                openSignup(); //no idea if this will work
-                alert("This got triggered");
+                openLogin();
             }
-        }
+            else if (reloaded == 'signup')
+            {
+                openSignup();
+            }
       </script>
 </body>
 
