@@ -79,6 +79,19 @@ require_once("../db/connect.php");
             });
             });
       </script>
+
+      <script type="text/javascript">
+        window.onhashchange = function()
+        { 
+        //code  i hope this works xd no idea what this does I guess it listens to url changes
+            const reloaded = urlParams.get('reloaded'); //where was it xd
+            if (reloaded == 'true')
+            {
+                openSignup(); //no idea if this will work
+                alert("This got triggered");
+            }
+        }
+      </script>
 </body>
 
 </html>
