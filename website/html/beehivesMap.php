@@ -26,7 +26,6 @@
                     <button class="signup-btn" type="button" onclick="openSignup()">Sign up</button>
                     <button class="signin-btn" type="button" onclick="openLogin()">Sign in</button>
                 </span>
-                
             </nav>
         </header>
         <main>
