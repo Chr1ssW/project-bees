@@ -30,7 +30,6 @@
         </header>
         <main>
             <div id = "myMap">
-            <p>Test to see if it can be seen on webpage</p>
             </div>
         </main>
         <footer></footer>
