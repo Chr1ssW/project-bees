@@ -2,8 +2,8 @@
     "version": 3,
     "mappings": "AAAA,AAAA,KAAK,CAAA;EACD,MAAM,EAAE,GAAG;EACX,KAAK,EAAE,IAAI;CACd",
     "sources": [
-        "Leaflet.scss"
+        "leaflet.scss"
     ],
     "names": [],
-    "file": "Leaflet.css"
+    "file": "leaflet.css"
 }
