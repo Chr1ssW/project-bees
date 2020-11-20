@@ -13,6 +13,19 @@
     require("../db/connect.php");
     require_once("sidebarAndPopup.html");
     ?>
+    <div class="popup-screen" id="addHive-container">
+        <div class="popup-form">
+            <div class="beehiveAdd">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeAddHive()">&times;</a>
+                <!--Need to change it to post in the future-->
+                <form method="POST" action="../db/addBeehiveManual.php" id="addBeeHive">
+                    <input type="text" name="beehiveLocation" placeholder="Beehive location" id="locationIn">
+                    <input type="text" name="sensorNumber" placeholder="SensorNumber" id="deviceInf">
+                </form>
+            </div>
+            <button type="submit" name="submit" form="addBeeHive">Add new hive</button>
+        </div>
+    </div>
     <div id="main">
         <header>
             <nav>
@@ -36,17 +49,10 @@
                 </div>
                 <?php
 
-                echo $_SESSION['userID'];
-                echo 12;
-                $userID = "";
-                $beeHiveID = "";
-                $inputID = "";
-                $userID = 12;
-                // $userName = $_SESSION['userName'];
+                $userID = $_SESSION['userID'];
+
 
                 //We select userID, beeHives assigned to userID and readings from those beeHives
-
-                // $sqlSelect = "SELECT `name` FROM user";
                 $sqlSelect = "SELECT rid.internalTemp,rid.externalTemp,rid.humidity,rid.weight,rid.timeStamp FROM user, beehive as bee, readings as rid WHERE bee.beeHive_ID=rid.beeHive_ID 
         AND bee.user_ID=$userID";
                 if ($stmtSelect = mysqli_prepare($conn, $sqlSelect)) {
@@ -54,9 +60,10 @@
                     if ($executeSelect == FALSE) {
                         echo mysqli_error($conn);
                     }
-                    // mysqli_stmt_bind_result($stmtSelect, $userName);
                     mysqli_stmt_bind_result($stmtSelect, $internalTemp, $externalTemp, $humidity, $weight, $timestamp);
                     mysqli_stmt_store_result($stmtSelect);
+
+                    //We check if there are any beehives assigned to user
                     if (mysqli_stmt_num_rows($stmtSelect) == 0) {
                         echo "No beehives found";
                     } else {
@@ -70,6 +77,7 @@
                     </div>";
                         }
                     }
+                    mysqli_stmt_close($stmtSelect);
                 }
                 ?>
             </div>

@@ -10,9 +10,9 @@ if (isset($_POST['submit'])) {
     if (empty($username) || empty($passwd)) {
         echo "You forgot to fill out one of the inputs";
     } else {
-        $findUser = "SELECT `user_ID`,`name`,passwd,email  FROM user WHERE name=?";
+        $findUser = "SELECT `user_ID`,`name`,passwd,email  FROM user WHERE email=? OR name=?";
         if ($stmtPrepareToFindUser = mysqli_prepare($conn, $findUser)) {
-            mysqli_stmt_bind_param($stmtPrepareToFindUser, 's', $username);
+            mysqli_stmt_bind_param($stmtPrepareToFindUser, 'ss', $username, $username);
 
             if (mysqli_stmt_execute($stmtPrepareToFindUser) == FALSE) {
                 echo mysqli_error($conn);
@@ -24,16 +24,16 @@ if (isset($_POST['submit'])) {
                 echo "User not found";
             } else {
                 while (mysqli_stmt_fetch($stmtPrepareToFindUser)) {
-                    // $passwdCheck = password_verify($passwd, $foundUserPwd);
-                    if (md5($foundUserPwd) == md5($passwd)) {
-                        echo "Wrong password";
-                    } else {
-                        // session_start();
+
+
+                    if (password_verify($passwd, $foundUserPwd)) {
                         $_SESSION['userID'] = $foundUserID;
                         $_SESSION['userName'] = $foundUsername;
                         $_SESSION['userEmail'] = $foundUserEmail;
-                        echo $_SESSION['userID'];
-                        // header('Location:../html/index.php?SuccessLoggingIn');
+                        $_SESSION['loggedin'] = true;
+                        header('Location:../html/index.php?SuccessLoggingIn');
+                    } else {
+                        echo "Wrong password";
                     }
                 }
             }

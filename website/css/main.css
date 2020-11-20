@@ -122,7 +122,7 @@ main {
   background-color: #EDEDED;
 }
 
-main map {
+main myMap {
   width: 1950;
   height: 750;
 }
