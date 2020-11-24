@@ -1,14 +1,21 @@
 <?php
-require("connect.php");
-if (isset($_POST['submit'])) {
+// require("connect.php");
+$loginErrors = array();
+if (isset($_POST['signin'])) {
     $username = htmlentities($_POST['userName']);
     $passwd = htmlentities($_POST['passwd']);
-    // $username = strtolower($username);
+
     trim($username);
     trim($passwd);
 
-    if (empty($username) || empty($passwd)) {
-        echo "You forgot to fill out one of the inputs";
+    if (empty($username)) {
+        // header('Location:../html/index.php?error=Username_Or_Email_is_required');
+        // exit();
+        array_push($loginErrors, "Username Or Email is required");
+    } else if (empty($passwd)) {
+        // header('Location:../html/index.php?error=Password_is_required');
+        // exit();
+        array_push($loginErrors, "Password is required");
     } else {
         $findUser = "SELECT `user_ID`,`name`,passwd,email  FROM user WHERE email=? OR name=?";
         if ($stmtPrepareToFindUser = mysqli_prepare($conn, $findUser)) {
@@ -17,29 +24,29 @@ if (isset($_POST['submit'])) {
             if (mysqli_stmt_execute($stmtPrepareToFindUser) == FALSE) {
                 echo mysqli_error($conn);
             }
-            // $foundUserPwd = 's';
             mysqli_stmt_bind_result($stmtPrepareToFindUser, $foundUserID, $foundUsername, $foundUserPwd, $foundUserEmail);
             mysqli_stmt_store_result($stmtPrepareToFindUser);
             if (mysqli_stmt_num_rows($stmtPrepareToFindUser) == 0) {
-                echo "User not found";
+                // header('Location:../html/index.php?error=User_with_username/email_' . $username . '_does_not_exist');
+                // exit();
+                array_push($loginErrors, "User with username/email " . $username . " does not exist");
             } else {
                 while (mysqli_stmt_fetch($stmtPrepareToFindUser)) {
-
-
                     if (password_verify($passwd, $foundUserPwd)) {
                         $_SESSION['userID'] = $foundUserID;
                         $_SESSION['userName'] = $foundUsername;
                         $_SESSION['userEmail'] = $foundUserEmail;
                         $_SESSION['loggedin'] = true;
                         header('Location:../html/index.php?SuccessLoggingIn');
+                        exit();
                     } else {
-                        echo "Wrong password";
+                        // header('Location:../html/index.php?error=Wrong_password');
+                        // exit();
+                        array_push($loginErrors, "Wrong password");
                     }
                 }
             }
             mysqli_stmt_close($stmtPrepareToFindUser);
         }
     }
-} else {
-    echo "Illegal entrance";
 }

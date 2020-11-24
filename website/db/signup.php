@@ -1,5 +1,5 @@
 <?php
-include("connect.php");
+// include("connect.php");
 $username = "";
 $email    = "";
 $errors = array();

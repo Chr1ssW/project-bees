@@ -52,7 +52,7 @@
             <img src="../resources/img/account.png" alt="Account">
         </div>
         <!--Need to change it to post in the future-->
-        <form method="POST" action="../db/login.php?reloaded=signin" id="loginForm">
+        <form method="POST" action="index.php?reloaded=signin" id="loginForm">
             <input type="text" placeholder="Username/Email" name="userName" id="userName">
             <input type="password" placeholder="Password" name="passwd" id="password">
             <span id="remember-container">
@@ -61,8 +61,18 @@
             </span>
             <!-- <input type="submit" name="submit"> -->
         </form>
-        <div class="invalid-response">The combination of email address and password is not valid!</div>
-        <button type="submit" name="submit" form="loginForm">Sign in</button>
+        <div class="invalid-response">
+            <?php
+            // if (isset($_GET['error'])) {
+            //     echo '<p>' . $_GET['error'] . '</p>';
+            // }
+            include("../db/login.php");
+            foreach ($loginErrors as $loginError) {
+                echo $loginError . '<br>';
+            }
+            ?>
+        </div>
+        <button type="submit" name="signin" form="loginForm" onsubmit="openLogin()">Sign in</button>
     </div>
 </div>
 <div class="popup-screen" id="signup-container">
@@ -81,7 +91,7 @@
         <div class="invalid-response">
             <?php
             include("../db/signup.php");
-            foreach($errors as $error) {
+            foreach ($errors as $error) {
                 echo $error . '<br>';
             }
             ?>

@@ -11,7 +11,7 @@
 <body>
     <?php
     require("../db/connect.php");
-    require_once("sidebarAndPopup.html");
+    require_once("sidebarAndPopup.php");
     ?>
     <div class="popup-screen" id="addHive-container">
         <div class="popup-form">
