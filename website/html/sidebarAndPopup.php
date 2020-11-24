@@ -26,7 +26,7 @@
             </a>
         </li>
         <li>
-            <a href="userBeehives.php">
+            <a href="userBeeHives.php">
                 <span class="icon"><img src="../resources/img/mybeehives.png" alt="My beehives"></span>
                 <span class="title">My beehives</span>
             </a>
