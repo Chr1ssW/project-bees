@@ -13,8 +13,8 @@ if (isset($_POST['signup'])) {
     if (empty($username)) {
         array_push($errors, "Username is required");
     }
-    if (empty($email)) {
-        array_push($errors, "Email is required");
+    if (empty($email || !filter_var($email, FILTER_VALIDATE_EMAIL))) {
+        array_push($errors, "Valid email address is required");
     }
     if (empty($password_1)) {
         array_push($errors, "Password is required");
