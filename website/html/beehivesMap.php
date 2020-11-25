@@ -31,8 +31,9 @@ if(!isset($_SESSION['loggedin'])){
                 </nav>
             </header>
             <main>
+            <p>Is this visible?</p>
             <a href= "index.php">
-                            <img src = "../resources/img/marker" alt = "logo">
+                <img src = "../resources/img/logo.png" alt = "logo">
             </a>
                 <div id="myMap"></div>
             </main>
