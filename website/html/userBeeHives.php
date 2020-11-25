@@ -1,3 +1,10 @@
+<?php
+require("../db/connect.php");
+if(!isset($_SESSION['loggedin'])){
+    header('Location:../html/index.php');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +17,6 @@
 
     <body>
         <?php
-        require("../db/connect.php");
         require_once("sidebarAndPopup.php");
         ?>
         <div class="popup-screen" id="addHive-container">
