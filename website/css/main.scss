@@ -89,10 +89,14 @@ main{
     height: 80vh;
     width: 100%;
     background-color: $bgColor;
-    myMap{
-        width: 1950;
-        height: 750;
-    }
+}
+
+#myMap{
+    top: 5vh;
+    height: 70vh;
+    width: 80%;
+    margin: 0 auto;
+    z-index: 0;
 }
 
 .slideshow{
