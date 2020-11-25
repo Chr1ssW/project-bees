@@ -6,4 +6,11 @@ L.tileLayer(tilesProvider, {
     maxZoom: 18,
 }).addTo(myMap)
 
-let marker = L.marker([52.77823, 6.91137]).addTo(myMap)
+let iconMarker = L.icon({
+    iconURL: 'marker.png',
+    iconSize: [60,60],
+    iconAnchor: [30,60]
+})
+
+let marker = L.marker([52.77823, 6.91137], { icon: iconMarkers}).addTo(myMap)
+
