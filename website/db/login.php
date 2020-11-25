@@ -53,7 +53,4 @@ if (isset($_POST['signin'])) {
             mysqli_stmt_close($stmtPrepareToFindUser);
         }
     }
-} else {
-    header('Location:../html/index.php?error=IllegalEntrance');
-    exit();
 }
