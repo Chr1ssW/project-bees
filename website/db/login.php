@@ -39,10 +39,10 @@ if (isset($_POST['signin'])) {
                         $_SESSION['userName'] = $foundUsername;
                         $_SESSION['userEmail'] = $foundUserEmail;
                         $_SESSION['loggedin'] = true;
-                        mysqli_stmt_close($stmtPrepareToFindUser);
-                        mysqli_close($conn);
-                        header('Location:../html/index.php?SuccessLoggingIn');
-                        exit();
+
+                        echo "<script> window.location.replace('index.php')</script>";
+                        // header('Location:../html/index.php?SuccessLoggingIn');
+                        // die();
                     } else {
                         // header('Location:../html/index.php?error=Wrong_password');
                         // exit();
@@ -53,4 +53,5 @@ if (isset($_POST['signin'])) {
             mysqli_stmt_close($stmtPrepareToFindUser);
         }
     }
+    mysqli_close($conn);
 }

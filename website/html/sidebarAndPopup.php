@@ -59,6 +59,7 @@
         <div class="loginPic">
             <img src="../resources/img/account.png" alt="Account">
         </div>
+
         <!--Need to change it to post in the future-->
         <form method="POST" action="index.php?reloaded=signin" id="loginForm">
             <input type="text" placeholder="Username/Email" name="userName" id="userName">
@@ -71,16 +72,13 @@
         </form>
         <div class="invalid-response">
             <?php
-            // if (isset($_GET['error'])) {
-            //     echo '<p>' . $_GET['error'] . '</p>';
-            // }
-            include("../db/login.php");
+            require_once("../db/login.php");
             foreach ($loginErrors as $loginError) {
                 echo $loginError . '<br>';
             }
             ?>
         </div>
-        <button type="submit" name="signin" form="loginForm" onsubmit="openLogin()">Sign in</button>
+        <button type="submit" name="signin" form="loginForm">Sign in</button>
     </div>
 </div>
 <div class="popup-screen" id="signup-container">
