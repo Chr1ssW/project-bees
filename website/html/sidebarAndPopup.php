@@ -1,18 +1,23 @@
 <div id="sidebar">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <ul>
-        <li class="mobile-signin" onclick="openLogin()">
-            <a href="#">
-                <span class="icon"><img src="../resources/img/login.png" alt="account"></span>
-                <span class="title">Sign in</span>
-            </a>
-        </li>
-        <li class="mobile-signup" onclick="openSignup()">
-            <a href="#">
-                <span class="icon"><img src="../resources/img/signup.png" alt="account"></span>
-                <span class="title">Sign up</span>
-            </a>
-        </li>
+        <script>
+            if (screen.width < 570 && Boolean(<?php echo (!isset($_SESSION['loggedin'])) ?>)) {
+            var lines = '<li class="mobile-signin" onclick="openLogin()">';
+            lines += '<a href="#">';
+            lines += '<span class="icon"><img src="../resources/img/login.png" alt="account"></span>';
+            lines += '<span class="title">Sign in</span>';
+            lines += '</a>';
+            lines += '</li>';
+            lines += '<li class="mobile-signup" onclick="openSignup()">';
+            lines += '<a href="#">';
+            lines += '<span class="icon"><img src="../resources/img/signup.png" alt="account"></span>';
+            lines += '<span class="title">Sign up</span>';
+            lines += '</a>';
+            lines += '</li>';
+            document.write(lines);
+            }
+            </script>
         <li>
             <a href="#">
                 <span class="icon"><img src="../resources/img/account.png" alt="Account"></span>
