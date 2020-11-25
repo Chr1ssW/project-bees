@@ -12,5 +12,5 @@ let iconMarker = L.icon({
     iconAnchor: [30,60]
 })
 
-let marker = L.marker([52.77823, 6.91137], { icon: iconMarkers}).addTo(myMap)
+let marker = L.marker([52.785804, 6.897585], { icon: iconMarkers}).addTo(myMap)
 
