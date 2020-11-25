@@ -3,51 +3,54 @@
     <ul>
         <script>
             if (screen.width < 570 && Boolean(<?php echo (!isset($_SESSION['loggedin'])) ?>)) {
-            var lines = '<li class="mobile-signin" onclick="openLogin()">';
-            lines += '<a href="#">';
-            lines += '<span class="icon"><img src="../resources/img/login.png" alt="account"></span>';
-            lines += '<span class="title">Sign in</span>';
-            lines += '</a>';
-            lines += '</li>';
-            lines += '<li class="mobile-signup" onclick="openSignup()">';
-            lines += '<a href="#">';
-            lines += '<span class="icon"><img src="../resources/img/signup.png" alt="account"></span>';
-            lines += '<span class="title">Sign up</span>';
-            lines += '</a>';
-            lines += '</li>';
-            document.write(lines);
+                var lines = '<li class="mobile-signin" onclick="openLogin()">';
+                lines += '<a href="#">';
+                lines += '<span class="icon"><img src="../resources/img/login.png" alt="account"></span>';
+                lines += '<span class="title">Sign in</span>';
+                lines += '</a>';
+                lines += '</li>';
+                lines += '<li class="mobile-signup" onclick="openSignup()">';
+                lines += '<a href="#">';
+                lines += '<span class="icon"><img src="../resources/img/signup.png" alt="account"></span>';
+                lines += '<span class="title">Sign up</span>';
+                lines += '</a>';
+                lines += '</li>';
+                document.write(lines);
+            } else {
+
+                var lines = '<li>';
+                lines += '<a href="#">';
+                lines += '<span class="icon"><img src="../resources/img/account.png" alt="Account"></span>';
+                lines += '<span class="title">Account</span>';
+                lines += '</a>';
+                lines += '</li>';
+                lines += '<li>';
+                lines += '<a href="#">';
+                lines += '<span class="icon"><img src="../resources/img/dashboard.png" alt="Dashboard"></span>';
+                lines += '<span class="title">Dashboard</span>';
+                lines += '</a>';
+                lines += '</li>';
+                lines += '<li>';
+                lines += '<a href="userBeeHives.php">';
+                lines += '<span class="icon"><img src="../resources/img/mybeehives.png" alt="My beehives"></span>';
+                lines += '<span class="title">My beehives</span>';
+                lines += '</a>';
+                lines += '</li>';
+                lines += '<li>';
+                lines += '<a href="beehivesMap.php">';
+                lines += '<span class="icon"><img src="../resources/img/map.png" alt="Beehves Map"></span>';
+                lines += '<span class="title">Map</span>';
+                lines += '</a>';
+                lines += '</li>';
+                lines += '<li class="logout">';
+                lines += '<a href="../db/logout.php">';
+                lines += '<span class="icon"><img src="../resources/img/logout.png" alt="account"></span>';
+                lines += '<span class="title">Log out</span>';
+                lines += '</a>';
+                lines += '</li>';
+                document.write(lines);
             }
-            </script>
-        <li>
-            <a href="#">
-                <span class="icon"><img src="../resources/img/account.png" alt="Account"></span>
-                <span class="title">Account</span>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <span class="icon"><img src="../resources/img/dashboard.png" alt="Dashboard"></span>
-                <span class="title">Dashboard</span>
-            </a>
-        </li>
-        <li>
-            <a href="userBeeHives.php">
-                <span class="icon"><img src="../resources/img/mybeehives.png" alt="My beehives"></span>
-                <span class="title">My beehives</span>
-            </a>
-        </li>
-        <li>
-            <a href="beehivesMap.php">
-                <span class="icon"><img src="../resources/img/map.png" alt="Beehves Map"></span>
-                <span class="title">Map</span>
-            </a>
-        </li>
-        <li class="logout">
-            <a href="../db/logout.php">
-                <span class="icon"><img src="../resources/img/logout.png" alt="account"></span>
-                <span class="title">Log out</span>
-            </a>
-        </li>
+        </script>
     </ul>
 </div>
 <div class="popup-screen" id="login-container">

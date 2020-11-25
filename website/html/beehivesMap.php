@@ -11,6 +11,7 @@
 
     <body>
         <?php
+        require("../db/connect.php");
         require_once("sidebarAndPopup.php");
         ?>
         <div id="main">
