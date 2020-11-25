@@ -27,6 +27,7 @@ if(!isset($_SESSION['loggedin'])){
                             <img src="../resources/img/menu.png" alt="menu">
                         </a>
                         <h2>Beehive Monitoring System</h2>
+                         <<a href= "index.php" img src="../resources/img/logo.png" alt ="logo">>
                     </span>
                 </nav>
             </header>
