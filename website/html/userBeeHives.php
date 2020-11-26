@@ -40,7 +40,7 @@ if(!isset($_SESSION['loggedin'])){
                             <img src="../resources/img/menu.png" alt="menu">
                         </a>
                         <a href= "index.php">
-                            <img src ="../resources/img/logo.png" alt ="logo">
+                            <img src ="../resources/img/beeLogo.png" alt ="logo">
                         </a>
                         <h2>Beehive Monitoring System</h2>
                     </span>
