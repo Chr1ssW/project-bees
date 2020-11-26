@@ -12,11 +12,13 @@ if (isset($_POST['signin'])) {
         // header('Location:../html/index.php?error=Username_Or_Email_is_required');
         // exit();
         array_push($loginErrors, "Username Or Email is required");
-    } else if (empty($passwd)) {
+    }
+    if (empty($passwd)) {
         // header('Location:../html/index.php?error=Password_is_required');
         // exit();
         array_push($loginErrors, "Password is required");
-    } else {
+    }
+    if (count($loginErrors) == 0) {
         $findUser = "SELECT `user_ID`,`name`,passwd,email  FROM user WHERE email=? OR name=?";
         if ($stmtPrepareToFindUser = mysqli_prepare($conn, $findUser)) {
             mysqli_stmt_bind_param($stmtPrepareToFindUser, 'ss', $username, $username);
@@ -37,8 +39,10 @@ if (isset($_POST['signin'])) {
                         $_SESSION['userName'] = $foundUsername;
                         $_SESSION['userEmail'] = $foundUserEmail;
                         $_SESSION['loggedin'] = true;
-                        header('Location:../html/index.php?SuccessLoggingIn');
-                        exit();
+
+                        echo "<script> window.location.replace('index.php')</script>";
+                        // header('Location:../html/index.php?SuccessLoggingIn');
+                        // die();
                     } else {
                         // header('Location:../html/index.php?error=Wrong_password');
                         // exit();
@@ -49,4 +53,5 @@ if (isset($_POST['signin'])) {
             mysqli_stmt_close($stmtPrepareToFindUser);
         }
     }
+    mysqli_close($conn);
 }
