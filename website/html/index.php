@@ -29,6 +29,9 @@ require_once("../db/connect.php");
                                 document.write(lines);
                             }
                         </script>
+                        <a href= "index.php">
+                            <img src ="../resources/img/logo.png" alt ="logo">
+                        </a>
                         <h2>Beehive Monitoring System</h2>
                     </span>
                     <script>

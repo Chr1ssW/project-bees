@@ -60,7 +60,6 @@
             <img src="../resources/img/account.png" alt="Account">
         </div>
 
-        <!--Need to change it to post in the future-->
         <form method="POST" action="index.php?reloaded=signin" id="loginForm">
             <input type="text" placeholder="Username/Email" name="userName" id="userName">
             <input type="password" placeholder="Password" name="passwd" id="password">
@@ -87,7 +86,6 @@
         <div class="loginPic">
             <img src="../resources/img/account.png" alt="Account">
         </div>
-        <!--Need to change it to post in the future-->
         <form method="POST" action="index.php?reloaded=signup" id="signupForm">
             <input type="text" placeholder="Username" name="userNameIn">
             <input type="text" placeholder="Email address" name="emailAddressIn">

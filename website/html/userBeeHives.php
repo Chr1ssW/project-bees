@@ -39,6 +39,9 @@ if(!isset($_SESSION['loggedin'])){
                         <a href="javascript:void(0)" onclick="openNav()">
                             <img src="../resources/img/menu.png" alt="menu">
                         </a>
+                        <a href= "index.php">
+                            <img src ="../resources/img/logo.png" alt ="logo">
+                        </a>
                         <h2>Beehive Monitoring System</h2>
                     </span>
                 </nav>
