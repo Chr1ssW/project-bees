@@ -30,7 +30,7 @@ require_once("../db/connect.php");
                             }
                         </script>
                         <a href= "index.php">
-                            <img src ="../resources/img/logo.png" alt ="logo">
+                            <img src ="../resources/img/beeLogo.png" alt ="logo">
                         </a>
                         <h2>Beehive Monitoring System</h2>
                     </span>
