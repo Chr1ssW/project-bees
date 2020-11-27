@@ -3,6 +3,38 @@ require("../db/connect.php");
 if(!isset($_SESSION['loggedin'])){
     header('Location:../html/index.php');
 }
+    /** I need the array with the locations here */
+    $key = "8HCeTS3WrCGV18OJpEJSH5jvVzGLRkVu";
+    $location = array("NL Emmen De Veenkampen 5",
+                        "NL Emmen Van Schaikweg 94",
+                        "HU Nyiregyhaza Varosmajor utca 15",
+                        "NL Emmen Wilhelminastraat 28",
+                        "Smedingeslag 12 7824hk");
+
+    $markerSting = "";
+    $mapjsContent = file_get_contents("../js/emptymap.js");
+    
+    foreach($location as $address)
+    {
+        $addressURL = str_replace(" ", "+", $address);
+        $api_url = "http://www.mapquestapi.com/geocoding/v1/address?key=$key&location=$addressURL&outFormat=json&maxResults=1";
+        
+        $location_json = file_get_contents($api_url);
+        $location_array = json_decode($location_json, true);
+    
+        $lat = $location_array["results"][0]["locations"][0]["displayLatLng"]["lat"];
+        $lng = $location_array["results"][0]["locations"][0]["displayLatLng"]["lng"];
+
+        $markerSting .= "L.marker([$lat, $lng]).addTo(myMap).bindPopup('$address');" . PHP_EOL;
+       
+    }
+
+    $writeFile = $mapjsContent . PHP_EOL . $markerSting;
+
+    $mapjs = fopen("../js/map.js", "w");
+    fwrite($mapjs, $writeFile);
+    fclose($mapjs);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
