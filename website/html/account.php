@@ -48,7 +48,7 @@ require_once("../db/connect.php");
                 <main>
                     <!--My idea for this form is that it is alredy filled in with the clients information and create
                         a pop-up form so that he can change the data. Something like the Update we did in PHP2-->
-                    <form action = "#" method = "GET" name="accountForm">
+                    <form action = "#" method = "POST" name="accountForm">
                     <label for="username">Username:</label><br>
                     <input type="text" id="username" name="username">
                     <label for="email">Email:</label>
