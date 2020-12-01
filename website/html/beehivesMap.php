@@ -1,8 +1,5 @@
 <?php
 require("../db/connect.php");
-if (!isset($_SESSION['loggedin'])) {
-    header('Location:../html/index.php');
-}
 /** I need the array with the locations here */
 $location = array(
     // "NL Emmen De Veenkampen 5",

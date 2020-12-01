@@ -21,13 +21,9 @@ require_once("../db/connect.php");
             <header>
                 <nav>
                     <span>
-                        <script>
-                            if (screen.width < 570 || Boolean(<?php echo (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) ?>)) {
-                                var lines = '<a href="javascript:void(0)" onclick="openNav()">';
-                                lines += '<img src="../resources/img/menu.png" alt="menu">';
-                                lines += '</a>';
-                                document.write(lines);
-                            }
+                        <a href="javascript:void(0)" onclick="openNav()">
+                            <img src="../resources/img/menu.png" alt="menu">
+                        </a>
                         </script>
                         <a href= "index.php">
                             <img src ="../resources/img/beeLogo.png" alt ="logo">
@@ -42,68 +38,68 @@ require_once("../db/connect.php");
                             lines += '</span>';
                             document.write(lines);
                         }
-                        </script>
-                    </nav>
-                </header>
-                <main>
-                    <div class="slideshow">
-                        <div class="slide">
-                            <div class="text">
-                                <h1>Welcome!</h1>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                                    sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna
-                                    aliquam erat volutpat. Ut wisi enim ad minim veniam.</p>
-                            </div>
-                            <img src="../resources/img/slide1.png" alt="Bee">
+                    </script>
+                </nav>
+            </header>
+            <main>
+                <div class="slideshow">
+                    <div class="slide">
+                        <div class="text">
+                            <h1>Welcome!</h1>
+                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                                sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna
+                                aliquam erat volutpat. Ut wisi enim ad minim veniam.</p>
                         </div>
-                        <div class="slide">
-                            <div class="text">
-                                <h1>Welcome!</h1>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                                    sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna
-                                    aliquam erat volutpat. Ut wisi enim ad minim veniam.</p>
-                            </div>
-                            <img src="../resources/img/slide1.png" alt="Bee">
-                        </div>
-                        <div class="slide">
-                            <div class="text">
-                                <h1>Made by students</h1>
-                                <p>This system was designed and created by students of NHLStenden University of
-                                    Applied Sciences.</p>
-                            </div>
-                            <img src="../resources/img/slide3.png" alt="Bee">
-                        </div>
+                        <img src="../resources/img/slide1.png" alt="Bee">
                     </div>
-                </main>
-                <footer></footer>
-            </div>
+                    <div class="slide">
+                        <div class="text">
+                            <h1>Welcome!</h1>
+                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                                sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna
+                                aliquam erat volutpat. Ut wisi enim ad minim veniam.</p>
+                        </div>
+                        <img src="../resources/img/slide1.png" alt="Bee">
+                    </div>
+                    <div class="slide">
+                        <div class="text">
+                            <h1>Made by students</h1>
+                            <p>This system was designed and created by students of NHLStenden University of
+                                Applied Sciences.</p>
+                        </div>
+                        <img src="../resources/img/slide3.png" alt="Bee">
+                    </div>
+                </div>
+            </main>
+            <footer></footer>
+        </div>
 
-            <script src="../js/scripts.js"></script>
-            <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-            <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-            <script type="text/javascript" src="../js/slick.min.js"></script>
+        <script src="../js/scripts.js"></script>
+        <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script type="text/javascript" src="../js/slick.min.js"></script>
 
-            <script type="text/javascript">
-                            $(document).ready(function () {
-                                $('.slideshow').slick({
-                                    arrows: false,
-                                    dots: true,
-                                    autoplay: true,
-                                    autoplaySpeed: 3000
-                                });
-                            });
+        <script type="text/javascript">
+                    $(document).ready(function () {
+                        $('.slideshow').slick({
+                            arrows: false,
+                            dots: true,
+                            autoplay: true,
+                            autoplaySpeed: 3000
+                        });
+                    });
 
-                            const queryString = window.location.search;
-                            const urlParams = new URLSearchParams(queryString);
-                            const reloaded = urlParams.get('reloaded')
-                            console.log(reloaded);
+                    const queryString = window.location.search;
+                    const urlParams = new URLSearchParams(queryString);
+                    const reloaded = urlParams.get('reloaded')
+                    console.log(reloaded);
 
-                            if (reloaded == 'signin') {
-                                openLogin();
-                            } else if (reloaded == 'signup') {
-                                openSignup();
-                            }
-            </script>
-        </body>
+                    if (reloaded == 'signin') {
+                        openLogin();
+                    } else if (reloaded == 'signup') {
+                        openSignup();
+                    }
+        </script>
+    </body>
 
-    </html>
+</html>
