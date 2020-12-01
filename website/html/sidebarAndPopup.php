@@ -13,37 +13,53 @@
                 <span class="title">Sign up</span>
             </a>
         </li>
-
-        <li>
-            <a href="#">
-                <span class="icon"><img src="../resources/img/account.png" alt="Account"></span>
-                <span class="title">Account</span>
-            </a>
-        </li>
+        <script>
+            if (Boolean(<?php echo (isset($_SESSION['loggedin'])) ?>)) {
+                var lines = '<li>';
+                lines += '<a href="#">';
+                lines += '<span class="icon"><img src="../resources/img/account.png" alt="Account"></span>';
+                lines += '<span class="title">Account</span>';
+                lines += '</a>';
+                lines += '</li>';
+                document.write(lines);
+            }
+        </script>
         <li>
             <a href="#">
                 <span class="icon"><img src="../resources/img/dashboard.png" alt="Dashboard"></span>
                 <span class="title">Dashboard</span>
             </a>
         </li>
-        <li>
-            <a href="userBeeHives.php">
-                <span class="icon"><img src="../resources/img/mybeehives.png" alt="My beehives"></span>
-                <span class="title">My beehives</span>
-            </a>
-        </li>
+
+        <script>
+            if (Boolean(<?php echo (isset($_SESSION['loggedin'])) ?>)) {
+                var lines = '<li>';
+                lines += '<a href="userBeeHives.php">';
+                lines += '<span class="icon"><img src="../resources/img/mybeehives.png" alt="My beehives"></span>';
+                lines += '<span class="title">My beehives</span>';
+                lines += '</a>';
+                lines += '</li>';
+                document.write(lines);
+            }
+        </script>
         <li>
             <a href="beehivesMap.php">
                 <span class="icon"><img src="../resources/img/map.png" alt="Beehves Map"></span>
                 <span class="title">Map</span>
             </a>
         </li>
-        <li class="logout">
-            <a href="../db/logout.php">
-                <span class="icon"><img src="../resources/img/logout.png" alt="account"></span>
-                <span class="title">Log out</span>
-            </a>
-        </li>
+
+        <script>
+            if (Boolean(<?php echo (isset($_SESSION['loggedin'])) ?>)) {
+                var lines = '<li class="logout">';
+                lines += '<a href="../db/logout.php">';
+                lines += '<span class="icon"><img src="../resources/img/logout.png" alt="account"></span>';
+                lines += '<span class="title">Log out</span>';
+                lines += '</a>';
+                lines += '</li>';
+                document.write(lines);
+            }
+        </script>
     </ul>
 </div>
 <div class="popup-screen" id="login-container">
@@ -51,26 +67,26 @@
         <a href="javascript:void(0)" class="closebtn" onclick="closeLogin()">&times;</a>
         <div class="loginPic">
             <img src="../resources/img/account.png" alt="Account">
-        </div>
+            </div>
 
-        <form method="POST" action="index.php?reloaded=signin" id="loginForm">
-            <input type="text" placeholder="Username/Email" name="userName" id="userName">
-            <input type="password" placeholder="Password" name="passwd" id="password">
-            <span id="remember-container">
-                <input type="checkbox" id="remember">
-                <label for="remember">Remember me</label>
-            </span>
-            <!-- <input type="submit" name="submit"> -->
-        </form>
-        <div class="invalid-response">
-            <?php
-            require_once("../db/login.php");
-            foreach ($loginErrors as $loginError) {
-                echo $loginError . '<br>';
-            }
-            ?>
-        </div>
-        <button type="submit" name="signin" form="loginForm">Sign in</button>
+            <form method="POST" action="index.php?reloaded=signin" id="loginForm">
+                <input type="text" placeholder="Username/Email" name="userName" id="userName">
+                <input type="password" placeholder="Password" name="passwd" id="password">
+                <span id="remember-container">
+                    <input type="checkbox" id="remember">
+                    <label for="remember">Remember me</label>
+                </span>
+                <!-- <input type="submit" name="submit"> -->
+            </form>
+            <div class="invalid-response">
+                <?php
+                require_once("../db/login.php");
+                foreach ($loginErrors as $loginError) {
+                    echo $loginError . '<br>';
+                }
+                ?>
+            </div>
+            <button type="submit" name="signin" form="loginForm">Sign in</button>
     </div>
 </div>
 <div class="popup-screen" id="signup-container">
