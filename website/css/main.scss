@@ -352,6 +352,18 @@ button:focus{
     display: flex;
     justify-content: space-between;
 }
+
+.change-btn{
+    border-radius: 10rem;
+    height: 4vh;
+    width: 10vh;
+    font-size: 2vh;
+    border: 2px solid $mainColor;
+
+    &:hover{
+        @include yellowButton();
+    }
+}
 //Tablet responsiveness
 @media screen and (max-width: 1050px)
 {
