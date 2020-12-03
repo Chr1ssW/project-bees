@@ -21,14 +21,9 @@ require_once("../db/connect.php");
             <header>
                 <nav>
                     <span>
-                        <script>
-                            if (screen.width < 570 || Boolean(<?php echo (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) ?>)) {
-                                var lines = '<a href="javascript:void(0)" onclick="openNav()">';
-                                lines += '<img src="../resources/img/menu.png" alt="menu">';
-                                lines += '</a>';
-                                document.write(lines);
-                            }
-                        </script>
+                        <a href="javascript:void(0)" onclick="openNav()">
+                            <img src="../resources/img/menu.png" alt="menu">
+                        </a>
                         <a href= "index.php">
                             <img src ="../resources/img/beeLogo.png" alt ="logo">
                         </a>
@@ -52,15 +47,15 @@ require_once("../db/connect.php");
                                 <div id="form-header"><h1>Account settings</h1></div>
                                 <div class="field-container">
                                     <span class="user-info"><h3>Username:</h3><p>(username)</p></span>
-                                    <button class="signup-btn" type="button" onclick="openLogin()">Change</button>
+                                    <button class="change-btn" type="button" onclick="openUsernameChange()">Change</button>
                                 </div>
                                 <div class="field-container">
                                     <span class="user-info"><h3>Email:</h3><p>(email)</p></span>
-                                    <button class="signup-btn" type="button" onclick="openLogin()">Change</button>
+                                    <button class="change-btn" type="button" onclick="openLogin()">Change</button>
                                 </div>
                                 <div class="field-container">
                                     <span class="user-info"><h3>Password:</h3><p>(username)</p></span>
-                                    <button class="signup-btn" type="button" onclick="openLogin()">Change</button>
+                                    <button class="change-btn" type="button" onclick="openLogin()">Change</button>
                                 </div>
                             </form>
                         </div>

@@ -24,7 +24,6 @@ require_once("../db/connect.php");
                         <a href="javascript:void(0)" onclick="openNav()">
                             <img src="../resources/img/menu.png" alt="menu">
                         </a>
-                        </script>
                         <a href= "index.php">
                             <img src ="../resources/img/beeLogo.png" alt ="logo">
                         </a>
