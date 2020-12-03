@@ -38,6 +38,49 @@ require_once("../db/connect.php");
                 <button type="submit" name="usernameChange" form="usernameForm">Update</button>
             </div>
         </div>
+        <div class="popup-screen" id="email-container">
+            <div class="popup-form">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeEmailChange()">&times;</a>
+                <div class="change-form">
+                    <form method="POST" action="account.php?reloaded=usernameChanged" id="usernameForm">
+                        <input type="text" placeholder="New email" name="email" id="email">
+                        <input type="password" placeholder="Password" name="passwd" id="passwd">
+                        <input type="password" placeholder="Password again" name="passwdrep" id="passwdrep">
+                    </form>
+                </div>
+                <div class="invalid-response">
+                            <?php
+                            require_once("../db/login.php");
+                            foreach ($loginErrors as $loginError) {
+                                echo $loginError . '<br>';
+                            }
+                            ?>
+                </div>
+                <button type="submit" name="usernameChange" form="usernameForm">Update</button>
+            </div>
+        </div>
+        <div class="popup-screen" id="password-container">
+            <div class="popup-form">
+                <a href="javascript:void(0)" class="closebtn" onclick="closePasswordChange()">&times;</a>
+                <div class="change-form">
+                    <form method="POST" action="account.php?reloaded=usernameChanged" id="usernameForm">
+                        <input type="password" placeholder="Old password" name="passwOld" id="passwOld">
+                        <input type="password" placeholder="New password" name="passwd" id="passwd">
+                        <input type="password" placeholder="New password again" name="passwdrep" id="passwdrep">
+                    </form>
+                </div>
+                <div class="invalid-response">
+                            <?php
+                            require_once("../db/login.php");
+                            foreach ($loginErrors as $loginError) {
+                                echo $loginError . '<br>';
+                            }
+                            ?>
+                </div>
+                <button type="submit" name="usernameChange" form="usernameForm">Update</button>
+            </div>
+        </div>
+        
         <div id="main">
             <header>
                 <nav>
@@ -76,7 +119,7 @@ require_once("../db/connect.php");
                                 </div>
                                 <div class="field-container">
                                     <span class="user-info"><h3>Password</h3></span>
-                                    <button class="change-btn" type="button" onclick="openLogin()">Change</button>
+                                    <button class="change-btn" type="button" onclick="openPasswordChange()">Change</button>
                                 </div>
                             </form>
                         </div>

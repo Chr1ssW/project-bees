@@ -48,3 +48,23 @@ function closeUsernameChange()
 {
     document.getElementById("username-container").style.display = "none";
 }
+
+function openEmailChange()
+{
+    document.getElementById("email-container").style.display = "flex";
+}
+
+function closeEmailChange()
+{
+    document.getElementById("email-container").style.display = "none";
+}
+
+function openPasswordChange()
+{
+    document.getElementById("password-container").style.display = "flex";
+}
+
+function closePasswordChange()
+{
+    document.getElementById("password-container").style.display = "none";
+}
