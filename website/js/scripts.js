@@ -38,3 +38,13 @@ function closeAddHive()
 {
     document.getElementById("addHive-container").style.display = "none";
 }
+
+function openUsernameChange()
+{
+    document.getElementById("username-container").style.display = "flex";
+}
+
+function closeUsernameChange()
+{
+    document.getElementById("username-container").style.display = "none";
+}

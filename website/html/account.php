@@ -17,6 +17,27 @@ require_once("../db/connect.php");
         <?php
         require_once("sidebarAndPopup.php");
         ?>
+        <div class="popup-screen" id="username-container">
+            <div class="popup-form">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeUsernameChange()">&times;</a>
+                <div class="change-form">
+                    <form method="POST" action="account.php?reloaded=usernameChanged" id="usernameForm">
+                        <input type="text" placeholder="New username" name="userName" id="userName">
+                        <input type="password" placeholder="Password" name="passwd" id="password">
+                        <input type="password" placeholder="Password again" name="passwdrep" id="password">
+                    </form>
+                </div>
+                <div class="invalid-response">
+                            <?php
+                            require_once("../db/login.php");
+                            foreach ($loginErrors as $loginError) {
+                                echo $loginError . '<br>';
+                            }
+                            ?>
+                </div>
+                <button type="submit" name="usernameChange" form="usernameForm">Update</button>
+            </div>
+        </div>
         <div id="main">
             <header>
                 <nav>
@@ -51,10 +72,10 @@ require_once("../db/connect.php");
                                 </div>
                                 <div class="field-container">
                                     <span class="user-info"><h3>Email:</h3><p>(email)</p></span>
-                                    <button class="change-btn" type="button" onclick="openLogin()">Change</button>
+                                    <button class="change-btn" type="button" onclick="openEmailChange()">Change</button>
                                 </div>
                                 <div class="field-container">
-                                    <span class="user-info"><h3>Password:</h3><p>(username)</p></span>
+                                    <span class="user-info"><h3>Password</h3></span>
                                     <button class="change-btn" type="button" onclick="openLogin()">Change</button>
                                 </div>
                             </form>
