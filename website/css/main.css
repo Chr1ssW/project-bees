@@ -378,6 +378,50 @@ button:focus {
   cursor: pointer;
 }
 
+#account-container {
+  height: 80vh;
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 5vh;
+}
+
+#form-container {
+  height: 70vh;
+  width: 50%;
+  font-family: 'SourceLight';
+}
+
+#form-header {
+  width: 70%;
+  margin-bottom: 5vh;
+  border-bottom: 2px solid #CCCCCC;
+}
+
+.field-container {
+  height: 5vh;
+  width: 70%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.user-info {
+  height: 50%;
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
 @media screen and (max-width: 1050px) {
   header h2 {
     font-size: 1.7rem;

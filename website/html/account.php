@@ -46,17 +46,25 @@ require_once("../db/connect.php");
                     </nav>
                 </header>
                 <main>
-                    <!--My idea for this form is that it is alredy filled in with the clients information and create
-                        a pop-up form so that he can change the data. Something like the Update we did in PHP2-->
-                    <form action = "#" method = "POST" name="accountForm">
-                    <label for="username">Username:</label><br>
-                    <input type="text" id="username" name="username">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email">
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" name="password">
-                    <input type="submit" id="submit" name="submit">
-                    </form>
+                    <div id="account-container">
+                        <div id="form-container">
+                            <form action = "#" method = "POST" name="accountForm">
+                                <div id="form-header"><h1>Account settings</h1></div>
+                                <div class="field-container">
+                                    <span class="user-info"><h3>Username:</h3><p>(username)</p></span>
+                                    <button class="signup-btn" type="button" onclick="openLogin()">Change</button>
+                                </div>
+                                <div class="field-container">
+                                    <span class="user-info"><h3>Email:</h3><p>(email)</p></span>
+                                    <button class="signup-btn" type="button" onclick="openLogin()">Change</button>
+                                </div>
+                                <div class="field-container">
+                                    <span class="user-info"><h3>Password:</h3><p>(username)</p></span>
+                                    <button class="signup-btn" type="button" onclick="openLogin()">Change</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </main>
                 <footer></footer>
             </div>
