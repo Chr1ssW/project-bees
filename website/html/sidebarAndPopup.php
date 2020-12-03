@@ -16,7 +16,7 @@
         <script>
             if (Boolean(<?php echo (isset($_SESSION['loggedin'])) ?>)) {
                 var lines = '<li>';
-                lines += '<a href="#">';
+                lines += '<a href="account.php">';
                 lines += '<span class="icon"><img src="../resources/img/account.png" alt="Account"></span>';
                 lines += '<span class="title">Account</span>';
                 lines += '</a>';
