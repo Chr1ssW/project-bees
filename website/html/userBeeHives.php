@@ -32,6 +32,20 @@ if(!isset($_SESSION['loggedin'])){
                 <button type="submit" name="submit" form="addBeeHive">Add new hive</button>
             </div>
         </div>
+        <div class="popup-screen" id="edit-container">
+            <div class="popup-form">
+                <div class="beehiveAdd">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeEditHive()">&times;</a>
+                    <div class="change-form">
+                        <form method="POST" action="../db/addBeehiveManual.php" id="editBeeHive">
+                            <input type="text" name="beehiveLocation" placeholder="Beehive location" id="locationNew">
+                            <p id="beehive-id"></p>
+                        </form>
+                    </div>
+                </div>
+                <button type="submit" name="submit" form="editBeeHive">Update</button>
+            </div>
+        </div>
         <div id="main">
             <header>
                 <nav>
@@ -57,14 +71,16 @@ if(!isset($_SESSION['loggedin'])){
 
 
                     //We select userID, beeHives assigned to userID and readings from those beeHives
-                    $sqlSelect = "SELECT rid.internalTemp,rid.externalTemp,rid.humidity,rid.weight,rid.timeStamp FROM user, beehive as bee, readings as rid WHERE bee.beeHive_ID=rid.beeHive_ID 
-        AND bee.user_ID=$userID";
+                    $sqlSelect = "SELECT bee.beeHive_ID, bee.location, rid.internalTemp, rid.externalTemp,rid.humidity,rid.weight,rid.timeStamp 
+                    FROM user, beehive as bee, readings as rid 
+                    WHERE bee.beeHive_ID=rid.beeHive_ID 
+                        AND bee.user_ID=$userID";
                     if ($stmtSelect = mysqli_prepare($conn, $sqlSelect)) {
                         $executeSelect = mysqli_stmt_execute($stmtSelect);
                         if ($executeSelect == FALSE) {
                             echo mysqli_error($conn);
                         }
-                        mysqli_stmt_bind_result($stmtSelect, $internalTemp, $externalTemp, $humidity, $weight, $timestamp);
+                        mysqli_stmt_bind_result($stmtSelect, $beeID, $location, $internalTemp, $externalTemp, $humidity, $weight, $timestamp);
                         mysqli_stmt_store_result($stmtSelect);
 
                         //We check if there are any beehives assigned to user
@@ -72,12 +88,12 @@ if(!isset($_SESSION['loggedin'])){
                             echo "No beehives found";
                         } else {
                             while (mysqli_stmt_fetch($stmtSelect)) {
-                                echo "<div class='beehive'>
+                                echo "<div class='beehive' onClick=\"openEditHive($beeID)\">
                         <p>Ext. temp:" . $externalTemp . " </p>
                         <p>Int. temp:" . $internalTemp . " </p>
                         <p>Humidity:" . $humidity . " </p>
                         <p>Weight: " . $weight . "</p>
-                        <p>" . $_SESSION['userName'] . "</p>
+                        <p>" . $location . "</p>
                     </div>";
                             }
                         }

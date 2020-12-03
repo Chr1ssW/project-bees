@@ -68,3 +68,15 @@ function closePasswordChange()
 {
     document.getElementById("password-container").style.display = "none";
 }
+
+function openEditHive(beehiveId)
+{
+    document.getElementById("edit-container").style.display = "flex";
+    document.getElementById("beehive-id").innerHTML = beehiveId;
+    document.getElementById("beehive-id").style.display = "none";
+}
+
+function closeEditHive()
+{
+    document.getElementById("edit-container").style.display = "none";
+}
