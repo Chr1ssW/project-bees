@@ -37,7 +37,7 @@ if(!isset($_SESSION['loggedin'])){
                 <div class="beehiveAdd">
                     <a href="javascript:void(0)" class="closebtn" onclick="closeEditHive()">&times;</a>
                     <div class="change-form">
-                        <form method="POST" action="#" id="editBeeHive">
+                        <form method="POST" action="userBeeHives.php" id="editBeeHive">
                             <input type="text" name="editBeehiveLocation" placeholder="Beehive location" id="locationNew">
                             <p id="beehive-id"></p>
                         </form>
@@ -68,7 +68,7 @@ if(!isset($_SESSION['loggedin'])){
                     </div>
                     <?php
                     $userID = $_SESSION['userID'];
-                    
+
                     $sqlSelect = "SELECT b.sensorID, b.location, bd.externalTemp, bd.internalTemp, bd.humidity, bd.weight, bd.timeStamp
                                   FROM beehive as b, beehive_data as bd, user as u
                                   WHERE b.sensorID = bd.sensorID
@@ -112,11 +112,9 @@ if(!isset($_SESSION['loggedin'])){
                                     echo mysqli_error($conn);
                                 }
                                 mysqli_stmt_close($stmtInsertBeeHive);
-                                header("Location: userBeeHives.php?=beehive%updated");
+                                header("Location: #?=beehive%updated");
                             }
                         }
-                    } else {
-                        echo ("Illegal entrance");
                     }
                     ?>
                 </div>
