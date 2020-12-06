@@ -72,7 +72,7 @@ if(!isset($_SESSION['loggedin'])){
                     $sqlSelect = "SELECT b.sensorID, b.location, bd.externalTemp, bd.internalTemp, bd.humidity, bd.weight, bd.timeStamp
                                   FROM beehive as b, beehive_data as bd, user as u
                                   WHERE b.sensorID = bd.sensorID
-                                  AND u.userID=" . $userID;
+                                  AND u.userID= b". $userID;
                     if ($stmtSelect = mysqli_prepare($conn, $sqlSelect)) {
                         $executeSelect = mysqli_stmt_execute($stmtSelect);
                         if ($executeSelect == FALSE) {
