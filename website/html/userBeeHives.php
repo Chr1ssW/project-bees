@@ -68,9 +68,7 @@ if(!isset($_SESSION['loggedin'])){
                     </div>
                     <?php
                     $userID = $_SESSION['userID'];
-
-
-                    //We select userID, beeHives assigned to userID and readings from those beeHives
+                    
                     $sqlSelect = "SELECT b.sensorID, b.location, bd.externalTemp, bd.internalTemp, bd.humidity, bd.weight, bd.timeStamp
                                   FROM beehive as b, beehive_data as bd, user as u
                                   WHERE b.sensorID = bd.sensorID
@@ -107,9 +105,9 @@ if(!isset($_SESSION['loggedin'])){
                         if (empty($beeHiveLocation)) {
                             header("Location: userBeeHives.php?=empty&input");
                         } else {
-                            $sqlInsertBeeHive = "UPDATE beehive SET location = ? WHERE sensorID = " . $beeID;
+                            $sqlInsertBeeHive = "UPDATE beehive SET location = ? WHERE sensorID = ?";
                             if ($stmtInsertBeeHive = mysqli_prepare($conn, $sqlInsertBeeHive)) {
-                                mysqli_stmt_bind_param($stmtInsertBeeHive, 's', $beeHiveLocation);
+                                mysqli_stmt_bind_param($stmtInsertBeeHive, 'ss', $beeHiveLocation, $beeID);
                                 if (mysqli_stmt_execute($stmtInsertBeeHive) == FALSE) {
                                     echo mysqli_error($conn);
                                 }
