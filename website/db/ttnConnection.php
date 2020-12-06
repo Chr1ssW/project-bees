@@ -34,6 +34,9 @@ foreach ($data as $object) {
     $weight = $device["Weight"];
     $device_id = $device["device_id"];
     $time = $device["time"];
+
+    //Inserts data to database
+
     if ($stmtInsertDataToDb = mysqli_prepare($conn, $insertDataToDb)) {
         mysqli_stmt_bind_param($stmtInsertDataToDb, 'ddids', $temp, $temp, $humid, $weight, $time);
         mysqli_stmt_execute($stmtInsertDataToDb);
