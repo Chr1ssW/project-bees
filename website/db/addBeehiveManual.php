@@ -12,9 +12,9 @@ if (isset($_POST['submit'])) {
         // $sqlCheckIfBeehiveAlreadyExists = "SELECT s.sensorNumber, bh.Location FROM beeHive as bh, sensor as s WHERE  s.sensoNumber=? AND bh.location=?";
 
         //We are inserting into beeHive
-        $sqlInsertBeeHive = "INSERT INTO `beehive` VALUES(NULL,?,?)";
+        $sqlInsertBeeHive = "INSERT INTO `beehive` VALUES(?,?)";
         if ($stmtInsertBeeHive = mysqli_prepare($conn, $sqlInsertBeeHive)) {
-            mysqli_stmt_bind_param($stmtInsertBeeHive, 'is', $userID, $beeHiveLocation);
+            mysqli_stmt_bind_param($stmtInsertBeeHive, 'is', $sensorNumber, $beeHiveLocation);
             if (mysqli_stmt_execute($stmtInsertBeeHive) == FALSE) {
                 echo mysqli_error($conn);
             }
