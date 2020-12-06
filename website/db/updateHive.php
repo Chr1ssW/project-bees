@@ -12,8 +12,11 @@ if(isset($_POST["updateHive"]))
             if (mysqli_stmt_execute($stmtInsertBeeHive) == FALSE) {
                 echo mysqli_error($conn);
             }
+            else
+            {
+                header("Location: ../html/userBeeHives.php?=beehive%updated");
+            }
             mysqli_stmt_close($stmtInsertBeeHive);
-            header("Location: ../html/userBeeHives.php?=beehive%updated");
         }
     }
 }
