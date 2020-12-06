@@ -14,7 +14,7 @@ if (isset($_POST['submit'])) {
         //We are inserting into beeHive
         $sqlInsertBeeHive = "INSERT INTO `beehive` VALUES(?,?)";
         if ($stmtInsertBeeHive = mysqli_prepare($conn, $sqlInsertBeeHive)) {
-            mysqli_stmt_bind_param($stmtInsertBeeHive, 'is', $sensorNumber, $beeHiveLocation);
+            mysqli_stmt_bind_param($stmtInsertBeeHive, 'ss', $sensorNumber, $beeHiveLocation);
             if (mysqli_stmt_execute($stmtInsertBeeHive) == FALSE) {
                 echo mysqli_error($conn);
             }
