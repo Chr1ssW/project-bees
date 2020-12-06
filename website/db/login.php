@@ -34,7 +34,7 @@ if (isset($_POST['signin'])) {
                 array_push($loginErrors, "User with username/email " . $username . " does not exist");
             } else {
                 while (mysqli_stmt_fetch($stmtPrepareToFindUser)) {
-                    if (password_verify($passwd, $foundUserPwd)) {
+                    if ($foundUserPwd == $passwd) {
                         $_SESSION['userID'] = $foundUserID;
                         $_SESSION['userName'] = $foundUsername;
                         $_SESSION['userEmail'] = $foundUserEmail;
