@@ -1,5 +1,5 @@
 <?php
-// require("connect.php");
+require("connect.php");
 $loginErrors = array();
 if (isset($_POST['signin'])) {
     $username = htmlentities($_POST['userName']);
@@ -19,7 +19,7 @@ if (isset($_POST['signin'])) {
         array_push($loginErrors, "Password is required");
     }
     if (count($loginErrors) == 0) {
-        $findUser = "SELECT `userID`,`name`,passwd,email  FROM user WHERE email=? OR name=?";
+        $findUser = "SELECT 'userID','name','password','email'  FROM user WHERE 'email'=? OR 'name'=?";
         if ($stmtPrepareToFindUser = mysqli_prepare($conn, $findUser)) {
             mysqli_stmt_bind_param($stmtPrepareToFindUser, 'ss', $username, $username);
 
