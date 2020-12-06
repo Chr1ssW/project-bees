@@ -86,7 +86,7 @@ if(!isset($_SESSION['loggedin'])){
                             echo "No beehives found";
                         } else {
                             while (mysqli_stmt_fetch($stmtSelect)) {
-                                echo "<div class='beehive' onclick=\"openEditHive($beeID)\">
+                                echo "<div class='beehive' onclick=\"openEditHive(1)\">
                         <p>Ext. temp:" . $externalTemp . " </p>
                         <p>Int. temp:" . $internalTemp . " </p>
                         <p>Humidity:" . $humidity . " </p>
