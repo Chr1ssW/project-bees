@@ -66,40 +66,7 @@ if(!isset($_SESSION['loggedin'])){
                         <img src="../resources/img/cross.png" alt="">
                         <p>Add new beehive</p>
                     </div>
-                    <?php
-                    $userID = $_SESSION['userID'];
-
-
-                    //We select userID, beeHives assigned to userID and readings from those beeHives
-                    $sqlSelect = "SELECT bee.beeHive_ID, bee.location, rid.internalTemp, rid.externalTemp,rid.humidity,rid.weight,rid.timeStamp 
-                    FROM user, beehive as bee, readings as rid 
-                    WHERE bee.beeHive_ID=rid.beeHive_ID 
-                        AND bee.user_ID=$userID";
-                    if ($stmtSelect = mysqli_prepare($conn, $sqlSelect)) {
-                        $executeSelect = mysqli_stmt_execute($stmtSelect);
-                        if ($executeSelect == FALSE) {
-                            echo mysqli_error($conn);
-                        }
-                        mysqli_stmt_bind_result($stmtSelect, $beeID, $location, $internalTemp, $externalTemp, $humidity, $weight, $timestamp);
-                        mysqli_stmt_store_result($stmtSelect);
-
-                        //We check if there are any beehives assigned to user
-                        if (mysqli_stmt_num_rows($stmtSelect) == 0) {
-                            echo "No beehives found";
-                        } else {
-                            while (mysqli_stmt_fetch($stmtSelect)) {
-                                echo "<div class='beehive' onClick=\"openEditHive($beeID)\">
-                        <p>Ext. temp:" . $externalTemp . " </p>
-                        <p>Int. temp:" . $internalTemp . " </p>
-                        <p>Humidity:" . $humidity . " </p>
-                        <p>Weight: " . $weight . "</p>
-                        <p>" . $location . "</p>
-                    </div>";
-                            }
-                        }
-                        mysqli_stmt_close($stmtSelect);
-                    }
-                    ?>
+///Add a beehive functionality
                 </div>
             </main>
             <footer></footer>
