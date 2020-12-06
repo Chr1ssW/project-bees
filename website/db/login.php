@@ -21,7 +21,7 @@ if (isset($_POST['signin'])) {
     if (count($loginErrors) == 0) {
         $findUser = "SELECT userID, name, password, email FROM user WHERE email=? OR name=?";
         if ($stmtPrepareToFindUser = mysqli_prepare($conn, $findUser)) {
-            mysqli_stmt_bind_param($stmtPrepareToFindUser, 'ss', $username, $username);
+            mysqli_stmt_bind_param($stmtPrepareToFindUser, 'ss', $email, $username);
 
             if (mysqli_stmt_execute($stmtPrepareToFindUser) == FALSE) {
                 echo mysqli_error($conn);
