@@ -38,12 +38,12 @@ if(!isset($_SESSION['loggedin'])){
                     <a href="javascript:void(0)" class="closebtn" onclick="closeEditHive()">&times;</a>
                     <div class="change-form">
                         <form method="POST" action="../db/addBeehiveManual.php" id="editBeeHive">
-                            <input type="text" name="beehiveLocation" placeholder="Beehive location" id="locationNew">
+                            <input type="text" name="editBeehiveLocation" placeholder="Beehive location" id="locationNew">
                             <p id="beehive-id"></p>
                         </form>
                     </div>
                 </div>
-                <button type="submit" name="submit" form="editBeeHive">Update</button>
+                <button type="submit" name="updateHive" form="editBeeHive">Update</button>
             </div>
         </div>
         <div id="main">
