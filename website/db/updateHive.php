@@ -4,8 +4,8 @@ if(isset($_POST["updateHive"]))
 {
     $beeHiveLocation = htmlentities($_POST['editBeehiveLocation']);
     $userID = $_SESSION['userID'];
-    if (empty($beeHiveLocation) || empty($sensorNumber)) {
-        echo ("Empty input");
+    if (empty($beeHiveLocation)) {
+        header("Location: userBeehives.php?=empty&input");
     } else {
         $sqlInsertBeeHive = "UPDATE beehive SET location=?";
         if ($stmtInsertBeeHive = mysqli_prepare($conn, $sqlInsertBeeHive)) {
