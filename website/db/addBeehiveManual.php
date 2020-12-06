@@ -19,7 +19,7 @@ if (isset($_POST['submit'])) {
                 echo mysqli_error($conn);
             }
             mysqli_stmt_close($stmtInsertBeeHive);
-            echo "Added beehive";
+            header("Location: ../html/userBeeHives.php?=beehive%added");
         }
     }
 } else {
