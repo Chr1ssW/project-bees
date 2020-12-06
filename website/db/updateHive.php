@@ -8,7 +8,7 @@ if(isset($_POST["updateHive"]))
     } else {
         $sqlInsertBeeHive = "UPDATE beehive SET location = ? WHERE sensorID = ?";
         if ($stmtInsertBeeHive = mysqli_prepare($conn, $sqlInsertBeeHive)) {
-            mysqli_stmt_bind_param($stmtInsertBeeHive, 'si', $beeHiveLocation, $beeID);
+            mysqli_stmt_bind_param($stmtInsertBeeHive, 'ss', $beeHiveLocation, $beeID);
             if (mysqli_stmt_execute($stmtInsertBeeHive)) {
                 header("Location: ../html/userBeeHives.php?=beehive%updated");
             }
