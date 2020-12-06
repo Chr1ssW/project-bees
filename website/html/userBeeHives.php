@@ -97,25 +97,7 @@ if(!isset($_SESSION['loggedin'])){
                         }
                         mysqli_stmt_close($stmtSelect);
                     }
-
-                    if(isset($_POST["updateHive"]))
-                    {
-                        $beeHiveLocation = htmlentities($_POST['editBeehiveLocation']);
-                        $userID = $_SESSION['userID'];
-                        if (empty($beeHiveLocation)) {
-                            header("Location: userBeeHives.php?=empty&input");
-                        } else {
-                            $sqlInsertBeeHive = "UPDATE beehive SET location = ? WHERE sensorID = ?";
-                            if ($stmtInsertBeeHive = mysqli_prepare($conn, $sqlInsertBeeHive)) {
-                                mysqli_stmt_bind_param($stmtInsertBeeHive, 'ss', $beeHiveLocation, $beeID);
-                                if (mysqli_stmt_execute($stmtInsertBeeHive) == FALSE) {
-                                    echo mysqli_error($conn);
-                                }
-                                mysqli_stmt_close($stmtInsertBeeHive);
-                                header("Location: #?=beehive%updated");
-                            }
-                        }
-                    }
+                    include("../db/updateHive.php");
                     ?>
                 </div>
             </main>
