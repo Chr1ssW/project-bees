@@ -1,6 +1,5 @@
 <?php
 require("connect.php");
-require("../html/userBeeHives.php");
 if(isset($_POST["updateHive"]))
 {
     $beeHiveLocation = htmlentities($_POST['editBeehiveLocation']);
