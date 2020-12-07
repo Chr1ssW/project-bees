@@ -156,6 +156,7 @@ if (isset($_GET['reloaded'])) {
         }
     }
     mysqli_close($conn);
+    header('Location:account.php');
 }
 ?>
 <html lang="en">
