@@ -16,8 +16,8 @@ if(isset($_POST["updateHive"]))
                 echo mysqli_error($conn);
             }
             mysqli_stmt_close($stmtUpdateBeeHive);
-            session_unset();
             header("Location: ../html/userBeeHives.php?location=updated");
         }
     }
+    session_unset();
 }
