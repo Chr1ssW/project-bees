@@ -53,7 +53,6 @@ if (isset($_GET['reloaded'])) {
                 }
                 $_SESSION['userName'] = $username;
                 mysqli_stmt_close($stmt_query);
-                echo $username;
             }
         }
     } elseif ($_GET['reloaded'] == 'userEmailChanged') {
@@ -104,11 +103,57 @@ if (isset($_GET['reloaded'])) {
                 }
                 $_SESSION['userEmail'] = $email;
                 mysqli_stmt_close($stmt_query);
-                echo "Email";
             }
         }
     } elseif ($_GET['reloaded'] == 'userPasswordChanged') {
-        echo "Password";
+        
+        
+        //Getting data
+        $passwOld = mysqli_real_escape_string($conn, htmlentities($_POST['passwOld']));
+        $passwd = mysqli_real_escape_string($conn, htmlentities($_POST['passwd']));
+        $passwdrep = mysqli_real_escape_string($conn, htmlentities($_POST['passwdrep']));
+        //End of getting data
+        
+        
+        //Check section
+        if (empty($passwOld)) {
+            array_push($errors, "Username is required");
+        }
+
+        if (empty($passwd)) {
+            array_push($errors, "Password is required");
+        }
+
+        if ($passwd != $passwdrep) {
+            array_push($errors, "The two passwords do not match");
+        }
+        //End check section
+        
+        
+        $query = "SELECT password FROM User WHERE userid = $id";
+
+        $result = mysqli_query($conn, $query);
+        $stmt_query = mysqli_prepare($conn, $query);
+        if (!mysqli_stmt_execute($stmt_query)) {
+            echo mysqli_error($conn);
+        }
+
+        mysqli_stmt_bind_result($stmt_query, $validpasswd);
+        mysqli_stmt_store_result($stmt_query);
+        mysqli_stmt_fetch($stmt_query);
+        mysqli_stmt_close($stmt_query);
+        
+        
+        if ($passwOld == $validpasswd) {
+            $query = "UPDATE user SET password = ? WHERE userID = $id";
+            if ($stmt_query = mysqli_prepare($conn, $query)) {
+                mysqli_stmt_bind_param($stmt_query, 's', $passwd);
+                if (!mysqli_stmt_execute($stmt_query)) {
+                    echo mysqli_error($conn);
+                }
+                mysqli_stmt_close($stmt_query);
+            }
+        }
     }
     mysqli_close($conn);
 }
@@ -225,14 +270,14 @@ if (isset($_GET['reloaded'])) {
                             <div class="field-container">
                                 <span class="user-info">
                                     <h3>Username:</h3>
-                                    <p>(username)</p>
+                                    <p><?php echo $_SESSION['userName'];?></p>
                                 </span>
                                 <button class="change-btn" type="button" onclick="openUsernameChange()">Change</button>
                             </div>
                             <div class="field-container">
                                 <span class="user-info">
                                     <h3>Email:</h3>
-                                    <p>(email)</p>
+                                    <p><?php echo $_SESSION['userEmail'];?></p>
                                 </span>
                                 <button class="change-btn" type="button" onclick="openEmailChange()">Change</button>
                             </div>
