@@ -37,7 +37,7 @@ if(!isset($_SESSION['loggedin'])){
                 <div class="beehiveAdd">
                     <a href="javascript:void(0)" class="closebtn" onclick="closeEditHive()">&times;</a>
                     <div class="change-form">
-                        <form method="POST" action="userBeeHives.php" id="editBeeHive">
+                        <form method="POST" action="#" id="editBeeHive">
                             <input type="text" name="editBeehiveLocation" placeholder="Beehive location" id="locationNew">
                             <p id="beehive-id"></p>
                         </form>
@@ -96,23 +96,7 @@ if(!isset($_SESSION['loggedin'])){
                         }
                         mysqli_stmt_close($stmtSelect);
                     }
-                    if(isset($_POST["updateHive"]))
-                    {
-                        $beeHiveLocation = htmlentities($_POST['editBeehiveLocation']);
-                        if (empty($beeHiveLocation)) {
-                            header("Location: userBeeHives.php?=empty&input");
-                        } else {
-                            $sqlUpdateBeeHive = "UPDATE beehive SET location = ? WHERE sensorID = ?";
-                            if ($stmtUpdateBeeHive = mysqli_prepare($conn, $sqlUpdateBeeHive)) {
-                                mysqli_stmt_bind_param($stmtUpdateBeeHive, 'ss', $beeHiveLocation, $beeID);
-                                if (mysqli_stmt_execute($stmtUpdateBeeHive) == FALSE) {
-                                    echo mysqli_error($conn);
-                                }
-                                mysqli_stmt_close($stmtUpdateBeeHive);
-                            }
-                        }
-                        
-                    }
+                    require("updateHive.php");
                     ?>
                 </div>
             </main>
