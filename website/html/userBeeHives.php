@@ -39,7 +39,7 @@ if(!isset($_SESSION['loggedin'])){
                     <div class="change-form">
                         <form method="POST" action="../db/updateHive.php" id="editBeeHive">
                             <input type="text" name="editBeehiveLocation" placeholder="Beehive location" id="locationNew">
-                            <p id="beehive-id"></p>
+                            <p id="beehive-id" ></p>
                         </form>
                     </div>
                 </div>
@@ -68,7 +68,6 @@ if(!isset($_SESSION['loggedin'])){
                     </div>
                     <?php
                     $userID = $_SESSION['userID'];
-
                     $sqlSelect = "SELECT b.sensorID, b.location, bd.externalTemp, bd.internalTemp, bd.humidity, bd.weight, bd.timeStamp
                                   FROM beehive_data as bd, beehive as b
                                   WHERE b.sensorID = bd.sensorID
@@ -97,6 +96,7 @@ if(!isset($_SESSION['loggedin'])){
                         }
                         mysqli_stmt_close($stmtSelect);
                     }
+                    require("../db/updateHive.php?='$beeID");
                     ?>
                 </div>
             </main>
