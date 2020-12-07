@@ -1,8 +1,8 @@
 <?php
 require("connect.php");
-session_start();
 if(isset($_POST["updateHive"]))
 {
+    session_start();
     $beeID = $_SESSION['id'];
 
     $beeHiveLocation = htmlentities($_POST['editBeehiveLocation']);
@@ -19,5 +19,4 @@ if(isset($_POST["updateHive"]))
             header("Location: ../html/userBeeHives.php?location=updated");
         }
     }
-    session_destroy();
 }
