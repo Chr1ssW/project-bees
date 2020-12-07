@@ -86,9 +86,7 @@ require_once("sidebarAndPopup.php");
                     echo "No beehives found";
                 } else {
                     while (mysqli_stmt_fetch($stmtSelect)) {
-                        session_start();
-                        $_SESSION['id'] = $beeID;
-                        echo "<div class='beehive' onclick=\"openEditHive($beeID)\">
+                        echo "<div class='beehive' onclick=\"openEditHive('$beeID')\">
                         <p>Ext. temp:" . $externalTemp . " </p>
                         <p>Int. temp:" . $internalTemp . " </p>
                         <p>Humidity:" . $humidity . " </p>
