@@ -96,7 +96,7 @@ if(!isset($_SESSION['loggedin'])){
                         }
                         mysqli_stmt_close($stmtSelect);
                     }
-                    require("updateHive.php");
+                    require("../db/updateHive.php");
                     ?>
                 </div>
             </main>
