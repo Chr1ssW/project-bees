@@ -1,7 +1,7 @@
 <?php
 require("connect.php");
 if (isset($_POST["updateHive"])) {
-    echo $_POST['beehive-id'];
+    echo $_POST['id'];
     $beeHiveLocation = htmlentities($_POST['editBeehiveLocation']);
     if (empty($beeHiveLocation)) {
         header("Location: ../html/userBeeHives.php?=empty&input");
