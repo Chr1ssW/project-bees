@@ -1,4 +1,5 @@
 <?php
+session_start();
 require("../db/connect.php");
 if (!isset($_SESSION['loggedin'])) {
     header('Location:../html/index.php');
@@ -37,7 +38,7 @@ require_once("sidebarAndPopup.php");
         <div class="beehiveAdd">
             <a href="javascript:void(0)" class="closebtn" onclick="closeEditHive()">&times;</a>
             <div class="change-form">
-                <form method="POST" action="#" id="editBeeHive">
+                <form method="POST" id="editBeeHive">
                     <input type="text" name="editBeehiveLocation" placeholder="Beehive location" id="locationNew">
                     <p id="beehive-id"></p>
                 </form>
@@ -80,7 +81,7 @@ require_once("sidebarAndPopup.php");
                 }
                 mysqli_stmt_bind_result($stmtSelect, $beeID, $location, $externalTemp, $internalTemp, $humidity, $weight, $timestamp);
                 mysqli_stmt_store_result($stmtSelect);
-
+                $_SESSION['id'] = $beeID;
                 //We check if there are any beehives assigned to user
                 if (mysqli_stmt_num_rows($stmtSelect) == 0) {
                     echo "No beehives found";
@@ -96,23 +97,6 @@ require_once("sidebarAndPopup.php");
                     }
                 }
                 mysqli_stmt_close($stmtSelect);
-            }
-            if (isset($_POST["updateHive"])) {
-                $beeHiveLocation = htmlentities($_POST['editBeehiveLocation']);
-                if (empty($beeHiveLocation)) {
-                    header("Location: ../html/userBeeHives.php?=empty&input");
-                } else {
-                    $sqlInsertBeeHive = "UPDATE beehive SET location = ? WHERE sensorID = ?";
-                    if ($stmtInsertBeeHive = mysqli_prepare($conn, $sqlInsertBeeHive)) {
-                        mysqli_stmt_bind_param($stmtInsertBeeHive, 'ss', $beeHiveLocation, $beeID);
-                        if (mysqli_stmt_execute($stmtInsertBeeHive)) {
-                            header("Location: ../html/userBeeHives.php?=beehive%updated");
-                        } else {
-                            mysqli_error($conn);
-                        }
-                        mysqli_stmt_close($stmtInsertBeeHive);
-                    }
-                }
             }
             ?>
         </div>
