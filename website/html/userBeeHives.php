@@ -88,7 +88,7 @@ require_once("sidebarAndPopup.php");
                     while (mysqli_stmt_fetch($stmtSelect)) {
                         session_start();
                         $_SESSION['id'] = $beeID;
-                        echo "<div class='beehive' onclick=\"openEditHive('$b')\">
+                        echo "<div class='beehive' onclick=\"openEditHive($beeID)\">
                         <p>Ext. temp:" . $externalTemp . " </p>
                         <p>Int. temp:" . $internalTemp . " </p>
                         <p>Humidity:" . $humidity . " </p>

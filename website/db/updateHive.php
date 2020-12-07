@@ -1,9 +1,6 @@
 <?php
 require("connect.php");
-session_start();
 if (isset($_POST["updateHive"])) {
-    $beeID = $_SESSION['id'];
-    echo $beeID;
     echo $_POST['beehive-id'];
     $beeHiveLocation = htmlentities($_POST['editBeehiveLocation']);
     if (empty($beeHiveLocation)) {
