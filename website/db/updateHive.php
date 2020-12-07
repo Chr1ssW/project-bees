@@ -4,7 +4,6 @@ session_start();
 if(isset($_POST["updateHive"]))
 {
     $beeID = $_SESSION['id'];
-    echo $beeID;
 
     $beeHiveLocation = htmlentities($_POST['editBeehiveLocation']);
     if (empty($beeHiveLocation)) {
@@ -17,6 +16,7 @@ if(isset($_POST["updateHive"]))
                 echo mysqli_error($conn);
             }
             mysqli_stmt_close($stmtUpdateBeeHive);
+            header("Location: ../html/userBeeHives.php?location=updated");
         }
     }
 
