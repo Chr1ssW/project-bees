@@ -1,4 +1,5 @@
 <?php
+session_start();
 require("../db/connect.php");
 if(!isset($_SESSION['loggedin'])){
     header('Location:../html/index.php');
@@ -37,9 +38,8 @@ if(!isset($_SESSION['loggedin'])){
                 <div class="beehiveAdd">
                     <a href="javascript:void(0)" class="closebtn" onclick="closeEditHive()">&times;</a>
                     <div class="change-form">
-                        <form method="POST" action="../db/updateHive.php">
+                        <form method="POST" action="../db/updateHive.php" id="editBeeHive">
                             <input type="text" name="editBeehiveLocation" placeholder="Beehive location" id="locationNew">
-                            <p id="beehive-id"></p>
                         </form>
                     </div>
                 </div>
@@ -94,7 +94,6 @@ if(!isset($_SESSION['loggedin'])){
                     </div>";
                             }
                         }
-                        session_start();
                         $_SESSION['id'] = $beeID;
                         mysqli_stmt_close($stmtSelect);
                     }

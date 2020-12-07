@@ -1,10 +1,12 @@
+
+<script>
+    const x = document.getElementById("beehive-id").innerText;
+</script>
 <?php
 require("connect.php");
 session_start();
 if(isset($_POST["updateHive"]))
 {
-    $beeID = $_SESSION['id'];
-    echo $beeID;
 
     $beeHiveLocation = htmlentities($_POST['editBeehiveLocation']);
     if (empty($beeHiveLocation)) {
