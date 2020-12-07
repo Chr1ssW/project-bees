@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (isset($_POST["updateHive"])) {
-    echo $_SESSION['id'];
+    $beeID = $_SESSION['id'];
     $beeHiveLocation = htmlentities($_POST['editBeehiveLocation']);
     if (empty($beeHiveLocation)) {
         header("Location: ../html/userBeeHives.php?=empty&input");
