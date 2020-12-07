@@ -39,7 +39,7 @@ if(!isset($_SESSION['loggedin'])){
                     <div class="change-form">
                         <form method="POST" action="../db/updateHive.php"
                             <input type="text" name="editBeehiveLocation" placeholder="Beehive location" id="locationNew">
-                            <p id="beehive-id"><?php echo $beeID; ?></p>
+                            <p id="beehive-id"></p>
                         </form>
                     </div>
                 </div>
@@ -94,6 +94,8 @@ if(!isset($_SESSION['loggedin'])){
                     </div>";
                             }
                         }
+                        session_start();
+                        $_SESSION['id'] = $beeID;
                         mysqli_stmt_close($stmtSelect);
                     }
                     ?>
