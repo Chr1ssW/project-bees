@@ -95,8 +95,8 @@ if(!isset($_SESSION['loggedin'])){
                             }
                         }
                         mysqli_stmt_close($stmtSelect);
+                        require("../db/updateHive.php?id='echo $beeID");
                     }
-                    require("../db/updateHive.php");
                     ?>
                 </div>
             </main>
