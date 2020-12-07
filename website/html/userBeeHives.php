@@ -40,7 +40,7 @@ require_once("sidebarAndPopup.php");
             <div class="change-form">
                 <form method="POST" action="../db/updateHive.php" id="editBeeHive">
                     <input type="text" name="editBeehiveLocation" placeholder="Beehive location" id="locationNew">
-                    <input type="text" name="id" value="beehive-id"/>
+                    <p id="beehive-id" name="id"></p>
                 </form>
             </div>
         </div>
