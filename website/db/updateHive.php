@@ -19,5 +19,5 @@ if(isset($_POST["updateHive"]))
             header("Location: ../html/userBeeHives.php?location=updated");
         }
     }
-
+    session_destroy();
 }
