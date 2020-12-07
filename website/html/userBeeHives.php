@@ -81,7 +81,6 @@ require_once("sidebarAndPopup.php");
                 }
                 mysqli_stmt_bind_result($stmtSelect, $beeID, $location, $externalTemp, $internalTemp, $humidity, $weight, $timestamp);
                 mysqli_stmt_store_result($stmtSelect);
-                $_SESSION['id'] = $beeID;
                 //We check if there are any beehives assigned to user
                 if (mysqli_stmt_num_rows($stmtSelect) == 0) {
                     echo "No beehives found";
@@ -94,6 +93,8 @@ require_once("sidebarAndPopup.php");
                         <p>Weight: " . $weight . "</p>
                         <p>" . $location . "</p>
                     </div>";
+                        session_start();
+                        $_SESSION['id'] = $beeID;
                     }
                 }
                 mysqli_stmt_close($stmtSelect);
