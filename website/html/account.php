@@ -8,6 +8,7 @@ if (!isset($_SESSION['loggedin'])) {
 
 <?php
 if (isset($_GET['reloaded'])) {
+    $id = $_SESSION['userID'];
     if ($_GET['reloaded'] == 'userNameChanged') {
 
         //Getting data
@@ -15,6 +16,8 @@ if (isset($_GET['reloaded'])) {
         $passwd = mysqli_real_escape_string($conn, htmlentities($_POST['passwd']));
         $passwdrep = mysqli_real_escape_string($conn, htmlentities($_POST['passwdrep']));
         //End of getting data
+        
+        
         //Check section
         if (empty($username)) {
             array_push($errors, "Username is required");
@@ -29,7 +32,6 @@ if (isset($_GET['reloaded'])) {
         }
         //End check section
 
-        $id = $_SESSION['userID'];
         $query = "SELECT password FROM User WHERE userid = $id";
 
         $result = mysqli_query($conn, $query);
@@ -41,7 +43,7 @@ if (isset($_GET['reloaded'])) {
         mysqli_stmt_bind_result($stmt_query, $validpasswd);
         mysqli_stmt_store_result($stmt_query);
         mysqli_stmt_fetch($stmt_query);
-
+        mysqli_stmt_close($stmt_query);
         if ($passwd == $validpasswd) {
             $query = "UPDATE user SET name = ? WHERE userID = $id";
             if ($stmt_query = mysqli_prepare($conn, $query)) {
@@ -50,14 +52,65 @@ if (isset($_GET['reloaded'])) {
                     echo mysqli_error($conn);
                 }
                 $_SESSION['userName'] = $username;
+                mysqli_stmt_close($stmt_query);
                 echo $username;
             }
         }
     } elseif ($_GET['reloaded'] == 'userEmailChanged') {
-        echo "Email";
+        
+        
+        //Getting data
+        $email = mysqli_real_escape_string($conn, htmlentities($_POST['email']));
+        $passwd = mysqli_real_escape_string($conn, htmlentities($_POST['passwd']));
+        $passwdrep = mysqli_real_escape_string($conn, htmlentities($_POST['passwdrep']));
+        //End of getting data
+        
+        
+        //Check section
+        if (empty($email)) {
+            array_push($errors, "Username is required");
+        }
+
+        if (empty($passwd)) {
+            array_push($errors, "Password is required");
+        }
+
+        if ($passwd != $passwdrep) {
+            array_push($errors, "The two passwords do not match");
+        }
+        //End check section
+        
+        
+        $query = "SELECT password FROM User WHERE userid = $id";
+
+        $result = mysqli_query($conn, $query);
+        $stmt_query = mysqli_prepare($conn, $query);
+        if (!mysqli_stmt_execute($stmt_query)) {
+            echo mysqli_error($conn);
+        }
+
+        mysqli_stmt_bind_result($stmt_query, $validpasswd);
+        mysqli_stmt_store_result($stmt_query);
+        mysqli_stmt_fetch($stmt_query);
+        mysqli_stmt_close($stmt_query);
+        
+        
+        if ($passwd == $validpasswd) {
+            $query = "UPDATE user SET email = ? WHERE userID = $id";
+            if ($stmt_query = mysqli_prepare($conn, $query)) {
+                mysqli_stmt_bind_param($stmt_query, 's', $email);
+                if (!mysqli_stmt_execute($stmt_query)) {
+                    echo mysqli_error($conn);
+                }
+                $_SESSION['userEmail'] = $email;
+                mysqli_stmt_close($stmt_query);
+                echo "Email";
+            }
+        }
     } elseif ($_GET['reloaded'] == 'userPasswordChanged') {
         echo "Password";
     }
+    mysqli_close($conn);
 }
 ?>
 <html lang="en">
