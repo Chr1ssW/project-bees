@@ -73,6 +73,7 @@ function openEditHive(beehiveId)
 {
     document.getElementById("edit-container").style.display = "flex";
     document.getElementById("beehive-id").innerHTML = beehiveId;
+    document.getElementById("beehive-id").value = beehiveId;
     document.getElementById("beehive-id").style.display = "none";
 }
 
