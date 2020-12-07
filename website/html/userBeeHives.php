@@ -37,7 +37,7 @@ if(!isset($_SESSION['loggedin'])){
                 <div class="beehiveAdd">
                     <a href="javascript:void(0)" class="closebtn" onclick="closeEditHive()">&times;</a>
                     <div class="change-form">
-                        <form method="POST" action="#" id="editBeeHive">
+                        <form method="POST" action="../db/updateHive.php" id="editBeeHive">
                             <input type="text" name="editBeehiveLocation" placeholder="Beehive location" id="locationNew">
                             <p id="beehive-id"></p>
                         </form>
@@ -97,7 +97,6 @@ if(!isset($_SESSION['loggedin'])){
                         }
                         mysqli_stmt_close($stmtSelect);
                     }
-                    require("../db/updateHive.php");
                     ?>
                 </div>
             </main>
