@@ -6,7 +6,7 @@ echo "Page will refresh in every 3 seconds</br></br>";
 
 // The function will refresh the page  
 // in every 3 second 
-header("refresh: 5");
+// header("refresh: 5");
 
 echo date('H:i:s Y-m-d');
 
@@ -26,6 +26,7 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
 $result = curl_exec($ch);
 $data = json_decode($result);
+
 
 $insertDataToDb = "INSERT INTO beehive_data VALUES(NULL,1,?,?,?,?,?,?)";
 // $checkIfBeehiveIsInDatabase = "SELECT sensorID FROM beehive WHERE sensorID=?";
