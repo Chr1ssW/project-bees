@@ -32,7 +32,6 @@ require_once("../db/connect.php");
                     <script>
                         if (screen.width > 570 && Boolean(<?php echo (!isset($_SESSION['loggedin'])) ?>)) {
                             var lines = '<span>';
-                            lines += '<button class="signup-btn" type="button" onclick="openSignup()">Sign up</button>';
                             lines += '<button class="signin-btn" type="button" onclick="openLogin()">Sign in</button>';
                             lines += '</span>';
                             document.write(lines);
@@ -95,8 +94,6 @@ require_once("../db/connect.php");
 
                     if (reloaded == 'signin') {
                         openLogin();
-                    } else if (reloaded == 'signup') {
-                        openSignup();
                     }
         </script>
     </body>

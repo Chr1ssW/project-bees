@@ -7,12 +7,6 @@
                 <span class="title">Sign in</span>
             </a>
         </li>
-        <li class="mobile-signup" onclick="openSignup()">
-            <a href="#">
-                <span class="icon"><img src="../resources/img/signup.png" alt="account"></span>
-                <span class="title">Sign up</span>
-            </a>
-        </li>
         <script>
             if (Boolean(<?php echo (isset($_SESSION['loggedin'])) ?>)) {
                 var lines = '<li>';
@@ -87,28 +81,5 @@
                 ?>
             </div>
             <button type="submit" name="signin" form="loginForm">Sign in</button>
-    </div>
-</div>
-<div class="popup-screen" id="signup-container">
-    <div class="popup-form">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeSignup()">&times;</a>
-        <div class="loginPic">
-            <img src="../resources/img/account.png" alt="Account">
-        </div>
-        <form method="POST" action="index.php?reloaded=signup" id="signupForm">
-            <input type="text" placeholder="Username" name="userNameIn">
-            <input type="text" placeholder="Email address" name="emailAddressIn">
-            <input type="password" placeholder="Password" name="passwordIn">
-            <input type="password" placeholder="Repeat password" name="passwordRepeat">
-        </form>
-        <div class="invalid-response">
-            <?php
-            include("../db/signup.php");
-            foreach ($errors as $error) {
-                echo $error . '<br>';
-            }
-            ?>
-        </div>
-        <button type="submit" form="signupForm" name="signup" onsubmit="openSignup()">Sign up</button>
     </div>
 </div>
