@@ -11,7 +11,7 @@ require_once("../db/connect.php");
         <link rel="stylesheet" type="text/css" href="../css/slick.css" />
         <link rel="stylesheet" type="text/css" href="../css/slick-theme.css" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" defer></script>
-        <script src="dashboard.js" defer></script>
+        <script src="../js/dashboard.js" defer></script>
         <title>Beehive Monitoring System</title>
     </head>
 
