@@ -49,7 +49,7 @@ require_once("../db/connect.php");
                 </header>
                 <main>
                 <div class="chart-container">
-                    <canvas id="chart" width="400" height="300"></canvas>
+                    <canvas id="chart"></canvas>
                 </div>
                 </main>
                 <footer></footer>
