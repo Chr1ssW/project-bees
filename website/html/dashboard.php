@@ -48,9 +48,9 @@ require_once("../db/connect.php");
                     </nav>
                 </header>
                 <main>
-                    <div class = "chart_container">
-                        <canvas id="chart"></canvas>
-                    </div>
+                <div class="chart-container">
+                    <canvas id="chart" width="400" height="300"></canvas>
+                </div>
                 </main>
                 <footer></footer>
             </div>
