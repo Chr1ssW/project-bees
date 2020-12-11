@@ -25,7 +25,7 @@
             }
         </script>
         <li>
-            <a href="#">
+            <a href="dashboard.php">
                 <span class="icon"><img src="../resources/img/dashboard.png" alt="Dashboard"></span>
                 <span class="title">Dashboard</span>
             </a>

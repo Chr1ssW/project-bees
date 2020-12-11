@@ -122,6 +122,13 @@ main {
   background-color: #EDEDED;
 }
 
+#chart_container {
+  position: relative;
+  width: 45vw;
+  height: 22.5vw;
+  margin: auto;
+}
+
 #myMap {
   top: 5vh;
   height: 70vh;
