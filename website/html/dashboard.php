@@ -3,7 +3,6 @@
 require_once("../db/connect.php");
 ?>
 <html lang="en">
-
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +13,6 @@ require_once("../db/connect.php");
         <script src="../js/dashboard.js" defer></script>
         <title>Beehive Monitoring System</title>
     </head>
-
     <body>
         <?php
         require_once("sidebarAndPopup.php");
@@ -23,39 +21,22 @@ require_once("../db/connect.php");
             <header>
                 <nav>
                     <span>
-                        <script>
-                            if (screen.width < 570 || Boolean(<?php echo (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) ?>)) {
-                                var lines = '<a href="javascript:void(0)" onclick="openNav()">';
-                                lines += '<img src="../resources/img/menu.png" alt="menu">';
-                                lines += '</a>';
-                                document.write(lines);
-                            }
-                        </script>
-                        <a href= "index.php">
-                            <img src ="../resources/img/beeLogo.png" alt ="logo">
+                        <a href="index.php">
+                            <img src="../resources/img/back.png" alt="menu">
                         </a>
-                        <h2>Beehive Monitoring System</h2>
                     </span>
-                    <script>
-                        if (screen.width > 570 && Boolean(<?php echo (!isset($_SESSION['loggedin'])) ?>)) {
-                            var lines = '<span>';
-                            lines += '<button class="signin-btn" type="button" onclick="openLogin()">Sign in</button>';
-                            lines += '</span>';
-                            document.write(lines);
-                        }
-                        </script>
-                    </nav>
-                </header>
-                <main>
-                <div class="chart-container">
-                    <canvas id="chart"></canvas>
+                </nav>
+            </header>
+            <main id="dashboad-bg">
+                <div id="dashboard-canvas">
+                    <h1>Don't judge this is the place for the dashboard</h1>
                 </div>
-                </main>
-                <footer></footer>
-            </div>
-
-            <script src="../js/scripts.js"></script>
-            <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-            <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-            <script type="text/javascript" src="../js/slick.min.js"></script>
-        </html>
+            </main>
+            <footer></footer>
+        </div>
+        <script src="../js/scripts.js"></script>
+        <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script type="text/javascript" src="../js/slick.min.js"></script>
+    </body>
+</html>
