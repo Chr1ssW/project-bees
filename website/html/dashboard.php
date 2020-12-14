@@ -1,6 +1,18 @@
 <!DOCTYPE html>
 <?php
 require_once("../db/connect.php");
+
+    $sqlSelect = "SELECT date(timeStamp), internalTemp, externalTemp FROM beehive_data WHERE timeStamp > '2020-12-1' GROUP BY date(timeStamp) ORDER BY timeStamp"; 
+
+    if ($stmtSelect = mysqli_prepare($conn, $sqlSelect)) {
+        $executeSelect = mysqli_stmt_execute($stmtSelect);
+        if ($executeSelect == FALSE) {
+            echo mysqli_error($conn);
+        }
+        mysqli_stmt_bind_result($stmtSelect, $timeStamp, $internalTemp, $externalTemp);
+        mysqli_stmt_store_result($stmtSelect);
+        
+    }
 ?>
 <html lang="en">
     <head>
@@ -9,9 +21,37 @@ require_once("../db/connect.php");
         <link rel="stylesheet" href="../css/main.css">
         <link rel="stylesheet" type="text/css" href="../css/slick.css" />
         <link rel="stylesheet" type="text/css" href="../css/slick-theme.css" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" defer></script>
-        <script src="../js/dashboard.js" defer></script>
         <title>Beehive Monitoring System</title>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+            ['Year', 'Internal', 'External'],
+            <?php
+                if (!mysqli_stmt_num_rows($stmtSelect) == 0){
+                    while (mysqli_stmt_fetch($stmtSelect)) {
+                        echo "['$timeStamp', $internalTemp, $externalTemp], ";
+                    }
+                }
+
+                mysqli_stmt_close($stmtSelect);
+            ?>
+            ]);
+
+            var options = {
+            title: 'Internal temperature',
+            hAxis: {title: 'Date'},
+            vAxis: {minValue: 0},
+            legend: {position: 'bottom'}
+            };
+
+            var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+            chart.draw(data, options);
+        }
+        </script>
     </head>
     <body>
         <?php
@@ -29,7 +69,7 @@ require_once("../db/connect.php");
             </header>
             <main id="dashboad-bg">
                 <div id="dashboard-canvas">
-                    <h1>Don't judge this is the place for the dashboard</h1>
+                    <div id="chart_div" style="width: 40%; height: 500px;"></div>
                 </div>
             </main>
             <footer></footer>
