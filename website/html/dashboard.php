@@ -69,9 +69,8 @@ require_once("../db/connect.php");
             </header>
             <main id="dashboad-bg">
                 <div id="dashboard-canvas">
-                    <!--- <div id="chart_div" style="width: 40%; height: 500px;"></div> -->
-                    <iframe src="http://localhost:3000/d-solo/MCZwc-1Mk/beehive-data-dashboard?orgId=1&from=1607848641382&to=1608021441382&var-Location=NL,%20Emmen%20De%20Veenkampen%205&panelId=2" width="450" height="200" frameborder="0"></iframe>
-                </div>
+                    <div id="chart_div" style="width: 40%; height: 500px;"></div>
+                    </div>
             </main>
             <footer></footer>
         </div>
