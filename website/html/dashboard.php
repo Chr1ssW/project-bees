@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <?php
 require_once("../db/connect.php");
+
+    header("Refresh:90");
+
     //Getting default date values
     $start_date = date('Y-m-d');
     $date = DateTime::createFromFormat('Y-m-d', $start_date);
@@ -11,13 +14,11 @@ require_once("../db/connect.php");
     $endDate;
     $selectedHive;
 
-    $_POST['location'] = 'bou';
-
-    if (isset($_POST['updateDashboard']))
+    if (isset($_GET['updateDashboard']))
     {
-        $startDate = mysqli_real_escape_string($conn, htmlentities($_POST['startDate']));
-        $endDate = mysqli_real_escape_string($conn, htmlentities($_POST['endDate']));
-        $selectedHive = mysqli_real_escape_string($conn, htmlentities($_POST['selectedHive']));
+        $startDate = mysqli_real_escape_string($conn, htmlentities($_GET['startDate']));
+        $endDate = mysqli_real_escape_string($conn, htmlentities($_GET['endDate']));
+        $selectedHive = mysqli_real_escape_string($conn, htmlentities($_GET['selectedHive']));
     }else{
         $startDate = $date->format('Y-m-d');
         $endDate = date('Y-m-d');
@@ -96,7 +97,7 @@ require_once("../db/connect.php");
                     <div id="form-header">
                         <h1>Dashboard settings</h1>
                     </div>
-                    <form action="#" method="POST" name="setupForm">
+                    <form action="#" method="GET" name="setupForm">
                         <div class="field-container">
                             <label for="startDate"><h3>Start date:</h3></label>
                             <input type="date" name="startDate" id="startDate" value=<?php echo $startDate; ?>>
@@ -153,7 +154,7 @@ require_once("../db/connect.php");
                         <a href="javascript:void(0)" onclick="openSetup()">
                             <img src="../resources/img/settings.png" alt="Setup diagram information">
                         </a>
-                        <h1>LOCATION OF THE HIVE:</h1>
+                        <h1><?php echo date('d/m/Y H:i:s') ?></h1>
                     </span>
                 </nav>
             </header>
