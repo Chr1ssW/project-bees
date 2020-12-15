@@ -342,6 +342,22 @@ input {
 .settings-popup-form input {
   display: inline;
   padding: 0.2rem 1rem;
+  margin: 0;
+}
+
+.settings-popup-form select {
+  border-radius: 10rem;
+  border: solid #0B2638;
+  padding: 0.2rem 1rem;
+  margin: 0;
+}
+
+.settings-popup-form .field-container {
+  width: 60%;
+}
+
+.settings-popup-form button {
+  margin-top: 3vh;
 }
 
 .invalid-response {
@@ -442,8 +458,14 @@ button:focus {
   font-family: 'SourceLight';
 }
 
+#form-container-settings {
+  height: 100%;
+  width: 100%;
+  font-family: 'SourceLight';
+}
+
 #form-header {
-  width: 70%;
+  width: 80%;
   margin-bottom: 2vh;
   border-bottom: 2px solid #CCCCCC;
 }

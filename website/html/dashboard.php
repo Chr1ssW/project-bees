@@ -7,11 +7,35 @@ require_once("../db/connect.php");
 
     $date->modify('-7 day');
 
+    $startDate;
+    $endDate;
+    $selectedHive;
+
+    $_POST['location'] = 'bou';
+
+    if (isset($_POST['updateDashboard']))
+    {
+        $startDate = mysqli_real_escape_string($conn, htmlentities($_POST['startDate']));
+        $endDate = mysqli_real_escape_string($conn, htmlentities($_POST['endDate']));
+        $selectedHive = mysqli_real_escape_string($conn, htmlentities($_POST['selectedHive']));
+    }else{
+        $startDate = $date->format('Y-m-d');
+        $endDate = date('Y-m-d');
+        $selectedHive = 'node_1';
+    }
+
 
     //Selecting temperature information
-    $sqlSelect = "SELECT date(timeStamp), internalTemp, externalTemp FROM beehive_data WHERE timeStamp > '2020-12-1' GROUP BY date(timeStamp) ORDER BY timeStamp"; 
+    $sqlSelect = "SELECT  date(timeStamp), internalTemp, externalTemp 
+                    FROM beehive_data 
+                    WHERE timeStamp > ? 
+                        AND timeStamp < ?
+                        AND sensorID = ?
+                    GROUP BY date(timeStamp) 
+                    ORDER BY timeStamp"; 
 
     if ($stmtSelect = mysqli_prepare($conn, $sqlSelect)) {
+        mysqli_stmt_bind_param($stmtSelect, 'sss',  $startDate, $endDate, $selectedHive);
         $executeSelect = mysqli_stmt_execute($stmtSelect);
         if ($executeSelect == FALSE) {
             echo mysqli_error($conn);
@@ -68,42 +92,53 @@ require_once("../db/connect.php");
         <div class="popup-screen" id="settings-container">
             <div class="settings-popup-form">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeSetup()">&times;</a>
-                <div id="form-container">
+                <div id="form-container-settings">
                     <div id="form-header">
                         <h1>Dashboard settings</h1>
                     </div>
-                    <form action="#" method="GET" name="setupForm">
-                        <label for="startDate"><h3>Start date:</h3></label>
-                        <input type="date" name="startDate" id="startDate" value=<?php echo $date->format('Y-m-d'); ?>>
-                        <label for="endDate"><h3>End date:</h3></label>
-                        <input type="date" name="endDate" id="endDate" value=<?php echo date('Y-m-d'); ?>>
-                        <label for="selectedHive"><h3>Select a beehive:</h3></label>
-                        <select name="selectedHive" id="selectedHive">
-                            <?php
-                                //Selecting all beehives here
-                                $sqlSelect = "SELECT DISTINCT sensorID, location FROM beehive"; 
+                    <form action="#" method="POST" name="setupForm">
+                        <div class="field-container">
+                            <label for="startDate"><h3>Start date:</h3></label>
+                            <input type="date" name="startDate" id="startDate" value=<?php echo $startDate; ?>>
+                        </div>
+                        <div class="field-container">
+                            <label for="endDate"><h3>End date:</h3></label>
+                            <input type="date" name="endDate" id="endDate" value=<?php echo $endDate; ?>>
+                        </div>
+                        <div class="field-container">
+                            <label for="selectedHive"><h3>Select a beehive:</h3></label>
+                            <select name="selectedHive" id="selectedHive">
+                                <?php
+                                    //Selecting all beehives here
+                                    $sqlSelect = "SELECT DISTINCT sensorID, location FROM beehive"; 
 
-                                if ($stmtSelect = mysqli_prepare($conn, $sqlSelect)) {
-                                    $executeSelect = mysqli_stmt_execute($stmtSelect);
-                                    if ($executeSelect == FALSE) {
-                                        echo mysqli_error($conn);
-                                    }
-                                    mysqli_stmt_bind_result($stmtSelect, $sensorId, $location);
-                                    mysqli_stmt_store_result($stmtSelect);
-
-                                    if (!mysqli_stmt_num_rows($stmtSelect) == 0){
-                                        while (mysqli_stmt_fetch($stmtSelect)) {
-                                            echo "<option value='$sensorId'>$location</option>";
+                                    if ($stmtSelect = mysqli_prepare($conn, $sqlSelect)) {
+                                        $executeSelect = mysqli_stmt_execute($stmtSelect);
+                                        if ($executeSelect == FALSE) {
+                                            echo mysqli_error($conn);
                                         }
-                                    }
-                    
-                                    mysqli_stmt_close($stmtSelect);
-                                    
-                                }
+                                        mysqli_stmt_bind_result($stmtSelect, $sensorId, $location);
+                                        mysqli_stmt_store_result($stmtSelect);
 
-                            ?>
-                        </select>
-                        <button class="change-btn" type="button" onclick="openPasswordChange()">Update</button>
+                                        if (!mysqli_stmt_num_rows($stmtSelect) == 0){
+                                            while (mysqli_stmt_fetch($stmtSelect)) {
+                                                if ($sensorId == $selectedHive){
+                                                    echo "<option value='$sensorId' selected>$location</option>";
+                                                }
+                                                else{
+                                                    echo "<option value='$sensorId'>$location</option>";
+                                                }
+                                            }
+                                        }
+                        
+                                        mysqli_stmt_close($stmtSelect);
+                                        
+                                    }
+
+                                ?>
+                            </select>
+                        </div>    
+                        <button class="change-btn" type="submit" name="updateDashboard">Update</button>
                     </form>
                 </div>
             </div>
@@ -118,6 +153,7 @@ require_once("../db/connect.php");
                         <a href="javascript:void(0)" onclick="openSetup()">
                             <img src="../resources/img/settings.png" alt="Setup diagram information">
                         </a>
+                        <h1>LOCATION OF THE HIVE:</h1>
                     </span>
                 </nav>
             </header>

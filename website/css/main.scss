@@ -285,6 +285,22 @@ input{
     input{
         display: inline;
         padding: 0.2rem 1rem;
+        margin: 0;
+    }
+
+    select{
+        border-radius: 10rem;
+        border: solid $mainColor;
+        padding: 0.2rem 1rem;
+        margin: 0;
+    }
+
+    .field-container{
+        width: 60%;
+    }
+
+    button{
+        margin-top: 3vh;
     }
 }
 
@@ -377,8 +393,14 @@ button:focus{
     font-family: 'SourceLight';
 }
 
+#form-container-settings{
+    height: 100%;
+    width: 100%;
+    font-family: 'SourceLight';
+}
+
 #form-header{
-    width: 70%;
+    width: 80%;
     margin-bottom: 2vh;
     border-bottom: 2px solid $grey;
 }
