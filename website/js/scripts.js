@@ -81,3 +81,13 @@ function closeEditHive()
 {
     document.getElementById("edit-container").style.display = "none";
 }
+
+function openSetup()
+{
+    document.getElementById("settings-container").style.display = "flex";
+}
+
+function closeSetup()
+{
+    document.getElementById("settings-container").style.display = "none";
+}

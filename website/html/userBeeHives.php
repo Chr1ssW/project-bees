@@ -49,15 +49,15 @@ require_once("sidebarAndPopup.php");
 <div id="main">
     <header>
         <nav>
-                    <span>
-                        <a href="javascript:void(0)" onclick="openNav()">
-                            <img src="../resources/img/menu.png" alt="menu">
-                        </a>
-                        <a href="index.php">
-                            <img src="../resources/img/beeLogo.png" alt="logo">
-                        </a>
-                        <h2>Beehive Monitoring System</h2>
-                    </span>
+            <span>
+                <a href="javascript:void(0)" onclick="openNav()">
+                    <img src="../resources/img/menu.png" alt="menu">
+                </a>
+                <a href="index.php">
+                    <img src="../resources/img/beeLogo.png" alt="logo">
+                </a>
+                <h2>Beehive Monitoring System</h2>
+            </span>
         </nav>
     </header>
     <main>
