@@ -29,8 +29,8 @@ require_once("../db/connect.php");
     //Selecting temperature information
     $sqlSelect = "SELECT  date(timeStamp), internalTemp, externalTemp 
                     FROM beehive_data 
-                    WHERE timeStamp > ? 
-                        AND timeStamp < ?
+                    WHERE timeStamp >= ? 
+                        AND timeStamp <= ?
                         AND sensorID = ?
                     GROUP BY date(timeStamp) 
                     ORDER BY timeStamp"; 
