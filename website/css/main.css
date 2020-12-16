@@ -208,7 +208,10 @@ main {
 
 footer {
   background-color: #0B2638;
+  padding: 1vh;
   height: 5vh;
+  color: #CCCCCC;
+  font-family: 'SourceLight';
 }
 
 #sidebar {

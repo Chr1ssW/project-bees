@@ -378,7 +378,34 @@ require_once("../db/connect.php");
                         <a href="javascript:void(0)" onclick="openSetup()">
                             <img src="../resources/img/settings.png" alt="Setup diagram information">
                         </a>
-                        <h1><?php echo date('d/m/Y H:i:s') ?></h1>
+                        <h1>
+                        <?php 
+                                $sqlSelect = "SELECT location
+                                FROM beehive 
+                                WHERE sensorID = ?
+                                LIMIT 1"; 
+
+                                if ($stmtSelect = mysqli_prepare($conn, $sqlSelect)) {
+                                    mysqli_stmt_bind_param($stmtSelect, 's', $selectedHive);
+                                    $executeSelect = mysqli_stmt_execute($stmtSelect);
+
+                                    if ($executeSelect == FALSE) {
+                                    echo mysqli_error($conn);
+                                    }
+                                    
+                                    mysqli_stmt_bind_result($stmtSelect, $location);
+                                    mysqli_stmt_store_result($stmtSelect);
+                                }
+
+                                    if (!mysqli_stmt_num_rows($stmtSelect) == 0){
+                                        while (mysqli_stmt_fetch($stmtSelect)) {
+                                            echo $location;
+                                        }
+                                    }
+
+                                    mysqli_stmt_close($stmtSelect);
+                            ?>
+                        </h1>
                     </span>
                 </nav>
             </header>
@@ -396,7 +423,9 @@ require_once("../db/connect.php");
                     </div>
                 </div>
             </main>
-            <footer></footer>
+            <footer>
+                <i><h3>Last refreshed: <?php echo date('d/m/Y H:i:s') ?></h1></i>
+            </footer>
         </div>
         <script src="../js/scripts.js"></script>
         <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
