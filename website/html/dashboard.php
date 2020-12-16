@@ -26,25 +26,7 @@ require_once("../db/connect.php");
     }
 
 
-    //Selecting temperature information
-    $sqlSelect = "SELECT  date(timeStamp), internalTemp, externalTemp 
-                    FROM beehive_data 
-                    WHERE timeStamp >= ? 
-                        AND timeStamp <= ?
-                        AND sensorID = ?
-                    GROUP BY date(timeStamp) 
-                    ORDER BY timeStamp"; 
-
-    if ($stmtSelect = mysqli_prepare($conn, $sqlSelect)) {
-        mysqli_stmt_bind_param($stmtSelect, 'sss',  $startDate, $endDate, $selectedHive);
-        $executeSelect = mysqli_stmt_execute($stmtSelect);
-        if ($executeSelect == FALSE) {
-            echo mysqli_error($conn);
-        }
-        mysqli_stmt_bind_result($stmtSelect, $timeStamp, $internalTemp, $externalTemp);
-        mysqli_stmt_store_result($stmtSelect);
-        
-    }
+    
 ?>
 <html lang="en">
     <head>
@@ -59,13 +41,35 @@ require_once("../db/connect.php");
         google.charts.load('current', {'packages':['corechart']});
         google.charts.setOnLoadCallback(drawChart);
 
+        <?php
+            //Selecting temperature information
+            $sqlSelect = "SELECT  date(timeStamp), internalTemp, externalTemp 
+            FROM beehive_data 
+            WHERE timeStamp >= ? 
+                AND timeStamp <= ?
+                AND sensorID = ?
+            GROUP BY date(timeStamp) 
+            ORDER BY timeStamp"; 
+
+            if ($stmtSelect = mysqli_prepare($conn, $sqlSelect)) {
+            mysqli_stmt_bind_param($stmtSelect, 'sss',  $startDate, $endDate, $selectedHive);
+            $executeSelect = mysqli_stmt_execute($stmtSelect);
+            if ($executeSelect == FALSE) {
+            echo mysqli_error($conn);
+            }
+            mysqli_stmt_bind_result($stmtSelect, $timeStamp, $internalTemp, $externalTemp);
+            mysqli_stmt_store_result($stmtSelect);
+
+            }
+        ?>
+
         function drawChart() {
             var data = google.visualization.arrayToDataTable([
-            ['Year', 'Internal', 'External'],
+            ['Year', 'External', 'Internal'],
             <?php
                 if (!mysqli_stmt_num_rows($stmtSelect) == 0){
                     while (mysqli_stmt_fetch($stmtSelect)) {
-                        echo "['$timeStamp', $internalTemp, $externalTemp], ";
+                        echo "['$timeStamp', $externalTemp, $internalTemp], ";
                     }
                 }
 
@@ -74,10 +78,31 @@ require_once("../db/connect.php");
             ]);
 
             var options = {
-            title: 'Internal temperature',
-            hAxis: {title: 'Date'},
-            vAxis: {minValue: 0},
-            legend: {position: 'bottom'}
+                title: 'Internal temperature',
+                backgroundColor: '#0B2638',
+                colors:['#EAB111','white'],
+                chartArea: {'width': '80%', 'height': '80%'},
+                hAxis: {
+                        title: 'Date',
+                        textStyle: {
+                            color: '#ffffff'
+                        }
+                    },
+                vAxis: {
+                    minValue: 0,
+                    textStyle: {
+                            color: '#ffffff'
+                        }
+                    },
+                legend: {
+                    position: 'bottom',
+                    textStyle: {
+                            color: '#ffffff'
+                        }
+                    },
+                titleTextStyle: {
+                    color: '#ffffff'
+                }           
             };
 
             var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
