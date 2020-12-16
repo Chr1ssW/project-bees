@@ -65,7 +65,7 @@ require_once("../db/connect.php");
 
         function drawChart() {
             var data = google.visualization.arrayToDataTable([
-            ['Year', 'External', 'Internal'],
+            ['Date', 'External', 'Internal'],
             <?php
                 if (!mysqli_stmt_num_rows($stmtSelect) == 0){
                     while (mysqli_stmt_fetch($stmtSelect)) {
@@ -106,6 +106,78 @@ require_once("../db/connect.php");
             };
 
             var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+            chart.draw(data, options);
+        }
+        </script>
+        <script type="text/javascript">
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        <?php
+            //Selecting temperature information
+            $sqlSelect = "SELECT  date(timeStamp), weight 
+            FROM beehive_data 
+            WHERE timeStamp >= ? 
+                AND timeStamp <= ?
+                AND sensorID = ?
+            GROUP BY date(timeStamp) 
+            ORDER BY timeStamp"; 
+
+            if ($stmtSelect = mysqli_prepare($conn, $sqlSelect)) {
+            mysqli_stmt_bind_param($stmtSelect, 'sss',  $startDate, $endDate, $selectedHive);
+            $executeSelect = mysqli_stmt_execute($stmtSelect);
+            if ($executeSelect == FALSE) {
+            echo mysqli_error($conn);
+            }
+            mysqli_stmt_bind_result($stmtSelect, $timeStamp, $weight);
+            mysqli_stmt_store_result($stmtSelect);
+
+            }
+        ?>
+
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+            ['Date', 'Weight'],
+            <?php
+                if (!mysqli_stmt_num_rows($stmtSelect) == 0){
+                    while (mysqli_stmt_fetch($stmtSelect)) {
+                        echo "['$timeStamp', $weight], ";
+                    }
+                }
+
+                mysqli_stmt_close($stmtSelect);
+            ?>
+            ]);
+
+            var options = {
+                title: 'Weight',
+                backgroundColor: '#0B2638',
+                colors:['#EAB111'],
+                chartArea: {'width': '80%', 'height': '80%'},
+                hAxis: {
+                        title: 'Date',
+                        textStyle: {
+                            color: '#ffffff'
+                        }
+                    },
+                vAxis: {
+                    minValue: 0,
+                    textStyle: {
+                            color: '#ffffff'
+                        }
+                    },
+                legend: {
+                    position: 'bottom',
+                    textStyle: {
+                            color: '#ffffff'
+                        }
+                    },
+                titleTextStyle: {
+                    color: '#ffffff'
+                }           
+            };
+
+            var chart = new google.visualization.AreaChart(document.getElementById('chart_div2'));
             chart.draw(data, options);
         }
         </script>
@@ -185,7 +257,8 @@ require_once("../db/connect.php");
             </header>
             <main id="dashboad-bg">
                 <div id="dashboard-canvas">
-                    <div id="chart_div" style="width: 40%; height: 500px;"></div>
+                    <div id="chart_div" style="width: 40%; height: 500px; float: left;"></div>
+                    <div id="chart_div2" style="width: 40%; height: 500px; float: left;"></div>
                     </div>
             </main>
             <footer></footer>
