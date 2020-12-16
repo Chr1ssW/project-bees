@@ -133,6 +133,31 @@ main {
   color: yellow;
 }
 
+.canvas-rows {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#top-row {
+  height: 25%;
+}
+
+#gauge-container {
+  height: 100%;
+  margin: 0 auto;
+}
+
+#bottom-row {
+  height: 75%;
+}
+
+.charts {
+  height: 100%;
+  width: 33%;
+}
+
 .chart_container {
   position: relative;
   width: 45vw;
