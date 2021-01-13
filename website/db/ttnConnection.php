@@ -37,6 +37,7 @@ $temp = 0;
 $weight = 0;;
 $device_id = "";
 $time = "";
+
 foreach ($data as $object) {
     //Convert object to array
     $device = (array)$object;
