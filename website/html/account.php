@@ -32,7 +32,7 @@ if (isset($_GET['reloaded'])) {
         }
         //End check section
 
-        $query = "SELECT password FROM User WHERE userid = $id";
+        $query = "SELECT password FROM User WHERE user_id = $id";
 
         $result = mysqli_query($conn, $query);
         $stmt_query = mysqli_prepare($conn, $query);
@@ -45,7 +45,7 @@ if (isset($_GET['reloaded'])) {
         mysqli_stmt_fetch($stmt_query);
         mysqli_stmt_close($stmt_query);
         if ($passwd == $validpasswd) {
-            $query = "UPDATE user SET name = ? WHERE userID = $id";
+            $query = "UPDATE user SET name = ? WHERE user_id = $id";
             if ($stmt_query = mysqli_prepare($conn, $query)) {
                 mysqli_stmt_bind_param($stmt_query, 's', $username);
                 if (!mysqli_stmt_execute($stmt_query)) {
@@ -80,7 +80,7 @@ if (isset($_GET['reloaded'])) {
         //End check section
         
         
-        $query = "SELECT password FROM User WHERE userid = $id";
+        $query = "SELECT password FROM User WHERE user_id = $id";
 
         $result = mysqli_query($conn, $query);
         $stmt_query = mysqli_prepare($conn, $query);
@@ -95,7 +95,7 @@ if (isset($_GET['reloaded'])) {
         
         
         if ($passwd == $validpasswd) {
-            $query = "UPDATE user SET email = ? WHERE userID = $id";
+            $query = "UPDATE user SET email = ? WHERE user_id = $id";
             if ($stmt_query = mysqli_prepare($conn, $query)) {
                 mysqli_stmt_bind_param($stmt_query, 's', $email);
                 if (!mysqli_stmt_execute($stmt_query)) {
@@ -130,7 +130,7 @@ if (isset($_GET['reloaded'])) {
         //End check section
         
         
-        $query = "SELECT password FROM User WHERE userid = $id";
+        $query = "SELECT password FROM User WHERE user_id = $id";
 
         $result = mysqli_query($conn, $query);
         $stmt_query = mysqli_prepare($conn, $query);
@@ -145,7 +145,7 @@ if (isset($_GET['reloaded'])) {
         
         
         if ($passwOld == $validpasswd) {
-            $query = "UPDATE user SET password = ? WHERE userID = $id";
+            $query = "UPDATE user SET password = ? WHERE user_id = $id";
             if ($stmt_query = mysqli_prepare($conn, $query)) {
                 mysqli_stmt_bind_param($stmt_query, 's', $passwd);
                 if (!mysqli_stmt_execute($stmt_query)) {

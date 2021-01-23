@@ -43,13 +43,13 @@ require_once("../db/connect.php");
 
             <?php
                 //Selecting temperature information
-                $sqlSelect = "SELECT  date(timeStamp), internalTemp, externalTemp 
+                $sqlSelect = "SELECT  date(time_stamp), internal_temp, external_temp 
                 FROM beehive_data 
-                WHERE timeStamp >= ? 
-                    AND timeStamp <= ?
-                    AND sensorID = ?
-                GROUP BY date(timeStamp) 
-                ORDER BY timeStamp"; 
+                WHERE time_stamp >= ? 
+                    AND time_stamp <= ?
+                    AND sensor_id = ?
+                GROUP BY date(time_stamp) 
+                ORDER BY time_stamp"; 
 
                 if ($stmtSelect = mysqli_prepare($conn, $sqlSelect)) {
                 mysqli_stmt_bind_param($stmtSelect, 'sss',  $startDate, $endDate, $selectedHive);
@@ -115,13 +115,13 @@ require_once("../db/connect.php");
 
             <?php
                 //Selecting weight information
-                $sqlSelect = "SELECT  date(timeStamp), weight 
+                $sqlSelect = "SELECT  date(time_stamp), weight 
                 FROM beehive_data 
-                WHERE timeStamp >= ? 
-                    AND timeStamp <= ?
-                    AND sensorID = ?
-                GROUP BY date(timeStamp) 
-                ORDER BY timeStamp"; 
+                WHERE time_stamp >= ? 
+                    AND time_stamp <= ?
+                    AND sensor_id = ?
+                GROUP BY date(time_stamp) 
+                ORDER BY time_stamp"; 
 
                 if ($stmtSelect = mysqli_prepare($conn, $sqlSelect)) {
                 mysqli_stmt_bind_param($stmtSelect, 'sss',  $startDate, $endDate, $selectedHive);
@@ -187,13 +187,13 @@ require_once("../db/connect.php");
 
             <?php
                 //Selecting weight information
-                $sqlSelect = "SELECT  date(timeStamp), humidity 
+                $sqlSelect = "SELECT  date(time_stamp), humidity 
                 FROM beehive_data 
-                WHERE timeStamp >= ? 
-                    AND timeStamp <= ?
-                    AND sensorID = ?
-                GROUP BY date(timeStamp) 
-                ORDER BY timeStamp"; 
+                WHERE time_stamp >= ? 
+                    AND time_stamp <= ?
+                    AND sensor_id = ?
+                GROUP BY date(time_stamp) 
+                ORDER BY time_stamp"; 
 
                 if ($stmtSelect = mysqli_prepare($conn, $sqlSelect)) {
                 mysqli_stmt_bind_param($stmtSelect, 'sss',  $startDate, $endDate, $selectedHive);
@@ -259,10 +259,10 @@ require_once("../db/connect.php");
 
         <?php
                 //Selecting current information
-                $sqlSelect = "SELECT  internalTemp, externalTemp, humidity, weight
+                $sqlSelect = "SELECT  internal_temp, external_temp, humidity, weight
                     FROM beehive_data 
-                    WHERE sensorID = ?
-                    ORDER BY timeStamp DESC
+                    WHERE sensor_id = ?
+                    ORDER BY time_stamp DESC
                     LIMIT 1"; 
 
                 if ($stmtSelect = mysqli_prepare($conn, $sqlSelect)) {
@@ -335,7 +335,7 @@ require_once("../db/connect.php");
                             <select name="selectedHive" id="selectedHive">
                                 <?php
                                     //Selecting all beehives here
-                                    $sqlSelect = "SELECT DISTINCT sensorID, location FROM beehive"; 
+                                    $sqlSelect = "SELECT DISTINCT sensor_id, location FROM beehive"; 
 
                                     if ($stmtSelect = mysqli_prepare($conn, $sqlSelect)) {
                                         $executeSelect = mysqli_stmt_execute($stmtSelect);
@@ -382,7 +382,7 @@ require_once("../db/connect.php");
                         <?php 
                                 $sqlSelect = "SELECT location
                                 FROM beehive 
-                                WHERE sensorID = ?
+                                WHERE sensor_id = ?
                                 LIMIT 1"; 
 
                                 if ($stmtSelect = mysqli_prepare($conn, $sqlSelect)) {
