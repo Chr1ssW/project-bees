@@ -32,7 +32,7 @@ if (isset($_GET['reloaded'])) {
         }
         //End check section
 
-        $query = "SELECT password FROM User WHERE user_id = $id";
+        $query = "SELECT password FROM user WHERE user_id = $id";
 
         $result = mysqli_query($conn, $query);
         $stmt_query = mysqli_prepare($conn, $query);
@@ -44,7 +44,7 @@ if (isset($_GET['reloaded'])) {
         mysqli_stmt_store_result($stmt_query);
         mysqli_stmt_fetch($stmt_query);
         mysqli_stmt_close($stmt_query);
-        if ($passwd == $validpasswd) {
+        if (password_verify($passwd, $validpasswd)) {
             $query = "UPDATE user SET name = ? WHERE user_id = $id";
             if ($stmt_query = mysqli_prepare($conn, $query)) {
                 mysqli_stmt_bind_param($stmt_query, 's', $username);
@@ -94,7 +94,7 @@ if (isset($_GET['reloaded'])) {
         mysqli_stmt_close($stmt_query);
         
         
-        if ($passwd == $validpasswd) {
+        if (password_verify($passwd, $validpasswd)) {
             $query = "UPDATE user SET email = ? WHERE user_id = $id";
             if ($stmt_query = mysqli_prepare($conn, $query)) {
                 mysqli_stmt_bind_param($stmt_query, 's', $email);
@@ -130,7 +130,7 @@ if (isset($_GET['reloaded'])) {
         //End check section
         
         
-        $query = "SELECT password FROM User WHERE user_id = $id";
+        $query = "SELECT password FROM user WHERE user_id = $id";
 
         $result = mysqli_query($conn, $query);
         $stmt_query = mysqli_prepare($conn, $query);
@@ -144,10 +144,12 @@ if (isset($_GET['reloaded'])) {
         mysqli_stmt_close($stmt_query);
         
         
-        if ($passwOld == $validpasswd) {
+        if (password_verify($passwOld, $validpasswd)) {
             $query = "UPDATE user SET password = ? WHERE user_id = $id";
             if ($stmt_query = mysqli_prepare($conn, $query)) {
-                mysqli_stmt_bind_param($stmt_query, 's', $passwd);
+                $hashed = password_hash($passwd, PASSWORD_DEFAULT);
+
+                mysqli_stmt_bind_param($stmt_query, 's', $hashed);
                 if (!mysqli_stmt_execute($stmt_query)) {
                     echo mysqli_error($conn);
                 }

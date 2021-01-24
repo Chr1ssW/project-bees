@@ -1,6 +1,11 @@
 <?php
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-session_start();
+
+if (!isset($_SESSION))
+{
+    session_start();
+}
+
 
 $username = "b8041e339aa3d1";
 $passwd = "06634b97";

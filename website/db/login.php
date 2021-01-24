@@ -19,7 +19,7 @@ if (isset($_POST['signin'])) {
         array_push($loginErrors, "Password is required");
     }
     if (count($loginErrors) == 0) {
-        $findUser = "SELECT userID, name, password, email FROM user WHERE email=? OR name=?";
+        $findUser = "SELECT user_id, name, password, email FROM user WHERE email=? OR name=?";
         if ($stmtPrepareToFindUser = mysqli_prepare($conn, $findUser)) {
             mysqli_stmt_bind_param($stmtPrepareToFindUser, 'ss', $email, $username);
 
@@ -34,7 +34,7 @@ if (isset($_POST['signin'])) {
                 array_push($loginErrors, "User with username/email " . $username . " does not exist");
             } else {
                 while (mysqli_stmt_fetch($stmtPrepareToFindUser)) {
-                    if ($foundUserPwd == $passwd) {
+                    if (password_verify($passwd, $foundUserPwd)) {
                         $_SESSION['userID'] = $foundUserID;
                         $_SESSION['userName'] = $foundUsername;
                         $_SESSION['userEmail'] = $foundUserEmail;
