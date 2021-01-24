@@ -22,7 +22,21 @@ require_once("../db/connect.php");
     }else{
         $startDate = $date->format('Y-m-d');
         $endDate = date('Y-m-d');
-        $selectedHive = 'node_1';
+
+        $sqlSelect = "SELECT sensor_id FROM beehive limit 1"; 
+
+            if ($stmtSelect = mysqli_prepare($conn, $sqlSelect)) {
+                $executeSelect = mysqli_stmt_execute($stmtSelect);
+                if ($executeSelect == FALSE) {
+                    echo mysqli_error($conn);
+                }
+                mysqli_stmt_bind_result($stmtSelect, $sensor_id);
+                mysqli_stmt_store_result($stmtSelect);
+                mysqli_stmt_fetch($stmtSelect);
+                mysqli_stmt_close($stmtSelect);
+            }
+
+            $selectedHive = $sensor_id;
     }
 
 
@@ -43,10 +57,10 @@ require_once("../db/connect.php");
 
             <?php
                 //Selecting temperature information
-                $sqlSelect = "SELECT  date(time_stamp), internal_temp, external_temp 
+                $sqlSelect = "SELECT date(time_stamp), internal_temp, external_temp 
                 FROM beehive_data 
-                WHERE time_stamp >= ? 
-                    AND time_stamp <= ?
+                WHERE date(time_stamp) >= ? 
+                    AND date(time_stamp) <= ?
                     AND sensor_id = ?
                 GROUP BY date(time_stamp) 
                 ORDER BY time_stamp"; 
@@ -55,7 +69,7 @@ require_once("../db/connect.php");
                 mysqli_stmt_bind_param($stmtSelect, 'sss',  $startDate, $endDate, $selectedHive);
                 $executeSelect = mysqli_stmt_execute($stmtSelect);
                 if ($executeSelect == FALSE) {
-                echo mysqli_error($conn);
+                    echo mysqli_error($conn);
                 }
                 mysqli_stmt_bind_result($stmtSelect, $timeStamp, $internalTemp, $externalTemp);
                 mysqli_stmt_store_result($stmtSelect);
@@ -112,13 +126,14 @@ require_once("../db/connect.php");
         <script type="text/javascript">
             google.charts.load('current', {'packages':['corechart']});
             google.charts.setOnLoadCallback(drawChart);
+            
 
             <?php
                 //Selecting weight information
-                $sqlSelect = "SELECT  date(time_stamp), weight 
+                $sqlSelect = "SELECT date(time_stamp), weight 
                 FROM beehive_data 
-                WHERE time_stamp >= ? 
-                    AND time_stamp <= ?
+                WHERE date(time_stamp) >= ? 
+                    AND date(time_stamp) <= ?
                     AND sensor_id = ?
                 GROUP BY date(time_stamp) 
                 ORDER BY time_stamp"; 
@@ -187,10 +202,10 @@ require_once("../db/connect.php");
 
             <?php
                 //Selecting weight information
-                $sqlSelect = "SELECT  date(time_stamp), humidity 
+                $sqlSelect = "SELECT date(time_stamp), humidity 
                 FROM beehive_data 
-                WHERE time_stamp >= ? 
-                    AND time_stamp <= ?
+                WHERE date(time_stamp) >= ? 
+                    AND date(time_stamp) <= ?
                     AND sensor_id = ?
                 GROUP BY date(time_stamp) 
                 ORDER BY time_stamp"; 
