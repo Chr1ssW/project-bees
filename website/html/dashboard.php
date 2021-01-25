@@ -8,7 +8,7 @@ require_once("../db/connect.php");
     $start_date = date('Y-m-d');
     $date = DateTime::createFromFormat('Y-m-d', $start_date);
 
-    $date->modify('-7 day');
+    $date->modify('-1 day');
 
     $startDate;
     $endDate;
@@ -57,12 +57,11 @@ require_once("../db/connect.php");
 
             <?php
                 //Selecting temperature information
-                $sqlSelect = "SELECT date(time_stamp), internal_temp, external_temp 
+                $sqlSelect = "SELECT DATE_FORMAT(time_stamp, '%Y-%m-%d %H:%i'), internal_temp, external_temp 
                 FROM beehive_data 
                 WHERE date(time_stamp) >= ? 
                     AND date(time_stamp) <= ?
                     AND sensor_id = ?
-                GROUP BY date(time_stamp) 
                 ORDER BY time_stamp"; 
 
                 if ($stmtSelect = mysqli_prepare($conn, $sqlSelect)) {
@@ -97,10 +96,7 @@ require_once("../db/connect.php");
                     colors:['#EAB111','white'],
                     chartArea: {'width': '80%', 'height': '70%'},
                     hAxis: {
-                            title: 'Date',
-                            textStyle: {
-                                color: '#ffffff'
-                            }
+                        textPosition: 'none'
                         },
                     vAxis: {
                         minValue: 0,
@@ -130,12 +126,11 @@ require_once("../db/connect.php");
 
             <?php
                 //Selecting weight information
-                $sqlSelect = "SELECT date(time_stamp), weight 
+                $sqlSelect = "SELECT DATE_FORMAT(time_stamp, '%Y-%m-%d %H:%i'), weight 
                 FROM beehive_data 
                 WHERE date(time_stamp) >= ? 
                     AND date(time_stamp) <= ?
                     AND sensor_id = ?
-                GROUP BY date(time_stamp) 
                 ORDER BY time_stamp"; 
 
                 if ($stmtSelect = mysqli_prepare($conn, $sqlSelect)) {
@@ -170,10 +165,7 @@ require_once("../db/connect.php");
                     colors:['#EAB111'],
                     chartArea: {'width': '80%', 'height': '70%'},
                     hAxis: {
-                            title: 'Date',
-                            textStyle: {
-                                color: '#ffffff'
-                            }
+                        textPosition: 'none'
                         },
                     vAxis: {
                         minValue: 0,
@@ -202,12 +194,11 @@ require_once("../db/connect.php");
 
             <?php
                 //Selecting weight information
-                $sqlSelect = "SELECT date(time_stamp), humidity 
+                $sqlSelect = "SELECT DATE_FORMAT(time_stamp, '%Y-%m-%d %H:%i'), humidity 
                 FROM beehive_data 
                 WHERE date(time_stamp) >= ? 
                     AND date(time_stamp) <= ?
                     AND sensor_id = ?
-                GROUP BY date(time_stamp) 
                 ORDER BY time_stamp"; 
 
                 if ($stmtSelect = mysqli_prepare($conn, $sqlSelect)) {
@@ -242,10 +233,7 @@ require_once("../db/connect.php");
                     colors:['#EAB111'],
                     chartArea: {'width': '80%', 'height': '70%'},
                     hAxis: {
-                            title: 'Date',
-                            textStyle: {
-                                color: '#ffffff'
-                            }
+                            textPosition: 'none'
                         },
                     vAxis: {
                         minValue: 0,
