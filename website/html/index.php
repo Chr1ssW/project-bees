@@ -53,9 +53,9 @@ require_once("../db/connect.php");
                     <div class="slide">
                         <div class="text">
                             <h1>The Things Network</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                                sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna
-                                aliquam erat volutpat. Ut wisi enim ad minim veniam.</p>
+                            <p>The Things Network is a global community building an 
+                            open-source and decentralized LoRaWAN network. This system
+                            communicates via TTN, providing fast and realiable information.</p>
                         </div>
                         <img src="../resources/img/slide2.png" alt="Bee">
                     </div>

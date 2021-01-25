@@ -57,7 +57,7 @@ require_once("../db/connect.php");
 
             <?php
                 //Selecting temperature information
-                $sqlSelect = "SELECT DATE_FORMAT(time_stamp, '%Y-%m-%d %H:%i'), internal_temp, external_temp 
+                $sqlSelect = "SELECT DATE_FORMAT(convert_tz(time_stamp, '+00:00', '+01:00'), '%Y-%m-%d %H:%i'), internal_temp, external_temp 
                 FROM beehive_data 
                 WHERE date(time_stamp) >= ? 
                     AND date(time_stamp) <= ?
@@ -126,7 +126,7 @@ require_once("../db/connect.php");
 
             <?php
                 //Selecting weight information
-                $sqlSelect = "SELECT DATE_FORMAT(time_stamp, '%Y-%m-%d %H:%i'), weight 
+                $sqlSelect = "SELECT DATE_FORMAT(convert_tz(time_stamp, '+00:00', '+01:00'), '%Y-%m-%d %H:%i'), weight 
                 FROM beehive_data 
                 WHERE date(time_stamp) >= ? 
                     AND date(time_stamp) <= ?
@@ -194,7 +194,7 @@ require_once("../db/connect.php");
 
             <?php
                 //Selecting weight information
-                $sqlSelect = "SELECT DATE_FORMAT(time_stamp, '%Y-%m-%d %H:%i'), humidity 
+                $sqlSelect = "SELECT DATE_FORMAT(convert_tz(time_stamp, '+00:00', '+01:00'), '%Y-%m-%d %H:%i'), humidity 
                 FROM beehive_data 
                 WHERE date(time_stamp) >= ? 
                     AND date(time_stamp) <= ?
