@@ -52,12 +52,12 @@ require_once("../db/connect.php");
                     </div>
                     <div class="slide">
                         <div class="text">
-                            <h1>Welcome!</h1>
+                            <h1>The Things Network</h1>
                             <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
                                 sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna
                                 aliquam erat volutpat. Ut wisi enim ad minim veniam.</p>
                         </div>
-                        <img src="../resources/img/slide1.png" alt="Bee">
+                        <img src="../resources/img/slide2.png" alt="Bee">
                     </div>
                     <div class="slide">
                         <div class="text">

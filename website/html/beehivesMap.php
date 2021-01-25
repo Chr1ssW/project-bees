@@ -1,13 +1,7 @@
 <?php
 require("../db/connect.php");
 /** I need the array with the locations here */
-$location = array(
-    // "NL Emmen De Veenkampen 5",
-    // "NL Emmen Van Schaikweg 94",
-    // "HU Nyiregyhaza Varosmajor utca 15",
-    // "NL Emmen Wilhelminastraat 28",
-    // "Smedingeslag 12 7824hk"
-);
+$location = array();
 
 $sqlSelectLocations = "SELECT location FROM beehive";
 
@@ -17,9 +11,7 @@ if ($stmtSelectLocations = mysqli_prepare($conn, $sqlSelectLocations)) {
     }
     mysqli_stmt_bind_result($stmtSelectLocations, $foundLocation);
     mysqli_stmt_store_result($stmtSelectLocations);
-    if (mysqli_stmt_num_rows($stmtSelectLocations) == 0) {
-        echo "No rows found";
-    } else {
+    if (mysqli_stmt_num_rows($stmtSelectLocations) != 0) {
         while (mysqli_stmt_fetch($stmtSelectLocations)) {
             array_push($location, $foundLocation);
         }

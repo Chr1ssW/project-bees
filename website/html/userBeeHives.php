@@ -69,16 +69,13 @@ require_once("sidebarAndPopup.php");
             <?php
             $userID = $_SESSION['userID'];
 
-            $sqlSelect = "SELECT b.sensorID, b.location, bd.externalTemp, bd.internalTemp, bd.humidity, bd.weight, bd.timeStamp
-                                  FROM beehive_data as bd, beehive as b
-                                  WHERE b.sensorID = bd.sensorID
-                                  AND bd.userID = " . $userID;
+            $sqlSelect = "SELECT * FROM beehive";
             if ($stmtSelect = mysqli_prepare($conn, $sqlSelect)) {
                 $executeSelect = mysqli_stmt_execute($stmtSelect);
                 if ($executeSelect == FALSE) {
                     echo mysqli_error($conn);
                 }
-                mysqli_stmt_bind_result($stmtSelect, $beeID, $location, $externalTemp, $internalTemp, $humidity, $weight, $timestamp);
+                mysqli_stmt_bind_result($stmtSelect, $beeID, $location);
                 mysqli_stmt_store_result($stmtSelect);
                 //We check if there are any beehives assigned to user
                 if (mysqli_stmt_num_rows($stmtSelect) == 0) {
@@ -86,10 +83,6 @@ require_once("sidebarAndPopup.php");
                 } else {
                     while (mysqli_stmt_fetch($stmtSelect)) {
                         echo "<div class='beehive' onclick=\"openEditHive('$beeID')\">
-                        <p>Ext. temp:" . $externalTemp . " </p>
-                        <p>Int. temp:" . $internalTemp . " </p>
-                        <p>Humidity:" . $humidity . " </p>
-                        <p>Weight: " . $weight . "</p>
                         <p>" . $location . "</p>
                     </div>";
                     }
