@@ -285,8 +285,16 @@ footer{
     transform: translate(-50%, -50%);
 }
 
+.form-title{
+    margin: 0 auto;
+    text-align: center;
+    font-family: SourceRegular;
+    font-size: 3vh;
+    color: $mainColor;
+}
+
 .change-form{
-    margin-top: 15vh;
+    margin-top: 7vh;
 }
 
 input{
@@ -352,11 +360,18 @@ input{
 }
 
 .beehiveAdd{
-    margin: 5rem 0 5rem 0;
+    margin: 2.5rem 0 5rem 0;
 }
 
 button:focus{
     outline: none;
+}
+
+.noBeehivesMsg{
+    margin-top: 3vh;
+
+    color: $mainColor;
+    font-family: 'SourceRegular';
 }
 
 #collection-wrapper{
@@ -379,7 +394,7 @@ button:focus{
     p{
         width: 80%;
         text-align: center;
-        margin: 0.5rem auto;
+        margin: 3rem auto;
         color: $mainColor;
         font-family: 'SourceLight';
         font-size: 1.5rem;
@@ -392,6 +407,7 @@ button:focus{
         width: 15.5rem;
         height: 15.5rem;
         margin: 1.5rem 1rem 0 1.5rem;
+        cursor: pointer;
     }
 }
 
@@ -400,9 +416,6 @@ button:focus{
         display: block;
         margin: 2rem auto;
         height: 7rem;
-    }
-    &:hover{
-        cursor: pointer;
     }
 }
 

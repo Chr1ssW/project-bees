@@ -22,11 +22,11 @@ require_once("sidebarAndPopup.php");
 <div class="popup-screen" id="addHive-container">
     <div class="popup-form">
         <div class="beehiveAdd">
+        <div class="form-title"><p>Add a new beehive</p></div>
             <a href="javascript:void(0)" class="closebtn" onclick="closeAddHive()">&times;</a>
-            <!--Need to change it to post in the future-->
             <form method="POST" action="../db/addBeehiveManual.php" id="addBeeHive">
                 <input type="text" name="beehiveLocation" placeholder="Beehive location" id="locationIn">
-                <input type="text" name="sensorNumber" placeholder="SensorNumber" id="deviceInf">
+                <input type="text" name="sensorNumber" placeholder="Node number" id="deviceInf">
             </form>
         </div>
         <button type="submit" name="submit" form="addBeeHive">Add new hive</button>
@@ -35,15 +35,18 @@ require_once("sidebarAndPopup.php");
 <div class="popup-screen" id="edit-container">
     <div class="popup-form">
         <div class="beehiveAdd">
+            <div class="form-title"><p>Update beehive</p></div>
             <a href="javascript:void(0)" class="closebtn" onclick="closeEditHive()">&times;</a>
             <div class="change-form">
                 <form method="POST" action="../db/updateHive.php" id="editBeeHive">
                     <input type="text" name="editBeehiveLocation" placeholder="Beehive location" id="locationNew">
+                    <input type="text" name="sensorNumber" placeholder="Node number" id="deviceInf">
                     <input type="hidden" name="id" value="" id="beehive-id"/>
                 </form>
             </div>
         </div>
         <button type="submit" name="updateHive" form="editBeeHive">Update</button>
+        <button type="submit" name="deleteHive" form="editBeeHive" onclick="return confirm('Warning! Deleting a beehive is irreversible. Click Ok to proceed.')">Delete</button>
     </div>
 </div>
 <div id="main">
@@ -79,9 +82,10 @@ require_once("sidebarAndPopup.php");
                 mysqli_stmt_store_result($stmtSelect);
                 //We check if there are any beehives assigned to user
                 if (mysqli_stmt_num_rows($stmtSelect) == 0) {
-                    echo "No beehives found";
+                    echo "<div class='noBeehivesMsg'>No beehives found</div>";
                 } else {
                     while (mysqli_stmt_fetch($stmtSelect)) {
+                        
                         echo "<div class='beehive' onclick=\"openEditHive('$beeID')\">
                         <p>" . $location . "</p>
                     </div>";
